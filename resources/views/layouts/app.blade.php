@@ -79,6 +79,11 @@
             </div>
         </nav>
 
+        <div class="text-center css-loader pt-5">
+          <div class="spinner-border text-primary" style="width: 3rem; height: 3rem;" role="status"> <span class="sr-only">Loading...</span> 
+          </div>
+        </div>
+
         <main class="py-4 container">
             @yield('content')
         </main>

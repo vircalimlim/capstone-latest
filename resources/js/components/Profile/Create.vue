@@ -74,7 +74,9 @@
 
 <div class="row">
   <div class="col text-right">
-  <button type="submit" class="font-weight-bold btn btn-outline-primary">Submit</button>
+  
+  <css-loader :is-loading="loading"></css-loader>
+  
   </div>
 </div>
 
@@ -88,6 +90,10 @@
 
 <script>
 export default {
+    mounted(){
+          document.querySelector('.css-loader').classList.add('d-none')
+        },
+        
     data() {
     return {
         csrf: document.querySelector('meta[name="csrf-token"]').getAttribute('content'),
@@ -95,11 +101,15 @@ export default {
         firstname: '',
         middlename: '',
         lastname: '',
-        status: ''
+        status: '',
+        loading: false,
     }
 },
     methods: {
         submit(){
+          
+            this.loading = true;
+            
             axios.post('/profile', {
                 houseNum: this.houseNum,
                 firstname: this.firstname,
@@ -108,6 +118,7 @@ export default {
             })
             .then(response =>  {
                 console.log(this.status = response.data)
+                this.loading = false
                 if(!this.status.success){
                     return false
                 }
@@ -120,6 +131,8 @@ export default {
             })
             .catch(error => console.log(error))
         },
+        
+
     }
 
 

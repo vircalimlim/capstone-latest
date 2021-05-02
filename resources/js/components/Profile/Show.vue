@@ -139,7 +139,9 @@
     
   <div class="row my-4">
     <div class="col-12 text-right">
-      <button type="Submit" class="font-weight-bold btn btn-outline-primary">Submit</button>
+      
+      <css-loader :is-loading="loading"></css-loader>
+      
     </div>
   </div>
   <div v-if="data">
@@ -159,10 +161,17 @@
 
 <script>
   export default{
+    
+    mounted(){
+          document.querySelector('.css-loader').classList.add('d-none')
+        },
+    
     props: ['profileid'],
     
     data(){
       return{
+        loading: false,
+        
         csrf: document.querySelector('meta[name="csrf-token"]').getAttribute('content'),
 
         profession: '',
@@ -193,7 +202,8 @@
       },
       
       validateData(){
-
+        this.loading = true
+        
         if(this.selected == 'student') {
 
         axios.post('/student/'+ this.profileid, {
@@ -202,6 +212,7 @@
           year_level: this.year_level
         })
         .then(res => {
+        this.loading = false
         this.data = res.data
         if(!this.data.success){
           return false
@@ -222,6 +233,7 @@
           workplace: this.workplace
         })
         .then(res => {
+        this.loading = false
         this.data = res.data
         if(!this.data.success){
           return false

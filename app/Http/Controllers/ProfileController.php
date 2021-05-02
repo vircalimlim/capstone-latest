@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Profile;
 use App\Models\Work;
+use App\Models\Student;
 use Illuminate\Http\Request;
 use Illuminate\Validation\ValidationException;
 
@@ -66,7 +67,10 @@ class ProfileController extends Controller
     public function show(Profile $profile)
     {
         $work = Work::where('profile_id', $profile->id)->first();
-        return view('Profile.show', compact(['profile', 'work']));
+        
+        $student = Student::where('profile_id', $profile->id)->first();
+        
+        return view('Profile.show', compact(['profile', 'work', 'student']));
     }
 
     /**
