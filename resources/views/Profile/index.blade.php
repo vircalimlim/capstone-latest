@@ -1,19 +1,10 @@
 @extends('layouts.app')
 @section('content')
 
-<div class="">
-  <ul>
-    @forelse($profiles as $profile)
-    <li><a href="/profile/{{$profile->id}}">{{ $profile->firstname }}</a></li>
-    @empty
-    <h2>Empty result</h2>
-    @endforelse
-  </ul>
-</div>
 
 <div class="row text-break justify-content-center">
-  <div class="p-2 col-12 col-sm-11 col-md-9 col-lg-7">
-  <table class="" border="1">
+  <div class=" p-2 col-12 col-sm-11 col-md-9 col-lg-7">
+  <table class="table shadow-lg text-light table-striped table-hover table-dark">
     
     <tr>
       <th class="p-2">First Name</th>

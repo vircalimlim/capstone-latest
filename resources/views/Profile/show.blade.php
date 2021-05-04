@@ -11,8 +11,6 @@
 {{$profile->work}}
 <span>Display dara of work</span>
 
-<css-loader></css-loader>
-
 
 
 @endif
