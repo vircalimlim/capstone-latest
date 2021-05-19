@@ -21,7 +21,7 @@
 </head>
 <body>
     <div id="app">
-        <nav class="navbar navbar-expand-md navbar-dark bg-dark shadow-sm">
+        <nav class="navbar navbar-expand-md navbar-dark bg-primary shadow-sm">
             <div class="container">
                 <a class="navbar-brand" href="{{ url('/') }}">
                 <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor" class="bi bi-bug-fill" viewBox="0 0 16 16">
@@ -84,7 +84,7 @@
           </div>
         </div>
 
-        <main class="py-4 container">
+        <main class="py-4 container text-break ">
             @yield('content')
         </main>
     </div>

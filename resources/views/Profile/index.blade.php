@@ -2,9 +2,10 @@
 @section('content')
 
 
-<div class="row text-break justify-content-center">
-  <div class=" p-2 col-12 col-sm-11 col-md-9 col-lg-7">
-  <table class="table shadow-lg text-light table-striped table-hover table-dark">
+<index-profile>
+  
+
+  <table class="table d-none shadow-lg text-light table-striped table-hover table-dark">
     
     <tr>
       <th class="p-2">First Name</th>
@@ -18,9 +19,13 @@
     
     @forelse($profiles as $profile)
     <tr>
+      
       <td class="p-2">{{ $profile->firstname }}</td>
+      
       <td class="p-2">{{ $profile->middlename }}</td>
+      
       <td class="p-2">{{ $profile->lastname }}</td>
+      
       <td class="p-2">
       <small>
         <a href="/profile/{{ $profile->id }}">
@@ -34,8 +39,8 @@
     @endforelse
     
   </table>
-</div>
-</div>
+
+</index-profile>
 
 
 @endsection

@@ -25,6 +25,8 @@ Vue.component('example-component', require('./components/ExampleComponent.vue').
 Vue.component('educ-level', require('./components/EducLevel.vue').default);
 Vue.component('create-profile', require('./components/Profile/Create.vue').default);
 Vue.component('show-profile', require('./components/Profile/Show.vue').default);
+Vue.component('index-profile', require('./components/Profile/Index.vue').default);
+Vue.component('info-profile', require('./components/Profile/Info.vue').default);
 
 Vue.component('css-loader', require('./components/Loader.vue').default);
 /**
