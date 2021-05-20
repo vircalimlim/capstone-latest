@@ -81,7 +81,7 @@ class ProfileController extends Controller
      */
     public function edit(Profile $profile)
     {
-        return "helll";
+        return view('Profile.edit', compact(['profile']));
     }
 
     /**
@@ -93,7 +93,41 @@ class ProfileController extends Controller
      */
     public function update(Request $request, Profile $profile)
     {
-        //
+       $dataOfProfile = request()->validate([
+          'houseNum' => 'required',
+          'firstname' => 'required',
+          'middlename' => 'required',
+          'lastname' => 'required'
+          ]);
+          
+       $profile->update($dataOfProfile);
+        
+        
+        if($profile->work)
+        {
+          
+        $dataOfWork = $request->validate([
+          'work' => 'required',
+          'workplace' => 'required'
+          ]);
+          
+        $profile->work->update($dataOfWork);
+          
+        }
+        
+        else if($profile->student)
+        {
+          
+        $dataOfStudent = $request->validate([
+          'school' => 'required',
+          'educ_level' => 'required',
+          'year_level' => 'required'
+          ]);
+          
+          $profile->student->update($dataOfStudent);
+          
+        }
+          
     }
 
     /**
@@ -104,6 +138,7 @@ class ProfileController extends Controller
      */
     public function destroy(Profile $profile)
     {
-        //
+         $profile->delete();
+         return redirect('/profile');
     }
 }

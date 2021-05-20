@@ -9,11 +9,11 @@
 
 @else
 <info-profile>
-  <div class="info-wrapper d-none">
+  <div class="info-wrapper text-secondary d-none">
     
   <div class="row pb-3">
     <div class="col text-center ">
-      <h3>Personal Information</h3>
+      <h3 class="font-weight-light">Personal Information</h3>
     </div>
   </div>
   
@@ -22,7 +22,7 @@
       <label><strong>House Number</strong></label>
     </div>
     <div class="col-12 col-sm-9 col-md-9">
-      <p class="border px-3 py-2  rounded">
+      <p class="border-bottom px-3 py-2">
         {{ $profile->houseNum }}
       </p>
     </div>
@@ -33,7 +33,7 @@
       <label><strong>First Name</strong></label>
     </div>
     <div class="col-12 col-sm-9 col-md-9">
-      <p class="border px-3 py-2  rounded">
+      <p class="border-bottom px-3 py-2">
         {{ $profile->firstname }}
       </p>
     </div>
@@ -44,7 +44,7 @@
       <label><strong>Middle Name</strong></label>
     </div>
     <div class="col-12 col-sm-9 col-md-9">
-      <p class="border px-3 py-2  rounded">
+      <p class="border-bottom px-3 py-2">
         {{ $profile->middlename }}
       </p>
     </div>
@@ -55,7 +55,7 @@
       <label><strong>Last Name</strong></label>
     </div>
     <div class="col-12 col-sm-9 col-md-9">
-      <p class="border px-3 py-2  rounded">
+      <p class="border-bottom px-3 py-2">
         {{ $profile->lastname }}
       </p>
     </div>
@@ -67,7 +67,7 @@
       <label><strong>Age</strong></label>
     </div>
     <div class="col-9 col-sm-3 col-md-3">
-      <p class="border px-3 py-2  rounded">
+      <p class="border-bottom px-3 py-2">
         16
       </p>
     </div>
@@ -76,7 +76,7 @@
       <label><strong>Gender</strong></label>
     </div>
     <div class="col-9 col-sm-3 col-md-3">
-      <p class="border px-3 py-2  rounded">
+      <p class="border-bottom px-3 py-2">
         Male
       </p>
     </div>
@@ -90,7 +90,7 @@
       <label><strong>Work/Profession</strong></label>
     </div>
     <div class="col-12 col-sm-9 col-md-9">
-      <p class="border px-3 py-2  rounded">
+      <p class="border-bottom px-3 py-2">
         {{ $profile->work->profession }}
       </p>
     </div>
@@ -101,7 +101,7 @@
       <label><strong>Workplace</strong></label>
     </div>
     <div class="col-12 col-sm-9 col-md-9">
-      <p class="border px-3 py-2  rounded">
+      <p class="border-bottom px-3 py-2">
         {{ $profile->work->workplace }}
       </p>
     </div>
@@ -114,7 +114,7 @@
       <label><strong>School</strong></label>
     </div>
     <div class="col-12 col-sm-9 col-md-9">
-      <p class="border px-3 py-2  rounded">
+      <p class="border-bottom px-3 py-2">
         {{ $profile->student->school }}
       </p>
     </div>
@@ -125,7 +125,7 @@
       <label><strong>Educational Level</strong></label>
     </div>
     <div class="col-12 col-sm-9 col-md-9">
-      <p class="border px-3 py-2  rounded">
+      <p class="border-bottom px-3 py-2">
         {{ $profile->student->educ_level }}
       </p>
     </div>
@@ -136,7 +136,7 @@
       <label><strong>Grade/Year Level</strong></label>
     </div>
     <div class="col-12 col-sm-9 col-md-9">
-      <p class="border px-3 py-2  rounded">
+      <p class="border-bottom px-3 py-2">
         {{ $profile->student->year_level }}
       </p>
     </div>
@@ -144,9 +144,17 @@
   
   @endif
   
-  <div class="row">
-    <div class="col text-right">
-      <button class="btn btn-outline-primary font-weight-bold py-2 px-4">Edit</button>
+  <div class="text-right">
+    <div class="d-inline p-2">
+      <a href="/profile/{{$profile->id}}/edit" role="button" class="btn btn-outline-success font-weight-bold py-2 px-4">Edit</a>
+    </div>
+
+    <div class="d-inline py-2">
+      <form class="d-inline" method="POST" action="/profile/{{$profile->id}}/delete">
+        @csrf
+        @method('DELETE')
+      <button class="btn btn-danger font-weight-bold py-2 px-4">Delete</button>
+      </form>
     </div>
   </div>
   

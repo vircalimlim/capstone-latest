@@ -87,6 +87,7 @@
         <main class="py-4 container text-break ">
             @yield('content')
         </main>
+        
     </div>
 </body>
 </html>

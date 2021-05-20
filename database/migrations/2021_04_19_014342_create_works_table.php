@@ -15,7 +15,7 @@ class CreateWorksTable extends Migration
     {
         Schema::create('works', function (Blueprint $table) {
             $table->id();
-            $table->foreignId('profile_id')->constrained();
+            $table->foreignId('profile_id')->constrained('profiles')->onDelete('cascade');
             $table->string('profession');
             $table->string('workplace');
             //$table->timestamps();
