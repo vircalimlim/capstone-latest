@@ -127,6 +127,8 @@ class ProfileController extends Controller
           $profile->student->update($dataOfStudent);
           
         }
+        
+        return back();
           
     }
 

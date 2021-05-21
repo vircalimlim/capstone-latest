@@ -5,7 +5,7 @@
 <index-profile>
   
 
-  <table class="table d-none shadow-lg text-light table-striped table-hover table-dark">
+  <table class="table d-none shadow-lg text-secondary  table-striped table-hover table-white">
     
     <tr>
       <th class="p-2">First Name</th>

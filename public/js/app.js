@@ -38665,13 +38665,13 @@ var render = function() {
   var _vm = this
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
-  return _c("div", { staticClass: "px-3 py-5" }, [
+  return _c("div", { staticClass: "px-3 pdy-5" }, [
     _c("div", { staticClass: "row mt-md-5 py-2 justify-content-around" }, [
       _c(
         "div",
         {
           staticClass:
-            "py-4 px-4 text-light rounded shadow-lg bg-dark col-12 col-md-8 col-lg-7"
+            "py-4 px-4 text-secondary rounded shadow-lg bg-white font-weight-light col-12 col-md-8 col-lg-7"
         },
         [
           _c("h3", { staticClass: "text-center" }, [_vm._v("Create Profile")]),
@@ -39003,7 +39003,7 @@ var render = function() {
         "div",
         {
           staticClass:
-            "py-4 px-4 text-light rounded shadow-lg bg-dark col-12 col-md-8 col-lg-7"
+            "py-4 px-4 text-secondary rounded shadow-lg bg-white col-12 col-md-8 col-lg-7"
         },
         [
           _c("h3", { staticClass: "text-center pb-3" }, [
