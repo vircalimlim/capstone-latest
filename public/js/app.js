@@ -2089,6 +2089,65 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
   mounted: function mounted() {
     document.querySelector('.css-loader').classList.add('d-none');
@@ -2100,7 +2159,10 @@ __webpack_require__.r(__webpack_exports__);
       firstname: '',
       middlename: '',
       lastname: '',
-      status: '',
+      age: '',
+      gender: '',
+      status: '0',
+      response_status: '',
       loading: false
     };
   },
@@ -2113,18 +2175,21 @@ __webpack_require__.r(__webpack_exports__);
         houseNum: this.houseNum,
         firstname: this.firstname,
         middlename: this.middlename,
-        lastname: this.lastname
+        lastname: this.lastname,
+        age: this.age,
+        status: this.status,
+        gender: this.gender
       }).then(function (response) {
-        console.log(_this.status = response.data);
+        console.log(_this.response_status = response.data);
         _this.loading = false;
 
-        if (!_this.status.success) {
+        if (!_this.response_status.success) {
           return false;
         } else {
           _this.houseNum = '';
           _this.firstname = '';
           _this.middlename = '';
-          _this.lastname = '';
+          _this.lastname = '', _this.age = '', _this.gender = '';
         }
       })["catch"](function (error) {
         return console.log(error);
@@ -2374,11 +2439,12 @@ __webpack_require__.r(__webpack_exports__);
   mounted: function mounted() {
     document.querySelector('.css-loader').classList.add('d-none');
   },
-  props: ['profileid'],
+  props: ['objProfile'],
   data: function data() {
     return {
       loading: false,
       csrf: document.querySelector('meta[name="csrf-token"]').getAttribute('content'),
+      profile: JSON.parse(this.objProfile),
       profession: '',
       workplace: '',
       school: '',
@@ -2400,7 +2466,7 @@ __webpack_require__.r(__webpack_exports__);
       this.loading = true;
 
       if (this.selected == 'student') {
-        axios.post('/student/' + this.profileid, {
+        axios.post('/student/' + this.profile.id, {
           school: this.school,
           educ_level: this.educ_level,
           year_level: this.year_level
@@ -2411,13 +2477,13 @@ __webpack_require__.r(__webpack_exports__);
           if (!_this.data.success) {
             return false;
           } else {
-            window.location.href = '/profile/' + _this.profileid;
+            window.location.href = '/profile/' + _this.profile.id;
           }
         })["catch"](function (error) {
           return console.log(error);
         });
       } else if (this.selected == 'work') {
-        axios.post('/work/' + this.profileid, {
+        axios.post('/work/' + this.profile.id, {
           profession: this.profession,
           workplace: this.workplace
         }).then(function (res) {
@@ -2427,7 +2493,7 @@ __webpack_require__.r(__webpack_exports__);
           if (!_this.data.success) {
             return false;
           } else {
-            window.location.href = '/profile/' + _this.profileid;
+            window.location.href = '/profile/' + _this.profile.id;
           }
         })["catch"](function (error) {
           return console.log(error);
@@ -38724,10 +38790,10 @@ var render = function() {
                     }
                   }),
                   _vm._v(" "),
-                  _vm.status.houseNum
+                  _vm.response_status.houseNum
                     ? _c("div", { staticClass: "text-danger" }, [
                         _c("small", [
-                          _vm._v(" " + _vm._s(_vm.status.houseNum[0]))
+                          _vm._v(" " + _vm._s(_vm.response_status.houseNum[0]))
                         ])
                       ])
                     : _vm._e()
@@ -38765,10 +38831,10 @@ var render = function() {
                     }
                   }),
                   _vm._v(" "),
-                  _vm.status.firstname
+                  _vm.response_status.firstname
                     ? _c("div", { staticClass: "text-danger" }, [
                         _c("small", [
-                          _vm._v(" " + _vm._s(_vm.status.firstname[0]))
+                          _vm._v(" " + _vm._s(_vm.response_status.firstname[0]))
                         ])
                       ])
                     : _vm._e()
@@ -38806,10 +38872,12 @@ var render = function() {
                     }
                   }),
                   _vm._v(" "),
-                  _vm.status.middlename
+                  _vm.response_status.middlename
                     ? _c("div", { staticClass: "text-danger" }, [
                         _c("small", [
-                          _vm._v(" " + _vm._s(_vm.status.middlename[0]))
+                          _vm._v(
+                            " " + _vm._s(_vm.response_status.middlename[0])
+                          )
                         ])
                       ])
                     : _vm._e()
@@ -38847,10 +38915,199 @@ var render = function() {
                     }
                   }),
                   _vm._v(" "),
-                  _vm.status.lastname
+                  _vm.response_status.lastname
                     ? _c("div", { staticClass: "text-danger" }, [
                         _c("small", [
-                          _vm._v(" " + _vm._s(_vm.status.lastname[0]))
+                          _vm._v(" " + _vm._s(_vm.response_status.lastname[0]))
+                        ])
+                      ])
+                    : _vm._e()
+                ])
+              ]),
+              _vm._v(" "),
+              _c("div", { staticClass: "row my-4" }, [
+                _vm._m(4),
+                _vm._v(" "),
+                _c("div", { staticClass: "col-12 col-sm-12 col-md-9" }, [
+                  _c("input", {
+                    directives: [
+                      {
+                        name: "model",
+                        rawName: "v-model",
+                        value: _vm.age,
+                        expression: "age"
+                      }
+                    ],
+                    staticClass: "form-control",
+                    attrs: {
+                      placeholder: "Age",
+                      type: "text",
+                      name: "age",
+                      autocomplete: "age"
+                    },
+                    domProps: { value: _vm.age },
+                    on: {
+                      input: function($event) {
+                        if ($event.target.composing) {
+                          return
+                        }
+                        _vm.age = $event.target.value
+                      }
+                    }
+                  }),
+                  _vm._v(" "),
+                  _vm.response_status.age
+                    ? _c("div", { staticClass: "text-danger" }, [
+                        _c("small", [
+                          _vm._v(" " + _vm._s(_vm.response_status.age[0]))
+                        ])
+                      ])
+                    : _vm._e()
+                ])
+              ]),
+              _vm._v(" "),
+              _c("div", { staticClass: "row my-4" }, [
+                _vm._m(5),
+                _vm._v(" "),
+                _c("div", { staticClass: "col-12 col-sm-12 col-md-9" }, [
+                  _c(
+                    "select",
+                    {
+                      directives: [
+                        {
+                          name: "model",
+                          rawName: "v-model",
+                          value: _vm.status,
+                          expression: "status"
+                        }
+                      ],
+                      staticClass: "form-control",
+                      attrs: { name: "status" },
+                      on: {
+                        change: function($event) {
+                          var $$selectedVal = Array.prototype.filter
+                            .call($event.target.options, function(o) {
+                              return o.selected
+                            })
+                            .map(function(o) {
+                              var val = "_value" in o ? o._value : o.value
+                              return val
+                            })
+                          _vm.status = $event.target.multiple
+                            ? $$selectedVal
+                            : $$selectedVal[0]
+                        }
+                      }
+                    },
+                    [
+                      _c("option", { attrs: { value: "0" } }, [_vm._v("None")]),
+                      _vm._v(" "),
+                      _c("option", { attrs: { value: "1" } }, [
+                        _vm._v("Student")
+                      ]),
+                      _vm._v(" "),
+                      _c("option", { attrs: { value: "2" } }, [
+                        _vm._v("Employed")
+                      ])
+                    ]
+                  ),
+                  _vm._v(" "),
+                  _vm.response_status.status
+                    ? _c("div", { staticClass: "text-danger" }, [
+                        _c("small", [
+                          _vm._v(" " + _vm._s(_vm.response_status.status[0]))
+                        ])
+                      ])
+                    : _vm._e()
+                ])
+              ]),
+              _vm._v(" "),
+              _c("div", { staticClass: "row my-4 " }, [
+                _vm._m(6),
+                _vm._v(" "),
+                _c("div", { staticClass: "col-12 col-sm-12 col-md-9" }, [
+                  _c(
+                    "div",
+                    { staticClass: "custom-control custom-radio mr-sm-2" },
+                    [
+                      _c("input", {
+                        directives: [
+                          {
+                            name: "model",
+                            rawName: "v-model",
+                            value: _vm.gender,
+                            expression: "gender"
+                          }
+                        ],
+                        staticClass: "custom-control-input",
+                        attrs: {
+                          type: "radio",
+                          name: "gender",
+                          value: "Male",
+                          id: "male"
+                        },
+                        domProps: { checked: _vm._q(_vm.gender, "Male") },
+                        on: {
+                          change: function($event) {
+                            _vm.gender = "Male"
+                          }
+                        }
+                      }),
+                      _vm._v(" "),
+                      _c(
+                        "label",
+                        {
+                          staticClass: "custom-control-label",
+                          attrs: { for: "male" }
+                        },
+                        [_vm._v("Male")]
+                      )
+                    ]
+                  ),
+                  _vm._v(" "),
+                  _c(
+                    "div",
+                    { staticClass: "custom-control custom-radio mr-sm-2" },
+                    [
+                      _c("input", {
+                        directives: [
+                          {
+                            name: "model",
+                            rawName: "v-model",
+                            value: _vm.gender,
+                            expression: "gender"
+                          }
+                        ],
+                        staticClass: "custom-control-input",
+                        attrs: {
+                          type: "radio",
+                          name: "gender",
+                          value: "Female",
+                          id: "female"
+                        },
+                        domProps: { checked: _vm._q(_vm.gender, "Female") },
+                        on: {
+                          change: function($event) {
+                            _vm.gender = "Female"
+                          }
+                        }
+                      }),
+                      _vm._v(" "),
+                      _c(
+                        "label",
+                        {
+                          staticClass: "custom-control-label",
+                          attrs: { for: "female" }
+                        },
+                        [_vm._v("Female")]
+                      )
+                    ]
+                  ),
+                  _vm._v(" "),
+                  _vm.response_status.gender
+                    ? _c("div", { staticClass: "text-danger" }, [
+                        _c("small", [
+                          _vm._v(" " + _vm._s(_vm.response_status.gender[0]))
                         ])
                       ])
                     : _vm._e()
@@ -38911,6 +39168,36 @@ var staticRenderFns = [
       "div",
       { staticClass: "col-12 col-sm-12 col-md-3 font-weight-bold" },
       [_c("label", [_vm._v("Last Name")])]
+    )
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c(
+      "div",
+      { staticClass: "col-12 col-sm-12 col-md-3 font-weight-bold" },
+      [_c("label", [_vm._v("Age")])]
+    )
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c(
+      "div",
+      { staticClass: "col-12 col-sm-12 col-md-3 font-weight-bold" },
+      [_c("label", [_vm._v("Student/Employed Status")])]
+    )
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c(
+      "div",
+      { staticClass: "col-12 col-sm-12 col-md-3 font-weight-bold" },
+      [_c("label", [_vm._v("Gender")])]
     )
   }
 ]
@@ -38997,7 +39284,7 @@ var render = function() {
   var _vm = this
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
-  return _c("div", { staticClass: "px-3 py-5" }, [
+  return _c("div", { staticClass: "px-3" }, [
     _c("div", { staticClass: "row mt-md-5 py-2 justify-content-around" }, [
       _c(
         "div",
@@ -39007,7 +39294,7 @@ var render = function() {
         },
         [
           _c("h3", { staticClass: "text-center pb-3" }, [
-            _vm._v("Create Additional Information")
+            _vm._v("Additional Information")
           ]),
           _vm._v(" "),
           _c(
@@ -39015,7 +39302,7 @@ var render = function() {
             {
               attrs: {
                 method: "POST",
-                action: "/" + _vm.selected + "/" + _vm.profileid
+                action: "/" + _vm.selected + "/" + _vm.profile
               },
               on: {
                 submit: function($event) {

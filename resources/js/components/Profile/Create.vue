@@ -17,8 +17,8 @@
   
   <div class="col-12 col-sm-12 col-md-9">
   <input placeholder="House Number" v-model="houseNum" class="form-control" type="text" name="houseNum" autocomplete="houseNum"/>
-    <div class="text-danger" v-if="status.houseNum">
-        <small> {{status.houseNum[0]}}</small>
+    <div class="text-danger" v-if="response_status.houseNum">
+        <small> {{response_status.houseNum[0]}}</small>
     </div>
   </div>
   
@@ -32,8 +32,8 @@
   
   <div class="col-12 col-sm-12 col-md-9">
   <input placeholder="First Name" v-model="firstname" class="form-control" type="text" name="firstname" autocomplete="firstname"/>
-    <div class="text-danger" v-if="status.firstname">
-        <small> {{status.firstname[0]}}</small>
+    <div class="text-danger" v-if="response_status.firstname">
+        <small> {{response_status.firstname[0]}}</small>
     </div>
   </div>
   
@@ -47,8 +47,8 @@
   
   <div class="col-12 col-sm-12 col-md-9">
   <input placeholder="Middle Name" v-model="middlename" class="form-control" type="text" name="middlename" autocomplete="middlename"/>
-    <div class="text-danger" v-if="status.middlename">
-        <small> {{status.middlename[0]}}</small>
+    <div class="text-danger" v-if="response_status.middlename">
+        <small> {{response_status.middlename[0]}}</small>
     </div>
   </div>
   
@@ -62,14 +62,73 @@
   
   <div class="col-12 col-sm-12 col-md-9">
   <input placeholder="Last Name" v-model="lastname" class="form-control" type="text" name="lastname" autocomplete="lastname"/>
-    <div class="text-danger" v-if="status.lastname">
-        <small> {{status.lastname[0]}}</small>
+    <div class="text-danger" v-if="response_status.lastname">
+        <small> {{response_status.lastname[0]}}</small>
     </div>
   </div>
   
 </div>
 
+<div class="row my-4">
+  
+  <div class="col-12 col-sm-12 col-md-3 font-weight-bold">
+    <label>Age</label>
+  </div>
+  
+  <div class="col-12 col-sm-12 col-md-9">
+  <input placeholder="Age" v-model="age" class="form-control" type="text" name="age" autocomplete="age"/>
+    <div class="text-danger" v-if="response_status.age">
+        <small> {{response_status.age[0]}}</small>
+    </div>
+  </div>
+  
+</div>
 
+<div class="row my-4">
+  
+  <div class="col-12 col-sm-12 col-md-3 font-weight-bold">
+    <label>Student/Employed Status</label>
+  </div>
+  
+  <div class="col-12 col-sm-12 col-md-9">
+  <select v-model="status" class="form-control" name="status">
+    <option value="0">None</option>
+    <option value="1">Student</option>
+    <option value="2">Employed</option>
+  </select>
+    <div class="text-danger" v-if="response_status.status">
+        <small> {{response_status.status[0]}}</small>
+    </div>
+  </div>
+  
+</div>
+
+<div class="row my-4 ">
+  
+  <div class="col-12 col-sm-12 col-md-3 font-weight-bold">
+    <label>Gender</label>
+  </div>
+  
+  <div class="col-12 col-sm-12 col-md-9">
+  
+      <div class="custom-control custom-radio mr-sm-2">
+        <input v-model="gender" type="radio" name="gender" value="Male" class="custom-control-input" id="male">
+        <label class="custom-control-label" for="male">Male</label>
+      </div>
+      
+      <div class="custom-control custom-radio mr-sm-2">
+        <input v-model="gender" type="radio" name="gender" value="Female" class="custom-control-input" id="female">
+        <label class="custom-control-label" for="female">Female</label>
+      </div>
+
+  
+    <div class="text-danger" v-if="response_status.gender">
+        <small> {{response_status.gender[0]}}</small>
+    </div>
+    
+  </div>
+  
+</div>
 
 
 <div class="row">
@@ -101,7 +160,10 @@ export default {
         firstname: '',
         middlename: '',
         lastname: '',
-        status: '',
+        age: '',
+        gender: '',
+        status: '0',
+        response_status: '',
         loading: false,
     }
 },
@@ -115,22 +177,28 @@ export default {
                 firstname: this.firstname,
                 middlename: this.middlename,
                 lastname: this.lastname,
+                age: this.age,
+                status: this.status,
+                gender: this.gender
             })
             .then(response =>  {
-                console.log(this.status = response.data)
+                console.log(this.response_status = response.data)
                 this.loading = false
-                if(!this.status.success){
+                if(!this.response_status.success){
                     return false
                 }
                 else{
                     this.houseNum = ''
                     this.firstname = ''
                     this.middlename = ''
-                    this.lastname = ''
+                    this.lastname = '',
+                    this.age = '',
+                    this.gender = ''
                 }
             })
             .catch(error => console.log(error))
         },
+        
         
 
     }

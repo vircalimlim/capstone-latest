@@ -5,7 +5,7 @@
 @if( !$student && !$work)
 <!-- if($work || $student) -->
 
-<show-profile profileid="{{$profile->id}}"></show-profile>
+<show-profile obj-profile="{{$profile}}"></show-profile>
 
 @else
 <info-profile>
@@ -68,7 +68,7 @@
     </div>
     <div class="col-9 col-sm-3 col-md-3">
       <p class="border-bottom px-3 py-2">
-        16
+        {{ $profile->age }}
       </p>
     </div>
 
@@ -77,7 +77,7 @@
     </div>
     <div class="col-9 col-sm-3 col-md-3">
       <p class="border-bottom px-3 py-2">
-        Male
+        {{ $profile->gender }}
       </p>
     </div>
   </div>

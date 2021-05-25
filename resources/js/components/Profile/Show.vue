@@ -1,12 +1,12 @@
 <template>
-  <div class="px-3 py-5">
+  <div class="px-3">
 
 <div class="row mt-md-5 py-2 justify-content-around">
 <div class="py-4 px-4 text-secondary rounded shadow-lg bg-white col-12 col-md-8 col-lg-7">
 
-<h3 class="text-center pb-3">Create Additional Information</h3>
+<h3 class="text-center pb-3">Additional Information</h3>
 
-  <form @submit.prevent="validateData" method="POST" :action="'/' + selected + '/' + profileid">
+  <form @submit.prevent="validateData" method="POST" :action="'/' + selected + '/' + profile">
   <input type="hidden" name="_token" :value="csrf">
 
     <div class="row my-4">
@@ -164,15 +164,18 @@
     
     mounted(){
           document.querySelector('.css-loader').classList.add('d-none')
+
         },
     
-    props: ['profileid'],
+    props: ['objProfile'],
     
     data(){
       return{
         loading: false,
         
         csrf: document.querySelector('meta[name="csrf-token"]').getAttribute('content'),
+        
+        profile: JSON.parse(this.objProfile),
 
         profession: '',
 
@@ -206,7 +209,7 @@
         
         if(this.selected == 'student') {
 
-        axios.post('/student/'+ this.profileid, {
+        axios.post('/student/'+ this.profile.id, {
           school: this.school,
           educ_level: this.educ_level,
           year_level: this.year_level
@@ -218,7 +221,7 @@
           return false
         }
         else{
-          window.location.href = '/profile/' + this.profileid
+          window.location.href = '/profile/' + this.profile.id
         }
         
           
@@ -228,7 +231,7 @@
       }
   
       else if(this.selected == 'work'){
-      axios.post('/work/'+ this.profileid, {
+      axios.post('/work/'+ this.profile.id, {
           profession: this.profession,
           workplace: this.workplace
         })
@@ -239,7 +242,7 @@
           return false
         }
         else{
-          window.location.href = '/profile/' + this.profileid
+          window.location.href = '/profile/' + this.profile.id
         }
         
           

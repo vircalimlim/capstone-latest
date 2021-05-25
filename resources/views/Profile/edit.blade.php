@@ -12,7 +12,7 @@
   
   <div class="row pb-3">
     <div class="col text-center ">
-      <h3 class="font-weight-light">Personal Information</h3>
+      <h3 class=" font-weight-light">Personal Information</h3>
     </div>
   </div>
   
@@ -58,14 +58,14 @@
       <label><strong>Age</strong></label>
     </div>
     <div class="col-9 col-sm-3 col-md-3 pb-4">
-      <input type="text" name="age" class="form-control" value="16" />
+      <input type="text" name="age" class="form-control" value="{{ $profile->age }}" />
     </div>
 
     <div class="col-3 col-sm-3 col-md-3 pb-4">
       <label><strong>Gender</strong></label>
     </div>
     <div class="col-9 col-sm-3 col-md-3 pb-4">
-      <input type="text" name="gender" class="form-control" value="Male" />
+      <input type="text" name="gender" class="form-control" value="{{ $profile->gender }}" />
     </div>
   </div>
 
@@ -121,6 +121,8 @@
   
   @endif
   
+<show-profile profileid="{{$profile->id}}"></show-profile>
+
   <div class="text-right">
     <div class="d-inline p-2">
       <a href="/profile/{{$profile->id}}" role="button" class="btn btn-outline-secondary font-weight-bold py-2 px-4">Back</a>

@@ -19,6 +19,9 @@ class CreateProfilesTable extends Migration
             $table->string('firstname');
             $table->string('middlename');
             $table->string('lastname');
+            $table->integer('age');
+            $table->integer('status');
+            $table->string('gender');
             $table->timestamps();
         });
     }

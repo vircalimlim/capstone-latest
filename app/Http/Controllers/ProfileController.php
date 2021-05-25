@@ -46,7 +46,10 @@ class ProfileController extends Controller
           'houseNum' => 'required|numeric',
           'firstname' => 'required|string|max:150|min:2',
           'middlename' => 'required|max:150',
-          'lastname' => 'required|max:150|min:2'
+          'lastname' => 'required|max:150|min:2',
+          'age' => 'required|numeric',
+          'status' => 'required|numeric',
+          'gender' => 'required|string'
           ]);
           
         Profile::create($data);
@@ -97,7 +100,9 @@ class ProfileController extends Controller
           'houseNum' => 'required',
           'firstname' => 'required',
           'middlename' => 'required',
-          'lastname' => 'required'
+          'lastname' => 'required',
+          'gender' => 'required',
+          'age' => 'required'
           ]);
           
        $profile->update($dataOfProfile);

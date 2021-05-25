@@ -6,7 +6,7 @@
   
 
   <table class="table d-none shadow-lg text-secondary  table-striped table-hover table-white">
-    
+
     <tr>
       <th class="p-2">First Name</th>
 
@@ -35,7 +35,14 @@
         </td>
     </tr>
     @empty
-    <h1>Empty</h1>
+    <caption class="py-4">
+      <div class="text-center py-4">
+      <h3 class="py-1 text-center text-secondary">
+        Empty result
+      </h3>
+      <a href="/profile/create" role="button" class="btn btn-outline-primary">Create new record</a>
+      </div>
+    </caption>
     @endforelse
     
   </table>
