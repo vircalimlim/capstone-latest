@@ -1,12 +1,11 @@
 <template>
-  <div class="px-3">
 
-<div class="row mt-md-5 py-2 justify-content-around">
+<div class="row mt-md-5 justify-content-center d-none wrapper">
 <div class="py-4 px-4 text-secondary rounded shadow-lg bg-white col-12 col-md-8 col-lg-7">
 
-<h3 class="text-center pb-3">Additional Information</h3>
+<h3 class="text-center">Additional Information</h3>
 
-  <form @submit.prevent="validateData" method="POST" :action="'/' + selected + '/' + profile">
+  <form class="" @submit.prevent="validateData" method="POST" :action="'/' + selected + '/' + profile">
   <input type="hidden" name="_token" :value="csrf">
 
     <div class="row my-4">
@@ -17,14 +16,15 @@
 
     <div class="col-12 col-sm-12 col-md-8">
     <select class="form-control" v-model="selected">
-      <option value="work">Working/Employed</option>
-      <option value="student">Student</option>
+      <option value="2">Working/Employed</option>
+      <option value="1">Student</option>
+      <option value="0">None</option>
     </select>
     </div>
 
     </div>
     
-    <div v-if="selected == 'work' ">
+    <div v-if="selected == 2 ">
 
     <div class="row my-4">
 
@@ -55,7 +55,7 @@
 
     </div>
     
-    <div class="" v-else-if="selected == 'student'">
+    <div class="" v-else-if="selected == 1 ">
       
       <div class="row my-4">
     <div class="col-12 col-sm-12 col-md-4 my-2">
@@ -137,7 +137,7 @@
   
     </div>
     
-  <div class="row my-4">
+  <div class="row" v-if="work || student ? false : true">
     <div class="col-12 text-right">
       
       <css-loader :is-loading="loading"></css-loader>
@@ -153,10 +153,10 @@
   
   </div>
   </form>
+</div>
+</div>
 
-</div>
-</div>
-  </div>
+
 </template>
 
 <script>
@@ -164,10 +164,19 @@
     
     mounted(){
           document.querySelector('.css-loader').classList.add('d-none')
-
+          
+          document.querySelector('.wrapper').classList.add('d-block')
+          
+console.log(this.work, this.student)
         },
     
-    props: ['objProfile'],
+    props: ['objProfile', 'work', 'student'],
+    
+    /*computed: {
+      parseWork(){
+        return JSON.parse(this.work)
+      }
+    },*/
     
     data(){
       return{
@@ -177,15 +186,15 @@
         
         profile: JSON.parse(this.objProfile),
 
-        profession: '',
+        profession: this.work ? JSON.parse(this.work).profession : '',
 
-        workplace: '',
+        workplace: this.work ? JSON.parse(this.work).workplace : '',
 
-        school: '',
+        school: this.student ? JSON.parse(this.student).school : '',
         
-        educ_level: 'elementary',
+        educ_level: this.student ? JSON.parse(this.student).educ_level : 'elementary',
         
-        year_level: ' ',
+        year_level: this.student ? JSON.parse(this.student).year_level : ' ',
         
         elem: ['Kinder Garten', 'Grade 1', 'Grade 2', 'Grade 3', 'Grade 4', 'Grade 5', 'Grade 6',],
         
@@ -193,13 +202,14 @@
         
         college: ['1st Year', '2nd Year', '3rd Year', '4th Year'],
         
-        selected: 'work',
+        selected: JSON.parse(this.objProfile).status,
         
         data: ''
       }
     },
     
     methods: {
+      
       selectedFunc(){
         //alert(this.selected)
       },
@@ -207,7 +217,7 @@
       validateData(){
         this.loading = true
         
-        if(this.selected == 'student') {
+        if(this.selected == 1) {
 
         axios.post('/student/'+ this.profile.id, {
           school: this.school,
@@ -230,7 +240,7 @@
         
       }
   
-      else if(this.selected == 'work'){
+      else if(this.selected == 2){
       axios.post('/work/'+ this.profile.id, {
           profession: this.profession,
           workplace: this.workplace

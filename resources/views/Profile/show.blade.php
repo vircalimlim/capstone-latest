@@ -2,10 +2,15 @@
 @section('content')
 
 <!-- <h3>{{$profile->lastname}}</h3> -->
-@if( !$student && !$work)
+@if( !$student && !$work && $profile->status !== 0)
 <!-- if($work || $student) -->
+  
 
-<show-profile obj-profile="{{$profile}}"></show-profile>
+
+<show-profile work="" student="" obj-profile="{{$profile}}"></show-profile>
+
+
+
 
 @else
 <info-profile>

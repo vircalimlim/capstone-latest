@@ -121,7 +121,7 @@
   
   @endif
   
-<show-profile profileid="{{$profile->id}}"></show-profile>
+<show-profile student="{{$profile->student}}" work="{{ $profile->work}}" obj-profile="{{$profile}}"></show-profile>
 
   <div class="text-right">
     <div class="d-inline p-2">
@@ -131,6 +131,7 @@
     <div class="d-inline py-2">
       <button class="btn btn-success font-weight-bold py-2 px-4">Save</button>
     </div>
+    
     
   </div>
   

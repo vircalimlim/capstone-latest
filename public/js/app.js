@@ -2438,22 +2438,30 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
   mounted: function mounted() {
     document.querySelector('.css-loader').classList.add('d-none');
+    document.querySelector('.wrapper').classList.add('d-block');
+    console.log(this.work, this.student);
   },
-  props: ['objProfile'],
+  props: ['objProfile', 'work', 'student'],
+
+  /*computed: {
+    parseWork(){
+      return JSON.parse(this.work)
+    }
+  },*/
   data: function data() {
     return {
       loading: false,
       csrf: document.querySelector('meta[name="csrf-token"]').getAttribute('content'),
       profile: JSON.parse(this.objProfile),
-      profession: '',
-      workplace: '',
-      school: '',
-      educ_level: 'elementary',
-      year_level: ' ',
+      profession: this.work ? JSON.parse(this.work).profession : '',
+      workplace: this.work ? JSON.parse(this.work).workplace : '',
+      school: this.student ? JSON.parse(this.student).school : '',
+      educ_level: this.student ? JSON.parse(this.student).educ_level : 'elementary',
+      year_level: this.student ? JSON.parse(this.student).year_level : ' ',
       elem: ['Kinder Garten', 'Grade 1', 'Grade 2', 'Grade 3', 'Grade 4', 'Grade 5', 'Grade 6'],
       highschool: ['Grade 7', 'Grade 8', 'Grade 9', 'Grade 10', 'Grade 11', 'Grade 12'],
       college: ['1st Year', '2nd Year', '3rd Year', '4th Year'],
-      selected: 'work',
+      selected: JSON.parse(this.objProfile).status,
       data: ''
     };
   },
@@ -2465,7 +2473,7 @@ __webpack_require__.r(__webpack_exports__);
 
       this.loading = true;
 
-      if (this.selected == 'student') {
+      if (this.selected == 1) {
         axios.post('/student/' + this.profile.id, {
           school: this.school,
           educ_level: this.educ_level,
@@ -2482,7 +2490,7 @@ __webpack_require__.r(__webpack_exports__);
         })["catch"](function (error) {
           return console.log(error);
         });
-      } else if (this.selected == 'work') {
+      } else if (this.selected == 2) {
         axios.post('/work/' + this.profile.id, {
           profession: this.profession,
           workplace: this.workplace
@@ -39284,8 +39292,10 @@ var render = function() {
   var _vm = this
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
-  return _c("div", { staticClass: "px-3" }, [
-    _c("div", { staticClass: "row mt-md-5 py-2 justify-content-around" }, [
+  return _c(
+    "div",
+    { staticClass: "row mt-md-5 justify-content-center d-none wrapper" },
+    [
       _c(
         "div",
         {
@@ -39293,7 +39303,7 @@ var render = function() {
             "py-4 px-4 text-secondary rounded shadow-lg bg-white col-12 col-md-8 col-lg-7"
         },
         [
-          _c("h3", { staticClass: "text-center pb-3" }, [
+          _c("h3", { staticClass: "text-center" }, [
             _vm._v("Additional Information")
           ]),
           _vm._v(" "),
@@ -39350,19 +39360,21 @@ var render = function() {
                       }
                     },
                     [
-                      _c("option", { attrs: { value: "work" } }, [
+                      _c("option", { attrs: { value: "2" } }, [
                         _vm._v("Working/Employed")
                       ]),
                       _vm._v(" "),
-                      _c("option", { attrs: { value: "student" } }, [
+                      _c("option", { attrs: { value: "1" } }, [
                         _vm._v("Student")
-                      ])
+                      ]),
+                      _vm._v(" "),
+                      _c("option", { attrs: { value: "0" } }, [_vm._v("None")])
                     ]
                   )
                 ])
               ]),
               _vm._v(" "),
-              _vm.selected == "work"
+              _vm.selected == 2
                 ? _c("div", [
                     _c("div", { staticClass: "row my-4" }, [
                       _vm._m(1),
@@ -39448,7 +39460,7 @@ var render = function() {
                       ])
                     ])
                   ])
-                : _vm.selected == "student"
+                : _vm.selected == 1
                 ? _c("div", {}, [
                     _c("div", { staticClass: "row my-4" }, [
                       _vm._m(3),
@@ -39731,22 +39743,30 @@ var render = function() {
                   ])
                 : _vm._e(),
               _vm._v(" "),
-              _c("div", { staticClass: "row my-4" }, [
-                _c(
-                  "div",
-                  { staticClass: "col-12 text-right" },
-                  [_c("css-loader", { attrs: { "is-loading": _vm.loading } })],
-                  1
-                )
-              ]),
+              (_vm.work || _vm.student
+              ? false
+              : true)
+                ? _c("div", { staticClass: "row" }, [
+                    _c(
+                      "div",
+                      { staticClass: "col-12 text-right" },
+                      [
+                        _c("css-loader", {
+                          attrs: { "is-loading": _vm.loading }
+                        })
+                      ],
+                      1
+                    )
+                  ])
+                : _vm._e(),
               _vm._v(" "),
               _vm.data ? _c("div", [_vm._m(6)]) : _vm._e()
             ]
           )
         ]
       )
-    ])
-  ])
+    ]
+  )
 }
 var staticRenderFns = [
   function() {
