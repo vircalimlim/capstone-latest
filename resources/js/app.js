@@ -29,6 +29,8 @@ Vue.component('index-profile', require('./components/Profile/Index.vue').default
 Vue.component('info-profile', require('./components/Profile/Info.vue').default);
 
 Vue.component('css-loader', require('./components/Loader.vue').default);
+
+Vue.component('side-bar', require('./components/Sidebar.vue').default);
 /**
  * Next, we will create a fresh Vue application instance and attach it to
  * the page. Then, you may begin adding components to this application
