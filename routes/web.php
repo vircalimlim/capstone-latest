@@ -16,7 +16,7 @@ use App\Http\Controllers\StudentController;
 |
 */
 
-Route::view('/', 'welcome');
+Route::view('/', 'dashboard');
 
 Auth::routes();
 

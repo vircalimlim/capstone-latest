@@ -8,7 +8,8 @@
     <meta name="csrf-token" content="{{ csrf_token() }}">
 
     <title>{{ config('app.name', 'Laravel') }}</title>
-
+    
+    <link href="{{ asset('css/app.css') }}" rel="stylesheet">
     <!-- Scripts -->
     <script src="{{ asset('js/app.js') }}" defer></script>
 
@@ -16,12 +17,10 @@
     <link rel="dns-prefetch" href="//fonts.gstatic.com">
     <link href="https://fonts.googleapis.com/css?family=Nunito" rel="stylesheet">
 
-    <!-- Styles -->
-    <link href="{{ asset('css/app.css') }}" rel="stylesheet">
 </head>
-<body>
-    <div id="app">
-      <header class="">
+<body class="">
+    <div class="overflow-auto h-100" id="app">
+      <header class="my-6">
         <side-bar></side-bar>
       </header>
 
@@ -30,9 +29,14 @@
           </div>
         </div>
 
-        <main class="py-4 container text-break ">
+        <main class="py-5 px-md-4 container-fluid text-break ">
             @yield('content')
         </main>
+        
+        <footer class="fixed-bottom bg-primadry py-3 px-3 text-center">
+          <strong>Copyright &copy; 2021. </strong>
+            All rights reserved.
+        </footer>
         
     </div>
 </body>
