@@ -5,6 +5,7 @@ use App\Http\Controllers\HomeController;
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\WorkController;
 use App\Http\Controllers\StudentController;
+use App\Http\Controllers\ImmunizationController;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -33,3 +34,5 @@ Route::patch('/profile/{profile}', [ProfileController::class, 'update']);
 
 Route::post('/work/{profile}', [WorkController::class, 'store']);
 Route::post('/student/{profile}', [StudentController::class, 'store']);
+
+Route::get('/immunization/create', [ImmunizationController::class, 'create']);

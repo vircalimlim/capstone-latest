@@ -76,6 +76,10 @@
 
 <script>
   export default{
+    mounted(){
+          document.querySelector('.css-loader').classList.add('d-none')
+    },
+    
     data(){
       return{
         show: false,

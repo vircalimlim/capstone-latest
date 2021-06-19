@@ -1,7 +1,7 @@
 <template>
 
-<div class="row mt-md-5 justify-content-center d-none wrapper">
-<div class="py-4 px-4 text-secondary rounded shadow-lg bg-white col-12 col-md-8 col-lg-7">
+<div class="d-flex mt-3 mt-md-5 justify-content-around d-none wrapper">
+<div class="py-4 px-4 text-centher text-secondary rounded shadow-lg bg-white col-12 col-md-8 col-lg-7">
 
 <h3 class="text-center">Additional Information</h3>
 

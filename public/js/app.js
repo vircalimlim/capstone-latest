@@ -2601,6 +2601,9 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
+  mounted: function mounted() {
+    document.querySelector('.css-loader').classList.add('d-none');
+  },
   data: function data() {
     return {
       show: false,
@@ -39592,13 +39595,15 @@ var render = function() {
   var _c = _vm._self._c || _h
   return _c(
     "div",
-    { staticClass: "row mt-md-5 justify-content-center d-none wrapper" },
+    {
+      staticClass: "d-flex mt-3 mt-md-5 justify-content-around d-none wrapper"
+    },
     [
       _c(
         "div",
         {
           staticClass:
-            "py-4 px-4 text-secondary rounded shadow-lg bg-white col-12 col-md-8 col-lg-7"
+            "py-4 px-4 text-centher text-secondary rounded shadow-lg bg-white col-12 col-md-8 col-lg-7"
         },
         [
           _c("h3", { staticClass: "text-center" }, [

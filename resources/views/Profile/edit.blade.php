@@ -70,58 +70,6 @@
   </div>
 
   
-  @if($profile->work)
-  
-  <div class="row align-items-center pb-4">
-    <div class="col-12 col-sm-3 col-md-3">
-      <label><strong>Work/Profession</strong></label>
-    </div>
-    <div class="col-12 col-sm-9 col-md-9">
-      <input type="text" name="profession" class="form-control" value="{{ $profile->work->profession }}" />
-    </div>
-  </div>
-  
-  <div class="row align-items-center pb-4">
-    <div class="col-12 col-sm-3 col-md-3">
-      <label><strong>Workplace</strong></label>
-    </div>
-    <div class="col-12 col-sm-9 col-md-9">
-      <input type="text" name="workplace" class="form-control" value="{{ $profile->work->workplace }}" />
-    </div>
-  </div>
-  
-  @elseif($profile->student)
-  
-  <div class="row align-items-center pb-4">
-    <div class="col-12 col-sm-3 col-md-3">
-      <label><strong>School</strong></label>
-    </div>
-    <div class="col-12 col-sm-9 col-md-9">
-      <input type="text" name="school" class="form-control" value="{{ $profile->student->school }}" />
-    </div>
-  </div>
-  
-  <div class="row align-items-center pb-4">
-    <div class="col-12 col-sm-3 col-md-3">
-      <label><strong>Educational Level</strong></label>
-    </div>
-    <div class="col-12 col-sm-9 col-md-9">
-      <input type="text" name="educ_level" class="form-control" value="{{ $profile->student->educ_level }}" />
-    </div>
-  </div>
-  
-  <div class="row align-items-center pb-4">
-    <div class="col-12 col-sm-3 col-md-3">
-      <label><strong>Grade/Year Level</strong></label>
-    </div>
-    <div class="col-12 col-sm-9 col-md-9">
-      <input type="text" name="year_level" class="form-control" value="{{ $profile->student->year_level }}" />
-    </div>
-  </div>
-  
-  @endif
-  
-<show-profile student="{{$profile->student}}" work="{{ $profile->work}}" obj-profile="{{$profile}}"></show-profile>
 
   <div class="text-right">
     <div class="d-inline p-2">

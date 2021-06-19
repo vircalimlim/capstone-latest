@@ -33,7 +33,7 @@
             @yield('content')
         </main>
         
-        <footer class="fixed-bottom bg-primadry py-3 px-3 text-center">
+        <footer class="fixed-bottom bg-primary py-3 px-3 text-center">
           <strong>Copyright &copy; 2021. </strong>
             All rights reserved.
         </footer>
