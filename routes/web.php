@@ -6,6 +6,7 @@ use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\WorkController;
 use App\Http\Controllers\StudentController;
 use App\Http\Controllers\ImmunizationController;
+use App\Http\Controllers\BloodController;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -36,3 +37,6 @@ Route::post('/work/{profile}', [WorkController::class, 'store']);
 Route::post('/student/{profile}', [StudentController::class, 'store']);
 
 Route::get('/immunization/create', [ImmunizationController::class, 'create']);
+
+Route::get('/bp', [BloodController::class, 'create']);
+Route::post('/bp', [BloodController::class, 'store']);
