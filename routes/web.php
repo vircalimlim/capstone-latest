@@ -7,6 +7,7 @@ use App\Http\Controllers\WorkController;
 use App\Http\Controllers\StudentController;
 use App\Http\Controllers\ImmunizationController;
 use App\Http\Controllers\BloodController;
+use App\Http\Controllers\MedicineController;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -40,3 +41,6 @@ Route::get('/immunization/create', [ImmunizationController::class, 'create']);
 
 Route::get('/bp', [BloodController::class, 'create']);
 Route::post('/bp', [BloodController::class, 'store']);
+
+Route::get('/medicine', [MedicineController::class, 'index']);
+Route::post('/medicine', [MedicineController::class, 'store']);
