@@ -21,19 +21,27 @@
 <body class="">
     <div class="overflow-auto h-100" id="app">
       <header class="my-6">
+        @auth
         <side-bar></side-bar>
+        @else
+        <div class="bg-primary text-light px-3 py-4">
+          <h3>Barangay Health Record Management System</h3>
+        </div>
+        @endauth
       </header>
 
+      @auth
         <div class="text-center css-loader pt-5">
           <div class="spinner-border text-primary" style="width: 3rem; height: 3rem;" role="status"> <span class="sr-only">Loading...</span> 
           </div>
         </div>
+      @endauth
 
         <main class="py-5 px-md-4 container-fluid text-break ">
             @yield('content')
         </main>
         
-        <footer class="fixed-bottom bg-primary py-3 px-3 text-center">
+        <footer class="fixed-bottom bg-info text-light py-3 px-3 text-center">
           <strong>Copyright &copy; 2021. </strong>
             All rights reserved.
         </footer>

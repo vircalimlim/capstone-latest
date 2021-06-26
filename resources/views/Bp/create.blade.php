@@ -46,7 +46,7 @@
    
   <div class="row">
     <div class="col">
-      <table class="table">
+      <table class="table table-hover">
         <tr>
           <th>Resident Name</th>
           <th>Blood Pressure</th>
@@ -55,35 +55,6 @@
           <th>Action</th>
         </tr>
 
-        <tr>
-          <td>Marky Balboa</td>
-          <td>90 / 130</td>
-          <td>2021/06/07</td>
-          <td class="">
-            <span class="px-1 text-success">Edit</span>
-            <span class="px-1 text-danger">Delete</span>
-          </td>
-        </tr>
-        
-        <tr>
-          <td>Marky Balboa</td>
-          <td>80 / 120</td>
-          <td>2021/06/07</td>
-          <td>
-            <span class="px-1 text-success">Edit</span>
-            <span class="px-1 text-danger">Delete</span>
-          </td>
-        </tr>
-        
-        <tr>
-          <td>Marky Balboa</td>
-          <td>90 / 160</td>
-          <td>2021/06/07</td>
-          <td>
-            <span class="px-1 text-success">Edit</span>
-            <span class="px-1 text-danger">Delete</span>
-          </td>
-        </tr>
         
         @foreach($bloods as $blood)
         <tr>

@@ -2,10 +2,10 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\Medicine;
+use App\Models\ReleaseMed;
 use Illuminate\Http\Request;
 
-class MedicineController extends Controller
+class ReleaseMedController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -14,8 +14,7 @@ class MedicineController extends Controller
      */
     public function index()
     {
-        $medicines = Medicine::get();
-        return view('Medicine.index', compact('medicines'));
+        return view('Release.index');
     }
 
     /**
@@ -36,26 +35,16 @@ class MedicineController extends Controller
      */
     public function store(Request $request)
     {
-        $data = $request->validate([
-          'med_id_num' => 'required',
-          'med_name' => 'required',
-          'med_type' => 'required',
-          'description' => 'required',
-          'quantity' => 'required',
-          'supplier_name' => 'required',
-          'date_received' => 'required',
-          'expiry_date' => 'required'
-          ]);
-        Medicine::create($data);
+        //
     }
 
     /**
      * Display the specified resource.
      *
-     * @param  \App\Models\Medicine  $medicine
+     * @param  \App\Models\ReleaseMed  $releaseMed
      * @return \Illuminate\Http\Response
      */
-    public function show(Medicine $medicine)
+    public function show(ReleaseMed $releaseMed)
     {
         //
     }
@@ -63,10 +52,10 @@ class MedicineController extends Controller
     /**
      * Show the form for editing the specified resource.
      *
-     * @param  \App\Models\Medicine  $medicine
+     * @param  \App\Models\ReleaseMed  $releaseMed
      * @return \Illuminate\Http\Response
      */
-    public function edit(Medicine $medicine)
+    public function edit(ReleaseMed $releaseMed)
     {
         //
     }
@@ -75,10 +64,10 @@ class MedicineController extends Controller
      * Update the specified resource in storage.
      *
      * @param  \Illuminate\Http\Request  $request
-     * @param  \App\Models\Medicine  $medicine
+     * @param  \App\Models\ReleaseMed  $releaseMed
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Medicine $medicine)
+    public function update(Request $request, ReleaseMed $releaseMed)
     {
         //
     }
@@ -86,10 +75,10 @@ class MedicineController extends Controller
     /**
      * Remove the specified resource from storage.
      *
-     * @param  \App\Models\Medicine  $medicine
+     * @param  \App\Models\ReleaseMed  $releaseMed
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Medicine $medicine)
+    public function destroy(ReleaseMed $releaseMed)
     {
         //
     }

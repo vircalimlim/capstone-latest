@@ -2607,12 +2607,31 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
   mounted: function mounted() {
     document.querySelector('.css-loader').classList.add('d-none');
   },
   data: function data() {
     return {
+      csrf: document.querySelector('meta[name="csrf-token"]').getAttribute('content'),
       show: false,
       drop: false
     };
@@ -7176,7 +7195,7 @@ __webpack_require__.r(__webpack_exports__);
 
 var ___CSS_LOADER_EXPORT___ = _node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_0___default()(function(i){return i[1]});
 // Module
-___CSS_LOADER_EXPORT___.push([module.id, "\nbody{\n    font-size: 12px;\n}\nnav{\n    height: 100vh;\n    min-width: 40%;\n    max-width: 60%;\n    position: fixed;\n    top: 3rem;\n    left: 0;\n    z-index: 99;\n    background: #70baff;\n    padding: 10px 5px;\n}\n.overlay{\n    position: absolute;\n    width: 100%;\n    height: 100vh;\n    z-index: 999;\n}\n.navbar-button{\n    opacity: .7;\n}\n.navbar-button:hover{\n    opacity: 1;\n    cursor: pointer;\n}\n.navbar{\n    height: 3rem;\n    position: fixed;\n    top: 0;\n    left: 0;\n    width: 100%;\n    z-index: 99;\n}\n.list{\n    font-size: 1.2rem;\n    color: #f6f6f6;\n}\na{\n    padding: 10px 5px;\n    text-decoration: none !important;\n}\n.caret-bottom{\n    transform: rotate(90deg);\n    transition: all .3s ease;\n}\n.dropdown-list{\n    font-size: 1.1rem;\ncolor: #f6f6f6;\n}\n.nav-enter{\n  opacity: .5;\n  transform: rotate(90deg);\n}\n.nav-enter-active{\n  transition: all .3s ease;\n}\n.fade-enter-active, .fade-leave-active {\n  transition: all .5s ease;\n}\n.fade-enter, .fade-leave-to /* .fade-leave-active below version 2.1.8 */ {\n  opacity: 0; \n  transform: translateX(-50px);\n}\n.dropdown-enter-active, .dropdown-leave-active {\n  transition: all .5s ease;\n}\n.dropdown-enter, .dropdown-leave-to /* .fade-leave-active below version 2.1.8 */ {\n  opacity: 0; \n  transform: translateY(-20px);\n}\n\n    \n    \n", ""]);
+___CSS_LOADER_EXPORT___.push([module.id, "\nbody{\n    font-size: 12px;\n}\n.logout{\n    outline: none;\n    font-size: 1.3rem;\n    border: none;\n    color: white;\n    padding: 5px 10px;\n    border-radius: 5px;\n}\nnav{\n    height: 100vh;\n    min-width: 40%;\n    max-width: 60%;\n    position: fixed;\n    top: 3rem;\n    left: 0;\n    z-index: 99;\n    background: #70baff;\n    padding: 10px 5px;\n}\n.overlay{\n    position: absolute;\n    width: 100%;\n    height: 100vh;\n    z-index: 999;\n}\n.navbar-button{\n    opacity: .7;\n}\n.navbar-button:hover{\n    opacity: 1;\n    cursor: pointer;\n}\n.navbar{\n    height: 3rem;\n    position: fixed;\n    top: 0;\n    left: 0;\n    width: 100%;\n    z-index: 99;\n}\n.list{\n    font-size: 1.2rem;\n    color: #f6f6f6;\n}\na{\n    padding: 10px 5px;\n    text-decoration: none !important;\n}\n.caret-bottom{\n    transform: rotate(90deg);\n    transition: all .3s ease;\n}\n.dropdown-list{\n    font-size: 1.1rem;\ncolor: #f6f6f6;\n}\n.nav-enter{\n  opacity: .5;\n  transform: rotate(90deg);\n}\n.nav-enter-active{\n  transition: all .3s ease;\n}\n.fade-enter-active, .fade-leave-active {\n  transition: all .5s ease;\n}\n.fade-enter, .fade-leave-to /* .fade-leave-active below version 2.1.8 */ {\n  opacity: 0; \n  transform: translateX(-50px);\n}\n.dropdown-enter-active, .dropdown-leave-active {\n  transition: all .5s ease;\n}\n.dropdown-enter, .dropdown-leave-to /* .fade-leave-active below version 2.1.8 */ {\n  opacity: 0; \n  transform: translateY(-20px);\n}\n\n    \n    \n", ""]);
 // Exports
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (___CSS_LOADER_EXPORT___);
 
@@ -40232,7 +40251,22 @@ var render = function() {
               ])
             ],
             1
-          )
+          ),
+          _vm._v(" "),
+          _c("div", { staticClass: "text-light" }, [
+            _c("form", { attrs: { method: "POST", action: "/logout" } }, [
+              _c("input", {
+                attrs: { type: "hidden", name: "_token" },
+                domProps: { value: _vm.csrf }
+              }),
+              _vm._v(" "),
+              _c(
+                "button",
+                { staticClass: "logout bg-primary", attrs: { type: "submit" } },
+                [_vm._v("Logout")]
+              )
+            ])
+          ])
         ]),
         _vm._v(" "),
         _c("transition", { attrs: { name: "fade" } }, [
@@ -40513,6 +40547,108 @@ var render = function() {
                               ]
                             ),
                             _vm._v("  \n    Monitor Blood Pressure")
+                          ]
+                        )
+                      ]
+                    ),
+                    _vm._v(" "),
+                    _c(
+                      "div",
+                      {
+                        staticClass:
+                          "px-2 border-bottom d-flex align-items-center"
+                      },
+                      [
+                        _c(
+                          "a",
+                          {
+                            staticClass:
+                              "my-1 px-0 text-light d-flex justify-content-between align-items-center",
+                            attrs: { href: "/medicine" }
+                          },
+                          [
+                            _c(
+                              "svg",
+                              {
+                                staticClass: "bi bi-droplet-half",
+                                attrs: {
+                                  xmlns: "http://www.w3.org/2000/svg",
+                                  width: "25",
+                                  height: "25",
+                                  fill: "currentColor",
+                                  viewBox: "0 0 16 16"
+                                }
+                              },
+                              [
+                                _c("path", {
+                                  attrs: {
+                                    "fill-rule": "evenodd",
+                                    d:
+                                      "M7.21.8C7.69.295 8 0 8 0c.109.363.234.708.371 1.038.812 1.946 2.073 3.35 3.197 4.6C12.878 7.096 14 8.345 14 10a6 6 0 0 1-12 0C2 6.668 5.58 2.517 7.21.8zm.413 1.021A31.25 31.25 0 0 0 5.794 3.99c-.726.95-1.436 2.008-1.96 3.07C3.304 8.133 3 9.138 3 10c0 0 2.5 1.5 5 .5s5-.5 5-.5c0-1.201-.796-2.157-2.181-3.7l-.03-.032C9.75 5.11 8.5 3.72 7.623 1.82z"
+                                  }
+                                }),
+                                _vm._v(" "),
+                                _c("path", {
+                                  attrs: {
+                                    "fill-rule": "evenodd",
+                                    d:
+                                      "M4.553 7.776c.82-1.641 1.717-2.753 2.093-3.13l.708.708c-.29.29-1.128 1.311-1.907 2.87l-.894-.448z"
+                                  }
+                                })
+                              ]
+                            ),
+                            _vm._v("  \n    Add Medicine")
+                          ]
+                        )
+                      ]
+                    ),
+                    _vm._v(" "),
+                    _c(
+                      "div",
+                      {
+                        staticClass:
+                          "px-2 border-bottom d-flex align-items-center"
+                      },
+                      [
+                        _c(
+                          "a",
+                          {
+                            staticClass:
+                              "my-1 px-0 text-light d-flex justify-content-between align-items-center",
+                            attrs: { href: "/releasemed" }
+                          },
+                          [
+                            _c(
+                              "svg",
+                              {
+                                staticClass: "bi bi-droplet-half",
+                                attrs: {
+                                  xmlns: "http://www.w3.org/2000/svg",
+                                  width: "25",
+                                  height: "25",
+                                  fill: "currentColor",
+                                  viewBox: "0 0 16 16"
+                                }
+                              },
+                              [
+                                _c("path", {
+                                  attrs: {
+                                    "fill-rule": "evenodd",
+                                    d:
+                                      "M7.21.8C7.69.295 8 0 8 0c.109.363.234.708.371 1.038.812 1.946 2.073 3.35 3.197 4.6C12.878 7.096 14 8.345 14 10a6 6 0 0 1-12 0C2 6.668 5.58 2.517 7.21.8zm.413 1.021A31.25 31.25 0 0 0 5.794 3.99c-.726.95-1.436 2.008-1.96 3.07C3.304 8.133 3 9.138 3 10c0 0 2.5 1.5 5 .5s5-.5 5-.5c0-1.201-.796-2.157-2.181-3.7l-.03-.032C9.75 5.11 8.5 3.72 7.623 1.82z"
+                                  }
+                                }),
+                                _vm._v(" "),
+                                _c("path", {
+                                  attrs: {
+                                    "fill-rule": "evenodd",
+                                    d:
+                                      "M4.553 7.776c.82-1.641 1.717-2.753 2.093-3.13l.708.708c-.29.29-1.128 1.311-1.907 2.87l-.894-.448z"
+                                  }
+                                })
+                              ]
+                            ),
+                            _vm._v("  \n    Release Medicine")
                           ]
                         )
                       ]

@@ -8,6 +8,7 @@ use App\Http\Controllers\StudentController;
 use App\Http\Controllers\ImmunizationController;
 use App\Http\Controllers\BloodController;
 use App\Http\Controllers\MedicineController;
+use App\Http\Controllers\ReleaseMedController;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -18,10 +19,12 @@ use App\Http\Controllers\MedicineController;
 | contains the "web" middleware group. Now create something great!
 |
 */
-
-Route::view('/', 'dashboard');
-
+Route::view('/', 'index')->middleware('guest');
 Auth::routes();
+
+Route::group(['middleware' => ['auth']], function () {
+  
+Route::view('/dashboard', 'dashboard');
 
 Route::get('/home', [HomeController::class, 'index'])->name('home');
 
@@ -44,3 +47,7 @@ Route::post('/bp', [BloodController::class, 'store']);
 
 Route::get('/medicine', [MedicineController::class, 'index']);
 Route::post('/medicine', [MedicineController::class, 'store']);
+
+Route::get('/releasemed', [ReleaseMedController::class, 'index']);
+
+});
