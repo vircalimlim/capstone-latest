@@ -43,6 +43,14 @@
         display: table-cell; 
         vertical-align: middle;
       }
+      
+      header{
+        z-index: 4;
+        position: fixed;
+        width: 100%;
+        top: 0;
+        left: 0;
+      }
 
     </style>
 </head>
@@ -52,6 +60,11 @@
 
 </div>
 
+      <header class="my-6">
+        <div class="bg-primary text-light px-3 py-4">
+          <h3>Barangay Health Record Management System</h3>
+        </div>
+      </header>
 
 <div class="container text-light">
 
@@ -82,6 +95,11 @@
   <img src="https://library.kissclipart.com/20181003/fhw/kissclipart-health-clinic-clip-art-clipart-clinic-community-he-c3f0d9747a1ba433.png">
 
 </div>
+
+        <footer class="fixed-bottom bg-info text-light py-3 px-3 text-center">
+          <strong>Copyright &copy; 2021. </strong>
+            All rights reserved.
+        </footer>
 
 </body>
 </html>

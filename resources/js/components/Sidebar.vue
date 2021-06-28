@@ -143,7 +143,7 @@
     min-width: 40%;
     max-width: 60%;
     position: fixed;
-    top: 3rem;
+    top: 3.7rem;
     left: 0;
     z-index: 99;
     background: #70baff;
@@ -173,6 +173,7 @@
     left: 0;
     width: 100%;
     z-index: 99;
+    padding: 30px 0;
   }
   
   .list{

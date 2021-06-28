@@ -12,7 +12,7 @@
         
         <div class="col-8  pl-3 text-light">
           <h4 class="font-weight-light">Total Population</h4>
-          <h2 class="pl-2 ">838383</h2>
+          <h2 class="pl-2 ">1383</h2>
         </div>
         
         <div class="col-4">
