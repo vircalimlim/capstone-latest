@@ -1,18 +1,16 @@
 @extends('layouts.app')
 @section('content')
 
-<!-- <h3>{{$profile->lastname}}</h3> -->
-@if( !$student && !$work && $profile->status !== 0)
+<!-- @if( !$student && !$work && $profile->status !== 0) -->
 <!-- if($work || $student) -->
   
+<!-- <show-profile work="" student="" obj-profile="{{$profile}}"></show-profile>
+-->
 
 
-<show-profile work="" student="" obj-profile="{{$profile}}"></show-profile>
 
 
-
-
-@else
+<!-- @else -->
 <info-profile>
   <div class="info-wrapper text-secondary d-none">
     
@@ -88,7 +86,7 @@
   </div>
 
   
-  @if($profile->work)
+  <!-- @if($profile->work)
   
   <div class="row align-items-center pb-2">
     <div class="col-12 col-sm-3 col-md-3">
@@ -147,7 +145,7 @@
     </div>
   </div>
   
-  @endif
+  @endif -->
   
   <div class="text-right">
     <div class="d-inline p-2">
@@ -167,5 +165,5 @@
 
 </info-profile>
 
-@endif
+<!-- @endif -->
 @endsection

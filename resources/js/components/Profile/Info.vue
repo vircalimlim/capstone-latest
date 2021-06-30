@@ -1,7 +1,7 @@
 <template>
 
 <div class="row px-2 py-md-5 justify-content-center">
-<div class="col-12 col-md-10 shadow-lg bg-white p-4 rounded text-dark">
+<div class="col-12 col-md-10 shadow-sm bg-white p-4 rounded text-dark">
   
   <slot></slot>
   

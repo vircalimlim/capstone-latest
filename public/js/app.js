@@ -39589,7 +39589,7 @@ var render = function() {
     _c(
       "div",
       {
-        staticClass: "col-12 col-md-10 shadow-lg bg-white p-4 rounded text-dark"
+        staticClass: "col-12 col-md-10 shadow-sm bg-white p-4 rounded text-dark"
       },
       [_vm._t("default")],
       2

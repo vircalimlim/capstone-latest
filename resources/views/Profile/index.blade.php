@@ -1,11 +1,10 @@
 @extends('layouts.app')
 @section('content')
 
-
-<index-profile>
-  
-
-  <table class="table d-none shadow-lg text-secondary  table-striped table-hover table-white">
+  <div class="row  text-break justify-content-center py-4">
+    <div class="text-white shadow-sm p-2 col-12 col-md-9">
+      
+  <table class="table text-secondary table-hover">
 
     <tr>
       <th class="p-2">First Name</th>
@@ -47,7 +46,8 @@
     
   </table>
 
-</index-profile>
+    </div>
+  </div>
 
 
 @endsection
