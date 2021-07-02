@@ -18,4 +18,8 @@ class Profile extends Model
     public function student(){
       return $this->hasOne(Student::class);
     }
+    
+    public function blood(){
+      return $this->hasMany(Blood::class);
+    }
 }

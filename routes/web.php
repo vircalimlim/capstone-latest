@@ -42,8 +42,8 @@ Route::post('/student/{profile}', [StudentController::class, 'store']);
 
 Route::get('/immunization/create', [ImmunizationController::class, 'create']);
 
-Route::get('/bp', [BloodController::class, 'create']);
-Route::post('/bp', [BloodController::class, 'store']);
+Route::get('/bp/{profile}', [BloodController::class, 'create']);
+Route::post('/bp/{profile}', [BloodController::class, 'store']);
 
 Route::get('/medicine', [MedicineController::class, 'index']);
 Route::post('/medicine', [MedicineController::class, 'store']);

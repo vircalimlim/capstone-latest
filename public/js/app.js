@@ -7195,7 +7195,7 @@ __webpack_require__.r(__webpack_exports__);
 
 var ___CSS_LOADER_EXPORT___ = _node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_0___default()(function(i){return i[1]});
 // Module
-___CSS_LOADER_EXPORT___.push([module.id, "\nbody{\n    font-size: 12px;\n}\n.logout{\n    outline: none;\n    font-size: 1.3rem;\n    border: none;\n    color: white;\n    padding: 5px 10px;\n    border-radius: 5px;\n}\nnav{\n    height: 100vh;\n    min-width: 40%;\n    max-width: 60%;\n    position: fixed;\n    top: 3.7rem;\n    left: 0;\n    z-index: 99;\n    background: #70baff;\n    padding: 10px 5px;\n}\n.overlay{\n    position: absolute;\n    width: 100%;\n    height: 100vh;\n    z-index: 999;\n}\n.navbar-button{\n    opacity: .7;\n}\n.navbar-button:hover{\n    opacity: 1;\n    cursor: pointer;\n}\n.navbar{\n    height: 3rem;\n    position: fixed;\n    top: 0;\n    left: 0;\n    width: 100%;\n    z-index: 99;\n    padding: 30px 0;\n}\n.list{\n    font-size: 1.2rem;\n    color: #f6f6f6;\n}\na{\n    padding: 10px 5px;\n    text-decoration: none !important;\n}\n.caret-bottom{\n    transform: rotate(90deg);\n    transition: all .3s ease;\n}\n.dropdown-list{\n    font-size: 1.1rem;\ncolor: #f6f6f6;\n}\n.nav-enter{\n  opacity: .5;\n  transform: rotate(90deg);\n}\n.nav-enter-active{\n  transition: all .3s ease;\n}\n.fade-enter-active, .fade-leave-active {\n  transition: all .5s ease;\n}\n.fade-enter, .fade-leave-to /* .fade-leave-active below version 2.1.8 */ {\n  opacity: 0; \n  transform: translateX(-50px);\n}\n.dropdown-enter-active, .dropdown-leave-active {\n  transition: all .5s ease;\n}\n.dropdown-enter, .dropdown-leave-to /* .fade-leave-active below version 2.1.8 */ {\n  opacity: 0; \n  transform: translateY(-20px);\n}\n\n    \n    \n", ""]);
+___CSS_LOADER_EXPORT___.push([module.id, "\nbody{\n    font-size: 12px;\n    height: 100vh;\n}\n.logout{\n    outline: none;\n    font-size: 1.3rem;\n    border: none;\n    color: white;\n    padding: 5px 10px;\n    border-radius: 5px;\n}\nnav{\n    height: 100vh;\n    min-width: 40%;\n    max-width: 60%;\n    position: fixed;\n    top: 3rem;\n    left: 0;\n    z-index: 99;\n    background: #70baff;\n    padding: 10px 5px 100px 5px;\n}\n.overlay{\n    position: absolute;\n    width: 100%;\n    height: 100vh;\n    z-index: 999;\n}\n.navbar-button{\n    opacity: .7;\n}\n.navbar-button:hover{\n    opacity: 1;\n    cursor: pointer;\n}\n.navbar{\n    height: 3rem;\n    position: fixed;\n    top: 0;\n    left: 0;\n    width: 100%;\n    z-index: 99;\n}\n.list{\n    font-size: 1.2rem;\n    color: #f6f6f6;\n}\na{\n    padding: 10px 5px;\n    text-decoration: none !important;\n}\n.caret-bottom{\n    transform: rotate(90deg);\n    transition: all .3s ease;\n}\n.dropdown-list{\n    font-size: 1.1rem;\ncolor: #f6f6f6;\n}\n.nav-enter{\n  opacity: .5;\n  transform: rotate(90deg);\n}\n.nav-enter-active{\n  transition: all .3s ease;\n}\n.fade-enter-active, .fade-leave-active {\n  transition: all .5s ease;\n}\n.fade-enter, .fade-leave-to /* .fade-leave-active below version 2.1.8 */ {\n  opacity: 0; \n  transform: translateX(-50px);\n}\n.dropdown-enter-active, .dropdown-leave-active {\n  transition: all .5s ease;\n}\n.dropdown-enter, .dropdown-leave-to /* .fade-leave-active below version 2.1.8 */ {\n  opacity: 0; \n  transform: translateY(-20px);\n}\n\n    \n    \n", ""]);
 // Exports
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (___CSS_LOADER_EXPORT___);
 
@@ -39072,7 +39072,7 @@ var render = function() {
         "div",
         {
           staticClass:
-            "py-4 px-4 text-secondary rounded shadow-lg bg-white font-weight-light col-12 col-md-8 col-lg-7"
+            "py-4 px-4 text-secondary rounded shadow-sm bg-white font-weight-light col-12 col-md-8 col-lg-7"
         },
         [
           _c("h3", { staticClass: "text-center" }, [_vm._v("Create Profile")]),
@@ -39585,7 +39585,7 @@ var render = function() {
   var _vm = this
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
-  return _c("div", { staticClass: "row px-2 py-md-5 justify-content-center" }, [
+  return _c("div", { staticClass: "row px-2 py-4 justify-content-center" }, [
     _c(
       "div",
       {
@@ -40271,7 +40271,7 @@ var render = function() {
         _vm._v(" "),
         _c("transition", { attrs: { name: "fade" } }, [
           _vm.show
-            ? _c("nav", { staticClass: "overflow-auto pb-5" }, [
+            ? _c("nav", { staticClass: "overflow-auto pb-6" }, [
                 _c(
                   "div",
                   {

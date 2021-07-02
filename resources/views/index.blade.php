@@ -38,6 +38,7 @@
         height: 100vh;
         text-align: center;
         z-index: 3;
+        overflow-x: scroll;
       }
       .middle{
         display: table-cell; 
@@ -46,21 +47,25 @@
       
       header{
         z-index: 4;
-        position: fixed;
+        position: sticky;
         width: 100%;
         top: 0;
         left: 0;
       }
+      boddy{
+        height: 100vh;
+        
+      }
 
     </style>
 </head>
-<body class="">
+<body class="h-10d0 overflsow-auto">
 
 <div class="overlay">
 
 </div>
 
-      <header class="my-6">
+      <header class="mb-6">
         <div class="bg-primary text-light px-3 py-4">
           <h3>Barangay Health Record Management System</h3>
         </div>
@@ -73,7 +78,7 @@
   <div class="middle">
   
   <div class="p-3">
-  <h2 class="text-white p-3">Barangay Health Record Management System for Barangay Abonagan Malasiqui, Pangasinan</h2>
+ <!-- <h2 class="text-white p-3">Barangay Health Record Management System for Barangay Abonagan Malasiqui, Pangasinan</h2> -->
     <div class="col-12">
       <h3>Mission</h3>
       <p class="h5 font-weight-light">To provide patient-centered healthcare with excellence in quality, service, and access.</p>

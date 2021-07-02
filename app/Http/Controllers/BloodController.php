@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Blood;
+use App\Models\Profile;
 use Illuminate\Http\Request;
 
 class BloodController extends Controller
@@ -22,10 +23,10 @@ class BloodController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function create()
+    public function create(Profile $profile)
     {
-        $bloods = Blood::get();
-        return view('Bp.create', compact('bloods'));
+        //$bloods = Blood::get();
+        return view('Bp.create', compact(['profile']));
     }
 
     /**
@@ -34,16 +35,15 @@ class BloodController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(Request $request, Profile $profile)
     {
         $data = $request->validate([
-          'resident_name' => 'required',
           'dp' => 'required',
           'sp' => 'required',
           'check_date' => 'required'
           ]);
 
-        Blood::create($data);
+        $profile->blood()->create($data);
         return back();
     }
 

@@ -26,7 +26,7 @@
   </div>
   
   <transition name="fade">
-  <nav v-if="show" class="overflow-auto pb-5">
+  <nav v-if="show" class="overflow-auto pb-6">
     <div class="d-flex align-items-center py-1 px-2 text-light ">
       <img class="d-none d-sm-block" alt="image"/>
      <h4 class=" dm-1">Barangay Health Record</h4>
@@ -128,6 +128,7 @@
 <style>
   body{
     font-size: 12px;
+    height: 100vh;
   }
   .logout{
     outline: none;
@@ -143,11 +144,11 @@
     min-width: 40%;
     max-width: 60%;
     position: fixed;
-    top: 3.7rem;
+    top: 3rem;
     left: 0;
     z-index: 99;
     background: #70baff;
-    padding: 10px 5px;
+    padding: 10px 5px 100px 5px;
   }
   
   .overlay{
@@ -173,7 +174,6 @@
     left: 0;
     width: 100%;
     z-index: 99;
-    padding: 30px 0;
   }
   
   .list{

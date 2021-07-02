@@ -107,7 +107,7 @@ class ProfileController extends Controller
           
        $profile->update($dataOfProfile);
         
-        
+       /* 
         if($profile->work)
         {
           
@@ -132,8 +132,8 @@ class ProfileController extends Controller
           $profile->student->update($dataOfStudent);
           
         }
-        
-        return back();
+        */
+        return redirect('/profile/'.$profile->id);
           
     }
 

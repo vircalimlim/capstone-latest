@@ -15,8 +15,8 @@ class CreateBloodsTable extends Migration
     {
         Schema::create('bloods', function (Blueprint $table) {
             $table->id();
-            $table->text('resident_name');
-            //$table->foreignId('profile_id')->constrained('profiles')->onDelete('cascade');
+            //$table->text('resident_name');
+            $table->foreignId('profile_id')->constrained('profiles')->onDelete('cascade');
             $table->integer('dp');
             $table->integer('sp');
             $table->date('check_date');
