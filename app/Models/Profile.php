@@ -22,4 +22,9 @@ class Profile extends Model
     public function blood(){
       return $this->hasMany(Blood::class);
     }
+    
+    public function medicine(){
+      return $this->belongsToMany(Medicine::class)->withPivot('quantity', 'date_released', 'concern');
+    }
+    
 }

@@ -47,6 +47,7 @@ class MedicineController extends Controller
           'expiry_date' => 'required'
           ]);
         Medicine::create($data);
+        return back();
     }
 
     /**

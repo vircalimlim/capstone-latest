@@ -44,7 +44,7 @@ class BloodController extends Controller
           ]);
 
         $profile->blood()->create($data);
-        return back();
+        return redirect('/profile/'. $profile->id);
     }
 
     /**

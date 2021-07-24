@@ -154,7 +154,9 @@ return [
       'houseNum' => 'Household Number',
       'firstname' => 'First Name',
       'middlename' => 'Middle Name',
-      'lastname' => 'Last Name'
+      'lastname' => 'Last Name',
+      'medicine_id' => 'medicine',
+      'date_released' => 'date'
       
       ],
 

@@ -48,6 +48,7 @@ Route::post('/bp/{profile}', [BloodController::class, 'store']);
 Route::get('/medicine', [MedicineController::class, 'index']);
 Route::post('/medicine', [MedicineController::class, 'store']);
 
-Route::get('/releasemed', [ReleaseMedController::class, 'index']);
+Route::get('/releasemed/{profile}', [ReleaseMedController::class, 'index']);
+Route::post('/releasemed/{profile}', [ReleaseMedController::class, 'store']);
 
 });

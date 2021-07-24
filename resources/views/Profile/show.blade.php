@@ -18,8 +18,8 @@
       <img src="sjsj.png" alt="image">
     </div>
     <div class="col text-primary py-2 headings">
-      <h5 class="font-weight-bold m-0">CALIMLIM VIRGILIO JR. PADILLA</h5>
-      <p class="m-0">271 Sitio Bokig Brgy. Abonagan Malasiqui, Pangasinan </p>
+      <h5 class="text-uppercase font-weight-bold m-0">{{$profile->lastname}}, {{$profile->firstname}} {{$profile->middlename}}</h5>
+      <p class="m-0">{{$profile->houseNum}} Sitio Bokig Brgy. Abonagan Malasiqui, Pangasinan </p>
     </div>
   </div>
   
@@ -107,6 +107,88 @@
       <h5 class="pt-2">Blood Pressure History</h5>
     </div>
   </div>
+  
+  <div class="row">
+    <div class="col">
+      <table class="table table-hover">
+        <tr>
+          <th>Blood Pressure</th>
+          <th>Checkup Date</th>
+          <th>Condition</th>
+          <th>Action</th>
+        </tr>
+
+        
+        @foreach($profile->blood as $blood)
+        <tr>
+          <td>{{ $blood->sp }} / {{$blood->dp }}</td>
+          <td>{{ $blood->check_date }}</td>
+          <td>
+            @if($blood->sp > 89 && $blood->sp < 120 && $blood->dp > 60 && $blood->dp < 80)
+            Normal
+            
+            @elseif($blood->sp < 90 || $blood->dp < 60)
+            Hypotension
+            
+            @elseif($blood->sp > 120 && $blood->sp < 129 && $blood->dp < 80)
+            Elevated
+            
+            @elseif($blood->sp > 129 && $blood->sp < 140 || $blood->dp > 79 && $blood->dp < 90)
+            Stage 1 hypertension
+            
+            @elseif($blood->sp < 141 || $blood->dp < 91)
+            Stage 2 hypertension
+            
+            @elseif($blood->sp > 140 && $blood->sp < 160 || $blood->dp > 90 && $blood->dp < 100)
+            Stage 1 High Blood
+            
+            @elseif($blood->sp > 159 && $blood->sp < 180 || $blood->dp > 99 && $blood->dp < 120)
+            Stage 2 High Blood
+            
+            @elseif($blood->sp >180 || $blood->dp >119)
+            Hypertensive Crisis
+            
+            @endif
+          </td>
+          <td>
+            <span class="px-1 text-danger">Delete</span>
+          </td>
+        </tr>
+        
+        @endforeach
+        
+      </table>
+    </div>
+    </div>
+    
+  <div class="row px-3 my-3">
+    <div class="col-12 bg-light">
+      <h5 class="pt-2">Medicine Received</h5>
+    </div>
+  </div>
+  
+  <div class="row">
+    <div class="col">
+      <table class="table table-hover">
+        <tr>
+          <th>Medicine Name</th>
+          <th>Release Date</th>
+          <th>Quantity</th>
+          <th>Concern</th>
+        </tr>
+        
+        @foreach($profile->medicine as $med)
+        <tr>
+          <td>{{$med->med_name}}</td>
+          <td>{{$med->pivot->date_released}}</td>
+          <td>{{$med->pivot->quantity}}</td>
+          <td>{{$med->pivot->concern}}</td>
+        </tr>
+        @endforeach
+      </table>
+        
+    </div>
+  </div>
 
   
   <div class="text-right">
@@ -155,7 +237,7 @@
     </div>
     
     <div class="col">
-      <a href="/releasemed" class="btn btn-outline-success px-3 ">
+      <a href="/releasemed/{{$profile->id}}" class="btn btn-outline-success px-3 ">
         Go
       </a>
     </div>
