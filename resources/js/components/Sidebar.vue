@@ -148,7 +148,7 @@
     left: 0;
     z-index: 99;
     background: #70baff;
-    padding: 10px 5px 100px 5px;
+    padding: 5px 5px 100px 5px;
   }
   
   .overlay{
@@ -168,7 +168,7 @@
   }
   
   .navbar{
-    height: 3rem;
+    height: 3.5rem;
     position: fixed;
     top: 0;
     left: 0;
