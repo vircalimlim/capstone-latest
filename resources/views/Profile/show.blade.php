@@ -1,9 +1,14 @@
 @extends('layouts.app')
 @section('content')
 
+<div class="row pt-4 pb-0">
+  <div class="col">
+    <!--<a href="/profile" role="button" class="btn btn-outline-secondary">Show all records</a> -->
+  </div>
+</div>
 
-<div class="row px-2 py-4 justify-content-center">
-<div class="col-12 col-md-10 border shadow-sm bg-white pb-4 rounded text-dark">
+<div class="row px-2 pb-4 pt-3 justify-content-center">
+<div class="col-12 col-md-8 border shadow-sm bg-white pb-4 rounded text-dark">
   
   <div class="info-wrapper text-secondary">
     
@@ -208,11 +213,11 @@
   </div>
 
 </div>
-</div>
 
-<div class="row px-2 pb-4 justify-content-center ">
-<div class="col-12 col-md-10 border shadow-sm bg-white pb-4 rounded text-secondary">
-  
+<div class="col-12 col-md-4">
+  <div class="row px-md-2 py-2 py-md-0">
+  <div class="col-12 border shadow-sm bg-white pb-4 rounded text-secondary">
+
   <div class="row py-3">
     <div class="col border-bottom border-info text-lizght py-2 headings">
       <h3 class="">Action</h3>
@@ -253,9 +258,13 @@
         Go
       </a>
     </div>
+    </div>
+
   </div>
-    
   </div>
 </div>
+
+</div>
+
 
 @endsection

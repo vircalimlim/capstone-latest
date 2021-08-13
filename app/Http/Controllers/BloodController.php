@@ -15,7 +15,8 @@ class BloodController extends Controller
      */
     public function index()
     {
-        //
+        $bloods = Blood::get();
+        return view('Bp.index', compact('bloods'));
     }
 
     /**

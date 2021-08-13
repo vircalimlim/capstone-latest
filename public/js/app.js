@@ -7195,7 +7195,7 @@ __webpack_require__.r(__webpack_exports__);
 
 var ___CSS_LOADER_EXPORT___ = _node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_0___default()(function(i){return i[1]});
 // Module
-___CSS_LOADER_EXPORT___.push([module.id, "\nbody{\n    font-size: 12px;\n    height: 100vh;\n}\n.logout{\n    outline: none;\n    font-size: 1.3rem;\n    border: none;\n    color: white;\n    padding: 5px 10px;\n    border-radius: 5px;\n}\nnav{\n    height: 100vh;\n    min-width: 40%;\n    max-width: 60%;\n    position: fixed;\n    top: 3rem;\n    left: 0;\n    z-index: 99;\n    background: #70baff;\n    padding: 5px 5px 100px 5px;\n}\n.overlay{\n    position: absolute;\n    width: 100%;\n    height: 100vh;\n    z-index: 999;\n}\n.navbar-button{\n    opacity: .7;\n}\n.navbar-button:hover{\n    opacity: 1;\n    cursor: pointer;\n}\n.navbar{\n    height: 3.5rem;\n    position: fixed;\n    top: 0;\n    left: 0;\n    width: 100%;\n    z-index: 99;\n}\n.list{\n    font-size: 1.2rem;\n    color: #f6f6f6;\n}\na{\n    padding: 10px 5px;\n    text-decoration: none !important;\n}\n.caret-bottom{\n    transform: rotate(90deg);\n    transition: all .3s ease;\n}\n.dropdown-list{\n    font-size: 1.1rem;\ncolor: #f6f6f6;\n}\n.nav-enter{\n  opacity: .5;\n  transform: rotate(90deg);\n}\n.nav-enter-active{\n  transition: all .3s ease;\n}\n.fade-enter-active, .fade-leave-active {\n  transition: all .5s ease;\n}\n.fade-enter, .fade-leave-to /* .fade-leave-active below version 2.1.8 */ {\n  opacity: 0; \n  transform: translateX(-50px);\n}\n.dropdown-enter-active, .dropdown-leave-active {\n  transition: all .5s ease;\n}\n.dropdown-enter, .dropdown-leave-to /* .fade-leave-active below version 2.1.8 */ {\n  opacity: 0; \n  transform: translateY(-20px);\n}\n\n    \n    \n", ""]);
+___CSS_LOADER_EXPORT___.push([module.id, "\nbody{\n    font-size: 12px;\n    height: 100vh;\n}\n.pointer{\n    cursor: pointer;\n}\n.logout{\n    outline: none;\n    font-size: 1.3rem;\n    border: none;\n    color: white;\n    padding: 5px 10px;\n    border-radius: 5px;\n}\nnav{\n    height: 100vh;\n    min-width: 40%;\n    max-width: 60%;\n    position: fixed;\n    top: 3.5rem;\n    left: 0;\n    z-index: 99;\n    background: #70baff;\n    padding: 5px 5px 100px 5px;\n}\n.overlay{\n    position: absolute;\n    width: 100%;\n    height: 100vh;\n    z-index: 999;\n}\n.navbar-button{\n    opacity: .7;\n}\n.navbar-button:hover{\n    opacity: 1;\n    cursor: pointer;\n}\n.navbar{\n    height: 3.5rem;\n    position: fixed;\n    top: 0;\n    left: 0;\n    width: 100%;\n    z-index: 99;\n}\n.list{\n    font-size: 1.2rem;\n    color: #f6f6f6;\n}\na{\n    padding: 10px 5px;\n    text-decoration: none !important;\n}\n.caret-bottom{\n    transform: rotate(90deg);\n    transition: all .3s ease;\n}\n.dropdown-list{\n    font-size: 1.1rem;\ncolor: #f6f6f6;\n}\n.nav-enter{\n  opacity: .5;\n  transform: rotate(90deg);\n}\n.nav-enter-active{\n  transition: all .3s ease;\n}\n.fade-enter-active, .fade-leave-active {\n  transition: all .5s ease;\n}\n.fade-enter, .fade-leave-to /* .fade-leave-active below version 2.1.8 */ {\n  opacity: 0; \n  transform: translateX(-50px);\n}\n.dropdown-enter-active, .dropdown-leave-active {\n  transition: all .5s ease;\n}\n.dropdown-enter, .dropdown-leave-to /* .fade-leave-active below version 2.1.8 */ {\n  opacity: 0; \n  transform: translateY(-20px);\n}\n\n    \n    \n", ""]);
 // Exports
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (___CSS_LOADER_EXPORT___);
 
@@ -39372,7 +39372,7 @@ var render = function() {
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
   return _c("div", { staticClass: "px-3 pdy-5" }, [
-    _c("div", { staticClass: "row mt-md-5 py-2 justify-content-around" }, [
+    _c("div", { staticClass: "row mt-md-3 py-2 justify-content-around" }, [
       _c(
         "div",
         {
@@ -40681,9 +40681,14 @@ var render = function() {
                           ]
                         ),
                         _vm._v("  \r\n    "),
-                        _c("span", { staticClass: "my-1 pl-1 text-light" }, [
-                          _vm._v("\r\n    Residents\r\n    ")
-                        ]),
+                        _c(
+                          "a",
+                          {
+                            staticClass: "my-1 pl-1 text-light pointer",
+                            attrs: { role: "button" }
+                          },
+                          [_vm._v("\r\n    Residents\r\n    ")]
+                        ),
                         _vm._v(" "),
                         _c(
                           "div",
@@ -40851,7 +40856,7 @@ var render = function() {
                                 })
                               ]
                             ),
-                            _vm._v("  \r\n    Monitor Blood Pressure")
+                            _vm._v("  \r\n    Patients Blood Pressure")
                           ]
                         )
                       ]

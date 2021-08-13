@@ -1,6 +1,13 @@
 @extends('layouts.app')
 @section('content')
-<div class="my-4 bg-white border p-4">
+
+<div class="row">
+  <div class="col mt-4 ">
+    <a href="/profile/{{$profile->id}}" class="btn btn-outline-secondary">Go to profile</a>
+  </div>
+</div>
+
+<div class="my-2 bg-white border p-4">
  
 <h3>Blood Pressure Record Form</h3> 
 <form method="POST" method="/bp">

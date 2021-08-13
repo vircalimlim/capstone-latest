@@ -1,7 +1,13 @@
 @extends('layouts.app')
 @section('content')
 
-  <div class="row  text-break justify-content-center py-4">
+  <div class="row justify-content-center pt-4">
+    <div class="px-0 pb-2 col-12 col-md-9">
+      <a class="btn btn-warning" href="{{ route('export') }}">Export User Data</a>
+    </div>
+  </div>
+
+  <div class="row  text-break justify-content-center pb-4">
     <div class="text-white shadow-sm p-2 col-12 col-md-9">
       
   <table class="table text-secondary table-hover">

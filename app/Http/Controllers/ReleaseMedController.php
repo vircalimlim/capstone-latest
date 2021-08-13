@@ -14,10 +14,10 @@ class ReleaseMedController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index(Profile $profile)
+    public function create(Profile $profile)
     {
         $medicines = Medicine::get();
-        return view('Release.index', compact(['profile', 'medicines']));
+        return view('Release.create', compact(['profile', 'medicines']));
     }
 
     /**
@@ -25,9 +25,10 @@ class ReleaseMedController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function create()
+    public function index()
     {
-        //
+        $profiles = Profile::paginate(1);
+        return view('Release.index', compact('profiles'));
     }
     
 
@@ -66,7 +67,7 @@ class ReleaseMedController extends Controller
         $medicine->update(['quantity' => $totalQuantity
           ]);
           
-        return back();
+        return redirect('/profile/'.$profile->id);
     }
 
     /**

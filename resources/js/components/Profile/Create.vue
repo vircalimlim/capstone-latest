@@ -1,7 +1,7 @@
 <template>
     <div class="px-3 pdy-5">
 
-<div class="row mt-md-5 py-2 justify-content-around">
+<div class="row mt-md-3 py-2 justify-content-around">
 <div class="py-4 px-4 text-secondary rounded shadow-sm bg-white font-weight-light col-12 col-md-8 col-lg-7">
   
 <h3 class="text-center">Create Profile</h3>

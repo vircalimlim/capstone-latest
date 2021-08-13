@@ -9,6 +9,7 @@ use App\Http\Controllers\ImmunizationController;
 use App\Http\Controllers\BloodController;
 use App\Http\Controllers\MedicineController;
 use App\Http\Controllers\ReleaseMedController;
+use App\Http\Controllers\ExcelController;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -30,25 +31,31 @@ Route::get('/home', [HomeController::class, 'index'])->name('home');
 
 
 Route::get('/profile', [ProfileController::class, 'index']);
-Route::get('/profile/create', [ProfileController:: class, 'create']);
+Route::get('/profile/create', [ProfileController::class, 'create']);
 Route::post('/profile', [ProfileController::class, 'store']);
 Route::get('/profile/{profile}', [ProfileController::class, 'show']);
 Route::delete('/profile/{profile}/delete', [ProfileController::class, 'destroy']);
 Route::get('/profile/{profile}/edit', [ProfileController::class, 'edit']);
 Route::patch('/profile/{profile}', [ProfileController::class, 'update']);
 
+Route::get('/importExportView', [ExcelController::class, 'importExportView']);
+Route::get('/export', [ExcelController::class, 'export'])->name('export');
+Route::post('/import', [ExcelController::class, 'import'])->name('import');
+
 Route::post('/work/{profile}', [WorkController::class, 'store']);
 Route::post('/student/{profile}', [StudentController::class, 'store']);
 
 Route::get('/immunization/create', [ImmunizationController::class, 'create']);
 
+Route::get('/bp', [BloodController::class, 'index']);
 Route::get('/bp/{profile}', [BloodController::class, 'create']);
 Route::post('/bp/{profile}', [BloodController::class, 'store']);
 
 Route::get('/medicine', [MedicineController::class, 'index']);
 Route::post('/medicine', [MedicineController::class, 'store']);
 
-Route::get('/releasemed/{profile}', [ReleaseMedController::class, 'index']);
+Route::get('/releasemed', [ReleaseMedController::class, 'index']);
+Route::get('/releasemed/{profile}', [ReleaseMedController::class, 'create']);
 Route::post('/releasemed/{profile}', [ReleaseMedController::class, 'store']);
 
 });
