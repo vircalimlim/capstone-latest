@@ -53,7 +53,9 @@ class ProfileController extends Controller
           ]);
           
         Profile::create($data);
+        //return redirect()->back()->with('success', 'Created successfully!');
         return ['success'    => 'success'];
+        //return redirect()->back();
       }
       catch(ValidationException $exception){
         return $exception->errors();
@@ -97,12 +99,12 @@ class ProfileController extends Controller
     public function update(Request $request, Profile $profile)
     {
        $dataOfProfile = request()->validate([
-          'houseNum' => 'required',
+          'houseNum' => ['required', 'numeric'],
           'firstname' => 'required',
           'middlename' => 'required',
           'lastname' => 'required',
           'gender' => 'required',
-          'age' => 'required'
+          'age' => 'required|numeric'
           ]);
           
        $profile->update($dataOfProfile);

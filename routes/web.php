@@ -10,6 +10,8 @@ use App\Http\Controllers\BloodController;
 use App\Http\Controllers\MedicineController;
 use App\Http\Controllers\ReleaseMedController;
 use App\Http\Controllers\ExcelController;
+use App\Http\Controllers\HTMLPDFController;
+
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -57,5 +59,7 @@ Route::post('/medicine', [MedicineController::class, 'store']);
 Route::get('/releasemed', [ReleaseMedController::class, 'index']);
 Route::get('/releasemed/{profile}', [ReleaseMedController::class, 'create']);
 Route::post('/releasemed/{profile}', [ReleaseMedController::class, 'store']);
+
+Route::get('/html-pdf', [HTMLPDFController::class, 'htmlPdf'])->name('htmlPdf');
 
 });

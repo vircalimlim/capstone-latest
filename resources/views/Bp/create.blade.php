@@ -22,10 +22,26 @@
   <div class="col-12 col-md-6">
     <label>Blood Pressure</label>
     <div class="d-flex align-items-center">
-    <input type="number" placeholder="Systolic Pressure Ex. 120 mmHg" class="form-control col-4 mr-2" name="sp">
+    <input type="number" placeholder="Systolic Pressure Ex. 120 mmHg" class="form-control col-4 mr-2 @error('sp') is-invalid @enderror" name="sp">
+    
     <h2 class="px-2 m-0 text-secondary">/</h2>
-    <input type="number" placeholder="Diastolic Pressure Ex. 80 mmHg" class="form-control col-4 mx-2" name="dp">
+    <input type="number" placeholder="Diastolic Pressure Ex. 80 mmHg" class="form-control col-4 mx-2 @error('dp') is-invalid @enderror" name="dp">
     </div>
+    
+    <div class="d-flex">
+    @error('sp')
+    <div class="col-4 p-0 ml-1 text-danger">
+      <small>{{$message}}</small>
+    </div>
+    @enderror
+    <h2 class="px-2 m-0 text-secondary">&nbsp;</h2>
+    @error('dp')
+    <div class="col-4 mx-1 text-danger">
+      <small>{{$message}}</small>
+    </div>
+    @enderror
+    </div>
+
   </div>
 </div>
 
@@ -39,7 +55,12 @@
   
   <div class="col-6">
     <label>Date</label>
-    <input class="form-control" data-provide="datepicker" name="check_date" placeholder="date" type="date">
+    <input class="form-control @error('check_date') is-invalid @enderror" data-provide="datepicker" name="check_date" placeholder="date" type="date">
+    @error('check_date')
+    <div class="text-danger">
+      <small>{{$message}}</small>
+    </div>
+    @enderror
   </div>
 </div>
 

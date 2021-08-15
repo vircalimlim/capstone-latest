@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\Blood;
 use App\Models\Profile;
 use Illuminate\Http\Request;
+use Illuminate\Validation\ValidationException;
 
 class BloodController extends Controller
 {
@@ -43,9 +44,18 @@ class BloodController extends Controller
           'sp' => 'required',
           'check_date' => 'required'
           ]);
-
+        
+        try {
         $profile->blood()->create($data);
-        return redirect('/profile/'. $profile->id);
+        return redirect('/profile/'. $profile->id)->with('success', 'Created successfully!');
+        }
+        catch (\Exception $e){
+            return redirect()->back()
+                ->with('error', 'Error during the creation!');
+        }
+
+        //return redirect()->back()->with('success', 'Created successfully!');
+        //return redirect('/profile/'. $profile->id);
     }
 
     /**

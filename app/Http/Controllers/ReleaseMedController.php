@@ -62,12 +62,18 @@ class ReleaseMedController extends Controller
           return redirect()->back()->with('quantityError', 'Quantity should not exceed the selected medicine stocks.' );
         }
         
+        try {
         $profile->medicine()->attach($data['medicine_id'], $data);
-        
         $medicine->update(['quantity' => $totalQuantity
           ]);
+        return redirect('/profile/'.$profile->id)->with('success', 'Created successfully!');
+        }
+        catch (\Exception $e){
+          return redirect()->back()
+              ->with('error', 'Error during the creation!');
+        }
           
-        return redirect('/profile/'.$profile->id);
+        //return redirect('/profile/'.$profile->id);
     }
 
     /**

@@ -126,6 +126,7 @@
         <small> {{response_status.gender[0]}}</small>
     </div>
     
+    
   </div>
   
 </div>
@@ -194,6 +195,10 @@ export default {
                     this.lastname = '',
                     this.age = '',
                     this.gender = ''
+                     toast.fire({
+                      type: 'success',
+                      title: 'Patient Added successfully'
+                    })
                 }
             })
             .catch(error => console.log(error))

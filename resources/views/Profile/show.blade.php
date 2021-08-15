@@ -62,7 +62,7 @@
       <label><strong>Gender</strong></label>
     </div>
     <div class="col-12 col-sm-9 col-md-9">
-      <p class=" px-3">
+      <p class="text-capitalize px-3">
         {{ $profile->gender }}
       </p>
     </div>
@@ -163,6 +163,11 @@
         @endforeach
         
       </table>
+      <div class="row">
+        <div class="col text-center">
+          <a href="#" class="text-center">See more...</a>
+        </div>
+      </div>
     </div>
     </div>
     
@@ -182,7 +187,7 @@
           <th>Concern</th>
         </tr>
         
-        @foreach($profile->medicine as $med)
+        @foreach($profile->medicine->reverse()->take(2) as $med)
         <tr>
           <td>{{$med->med_name}}</td>
           <td>{{$med->pivot->date_released}}</td>
@@ -191,6 +196,11 @@
         </tr>
         @endforeach
       </table>
+      <div class="row px-4 py-2">
+        <div class="col text-center bg-light rounded">
+          <a href="#" class="text-center">See more...</a>
+        </div>
+      </div>
         
     </div>
   </div>

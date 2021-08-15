@@ -156,7 +156,10 @@ return [
       'middlename' => 'Middle Name',
       'lastname' => 'Last Name',
       'medicine_id' => 'medicine',
-      'date_released' => 'date'
+      'date_released' => 'date',
+      'sp' => 'systolic',
+      'dp' => 'diastolic',
+      'check_date' => 'date',
       
       ],
 

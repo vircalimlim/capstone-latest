@@ -21,7 +21,12 @@
       <label><strong>House Number</strong></label>
     </div>
     <div class="col-12 col-sm-9 col-md-9">
-      <input type="text" class="form-control" name="houseNum" value="{{ $profile->houseNum }}" autofocus="true" />
+      <input type="text" class="form-control @error('houseNum') is-invalid @enderror" name="houseNum" value="{{ $profile->houseNum }}" autofocus="true" />
+      @error('houseNum')
+      <div class="text-danger">
+        <small> {{$message}}</small>
+      </div>
+      @enderror
     </div>
   </div>
   
@@ -30,7 +35,12 @@
       <label><strong>First Name</strong></label>
     </div>
     <div class="col-12 col-sm-9 col-md-9">
-      <input type="text" class="form-control" name="firstname" value="{{ $profile->firstname }}" />
+      <input type="text" class="form-control @error('firstname') is-invalid @enderror" name="firstname" value="{{ $profile->firstname }}" />
+      @error('firstname')
+      <div class="text-danger">
+        <small> {{$message}}</small>
+      </div>
+      @enderror
     </div>
   </div>
 
@@ -39,7 +49,12 @@
       <label><strong>Middle Name</strong></label>
     </div>
     <div class="col-12 col-sm-9 col-md-9">
-      <input type="text" name="middlename" class="form-control" value="{{ $profile->middlename }}" />
+      <input type="text" name="middlename" class="form-control @error('middlename') is-invalid @enderror" value="{{ $profile->middlename }}" />
+      @error('middlename')
+      <div class="text-danger">
+        <small> {{$message}}</small>
+      </div>
+      @enderror
     </div>
   </div>
 
@@ -48,7 +63,12 @@
       <label><strong>Last Name</strong></label>
     </div>
     <div class="col-12 col-sm-9 col-md-9">
-      <input type="text" name="lastname" class="form-control" value="{{ $profile->lastname }}" />
+      <input type="text" name="lastname" class="form-control @error('lastname') is-invalid @enderror" value="{{ $profile->lastname }}" />
+      @error('lastname')
+      <div class="text-danger">
+        <small> {{$message}}</small>
+      </div>
+      @enderror
     </div>
   </div>
 
@@ -58,14 +78,28 @@
       <label><strong>Age</strong></label>
     </div>
     <div class="col-9 col-sm-3 col-md-3 pb-4">
-      <input type="text" name="age" class="form-control" value="{{ $profile->age }}" />
+      <input type="text" name="age" class="form-control @error('age') is-invalid @enderror" value="{{ $profile->age }}" />
+      @error('age')
+      <div class="text-danger">
+        <small> {{$message}}</small>
+      </div>
+      @enderror
     </div>
 
     <div class="col-3 col-sm-3 col-md-3 pb-4">
       <label><strong>Gender</strong></label>
     </div>
     <div class="col-9 col-sm-3 col-md-3 pb-4">
-      <input type="text" name="gender" class="form-control" value="{{ $profile->gender }}" />
+      <select name="gender" class="form-control @error('gender') is-invalid @enderror">
+        <option @if(strtolower($profile->gender) == 'male'  )  selected='selected' @endif value="male">Male</option>
+        <option @if(strtolower($profile->gender) ==  'female' )  selected='selected' @endif value="Female">Female</option>
+      </select>
+  
+      @error('gender')
+      <div class="text-danger">
+        <small> {{$message}}</small>
+      </div>
+      @enderror
     </div>
   </div>
 
