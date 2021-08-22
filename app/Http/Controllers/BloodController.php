@@ -64,9 +64,9 @@ class BloodController extends Controller
      * @param  \App\Models\Blood  $blood
      * @return \Illuminate\Http\Response
      */
-    public function show(Blood $blood)
+    public function show(Profile $profile)
     {
-        //
+        return view('Bp.show', compact('profile'));
     }
 
     /**

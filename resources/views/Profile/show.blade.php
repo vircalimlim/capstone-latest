@@ -124,7 +124,7 @@
         </tr>
 
         
-        @foreach($profile->blood as $blood)
+        @forelse($profile->blood->reverse()->take(5) as $blood)
         <tr>
           <td>{{ $blood->sp }} / {{$blood->dp }}</td>
           <td>{{ $blood->check_date }}</td>
@@ -159,15 +159,22 @@
             <span class="px-1 text-danger">Delete</span>
           </td>
         </tr>
+
+        @empty
+        <caption class="text-center"><h4>No data</h4></caption>
         
-        @endforeach
+        @endforelse
         
       </table>
+
+      @if(count($profile->blood) > 0)
       <div class="row">
-        <div class="col text-center">
-          <a href="#" class="text-center">See more...</a>
+        <div class="col text-center bg-light rounded">
+          <a href="/bp/{{$profile->id}}/show" class="text-center">See all</a>
         </div>
       </div>
+      @endif
+
     </div>
     </div>
     
@@ -187,20 +194,26 @@
           <th>Concern</th>
         </tr>
         
-        @foreach($profile->medicine->reverse()->take(2) as $med)
+        @forelse($profile->medicine->reverse()->take(5) as $med)
         <tr>
           <td>{{$med->med_name}}</td>
           <td>{{$med->pivot->date_released}}</td>
           <td>{{$med->pivot->quantity}}</td>
           <td>{{$med->pivot->concern}}</td>
         </tr>
-        @endforeach
+        @empty
+        <caption class="text-center"><h4>No data</h4></caption>
+        
+        @endforelse
       </table>
-      <div class="row px-4 py-2">
+
+      @if(count($profile->medicine) > 0)
+      <div class="row">
         <div class="col text-center bg-light rounded">
-          <a href="#" class="text-center">See more...</a>
+          <a href="/releasemed/{{$profile->id}}/show" class="text-center">See all</a>
         </div>
       </div>
+      @endif
         
     </div>
   </div>

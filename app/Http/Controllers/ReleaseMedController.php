@@ -82,9 +82,9 @@ class ReleaseMedController extends Controller
      * @param  \App\Models\ReleaseMed  $releaseMed
      * @return \Illuminate\Http\Response
      */
-    public function show(ReleaseMed $releaseMed)
+    public function show(Profile $profile)
     {
-        //
+        return view('Release.show', compact('profile'));
     }
 
     /**
