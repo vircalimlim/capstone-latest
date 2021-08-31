@@ -49,7 +49,10 @@ class ProfileController extends Controller
           'lastname' => 'required|max:150|min:2',
           'age' => 'required|numeric',
           'status' => 'required|numeric',
-          'gender' => 'required|string'
+          'gender' => 'required|string',
+          'barangay' => 'required',
+          'street' => 'nullable|string',
+          'contact' => 'nullable|numeric|digits:11'
           ]);
           
         Profile::create($data);

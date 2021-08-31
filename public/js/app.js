@@ -2149,6 +2149,28 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
   mounted: function mounted() {
     document.querySelector('.css-loader').classList.add('d-none');
@@ -2163,6 +2185,9 @@ __webpack_require__.r(__webpack_exports__);
       age: '',
       gender: '',
       status: '0',
+      barangay: '',
+      street: '',
+      contact: '',
       response_status: '',
       loading: false
     };
@@ -2179,7 +2204,10 @@ __webpack_require__.r(__webpack_exports__);
         lastname: this.lastname,
         age: this.age,
         status: this.status,
-        gender: this.gender
+        gender: this.gender,
+        barangay: this.barangay,
+        street: this.street,
+        contact: this.contact
       }).then(function (response) {
         console.log(_this.response_status = response.data);
         _this.loading = false;
@@ -2191,9 +2219,12 @@ __webpack_require__.r(__webpack_exports__);
           _this.firstname = '';
           _this.middlename = '';
           _this.lastname = '', _this.age = '', _this.gender = '';
+          _this.barangay = '';
+          _this.street = '';
+          _this.contact = '';
           toast.fire({
             type: 'success',
-            title: 'Patient Added successfully'
+            title: 'Added successfully'
           });
         }
       })["catch"](function (error) {
@@ -42482,7 +42513,7 @@ var render = function() {
     _c(
       "button",
       {
-        staticClass: "btn btn-outline-primary font-weight-bold",
+        staticClass: "btn btn-md btn-outline-primary font-weight-bold",
         attrs: { disabled: _vm.isLoading, type: "submit" }
       },
       [
@@ -42492,7 +42523,7 @@ var render = function() {
               attrs: { role: "status", "aria-hidden": "true" }
             })
           : _vm._e(),
-        _vm._v(" Submit ")
+        _vm._v(" Save ")
       ]
     )
   ])
@@ -42526,10 +42557,12 @@ var render = function() {
         "div",
         {
           staticClass:
-            "py-4 px-4 text-secondary rounded shadow-sm bg-white font-weight-light col-12 col-md-8 col-lg-7"
+            "py-4 px-4 text-secondary rounded shadow-sm bg-white font-weight-light col-12 col-md-11 col-lg-9"
         },
         [
-          _c("h3", { staticClass: "text-center" }, [_vm._v("Create Profile")]),
+          _c("h3", { staticClass: "text-center pb-4" }, [
+            _vm._v("Create Profile")
+          ]),
           _vm._v(" "),
           _c(
             "form",
@@ -42548,10 +42581,10 @@ var render = function() {
                 domProps: { value: _vm.csrf }
               }),
               _vm._v(" "),
-              _c("div", { staticClass: "row my-4" }, [
-                _vm._m(0),
-                _vm._v(" "),
-                _c("div", { staticClass: "col-12 col-sm-12 col-md-9" }, [
+              _c("div", { staticClass: "row myd-4" }, [
+                _c("div", { staticClass: "col-12 col-sm-12 col-md-4 mb-4" }, [
+                  _vm._m(0),
+                  _vm._v(" "),
                   _c("input", {
                     directives: [
                       {
@@ -42586,13 +42619,91 @@ var render = function() {
                         ])
                       ])
                     : _vm._e()
+                ]),
+                _vm._v(" "),
+                _c("div", { staticClass: "col-12 col-sm-12 col-md-4 mb-4" }, [
+                  _vm._m(1),
+                  _vm._v(" "),
+                  _c("input", {
+                    directives: [
+                      {
+                        name: "model",
+                        rawName: "v-model",
+                        value: _vm.street,
+                        expression: "street"
+                      }
+                    ],
+                    staticClass: "form-control",
+                    attrs: {
+                      placeholder: "Street Name ex. Sitio or Purok",
+                      type: "text",
+                      name: "street",
+                      autocomplete: "street"
+                    },
+                    domProps: { value: _vm.street },
+                    on: {
+                      input: function($event) {
+                        if ($event.target.composing) {
+                          return
+                        }
+                        _vm.street = $event.target.value
+                      }
+                    }
+                  }),
+                  _vm._v(" "),
+                  _vm.response_status.street
+                    ? _c("div", { staticClass: "text-danger" }, [
+                        _c("small", [
+                          _vm._v(" " + _vm._s(_vm.response_status.street[0]))
+                        ])
+                      ])
+                    : _vm._e()
+                ]),
+                _vm._v(" "),
+                _c("div", { staticClass: "col-12 col-sm-12 col-md-4 mb-4" }, [
+                  _vm._m(2),
+                  _vm._v(" "),
+                  _c("input", {
+                    directives: [
+                      {
+                        name: "model",
+                        rawName: "v-model",
+                        value: _vm.barangay,
+                        expression: "barangay"
+                      }
+                    ],
+                    staticClass: "form-control",
+                    attrs: {
+                      placeholder: "Barangay",
+                      type: "text",
+                      name: "barangay",
+                      autocomplete: "barangay"
+                    },
+                    domProps: { value: _vm.barangay },
+                    on: {
+                      input: function($event) {
+                        if ($event.target.composing) {
+                          return
+                        }
+                        _vm.barangay = $event.target.value
+                      }
+                    }
+                  }),
+                  _vm._v(" "),
+                  _vm.response_status.barangay
+                    ? _c("div", { staticClass: "text-danger" }, [
+                        _c("small", [
+                          _vm._v(" " + _vm._s(_vm.response_status.barangay[0]))
+                        ])
+                      ])
+                    : _vm._e()
                 ])
               ]),
               _vm._v(" "),
-              _c("div", { staticClass: "row my-4" }, [
-                _vm._m(1),
-                _vm._v(" "),
-                _c("div", { staticClass: "col-12 col-sm-12 col-md-9" }, [
+              _c("div", { staticClass: "row myd-4" }, [
+                _c("div", { staticClass: "col-12 col-sm-12 col-md-4 mb-4" }, [
+                  _vm._m(3),
+                  _vm._v(" "),
                   _c("input", {
                     directives: [
                       {
@@ -42627,13 +42738,11 @@ var render = function() {
                         ])
                       ])
                     : _vm._e()
-                ])
-              ]),
-              _vm._v(" "),
-              _c("div", { staticClass: "row my-4" }, [
-                _vm._m(2),
+                ]),
                 _vm._v(" "),
-                _c("div", { staticClass: "col-12 col-sm-12 col-md-9" }, [
+                _c("div", { staticClass: "col-12 col-sm-12 col-md-4 mb-4" }, [
+                  _vm._m(4),
+                  _vm._v(" "),
                   _c("input", {
                     directives: [
                       {
@@ -42670,13 +42779,11 @@ var render = function() {
                         ])
                       ])
                     : _vm._e()
-                ])
-              ]),
-              _vm._v(" "),
-              _c("div", { staticClass: "row my-4" }, [
-                _vm._m(3),
+                ]),
                 _vm._v(" "),
-                _c("div", { staticClass: "col-12 col-sm-12 col-md-9" }, [
+                _c("div", { staticClass: "col-12 col-sm-12 col-md-4 mb-4" }, [
+                  _vm._m(5),
+                  _vm._v(" "),
                   _c("input", {
                     directives: [
                       {
@@ -42714,10 +42821,10 @@ var render = function() {
                 ])
               ]),
               _vm._v(" "),
-              _c("div", { staticClass: "row my-4" }, [
-                _vm._m(4),
-                _vm._v(" "),
-                _c("div", { staticClass: "col-12 col-sm-12 col-md-9" }, [
+              _c("div", { staticClass: "row" }, [
+                _c("div", { staticClass: "col-12 col-sm-12 col-md-4 mb-4" }, [
+                  _vm._m(6),
+                  _vm._v(" "),
                   _c("input", {
                     directives: [
                       {
@@ -42752,13 +42859,11 @@ var render = function() {
                         ])
                       ])
                     : _vm._e()
-                ])
-              ]),
-              _vm._v(" "),
-              _c("div", { staticClass: "row my-4" }, [
-                _vm._m(5),
+                ]),
                 _vm._v(" "),
-                _c("div", { staticClass: "col-12 col-sm-12 col-md-9" }, [
+                _c("div", { staticClass: "col-12 col-sm-12 col-md-4 mb-4" }, [
+                  _vm._m(7),
+                  _vm._v(" "),
                   _c(
                     "select",
                     {
@@ -42808,90 +42913,135 @@ var render = function() {
                         ])
                       ])
                     : _vm._e()
+                ]),
+                _vm._v(" "),
+                _c("div", { staticClass: "col-12 col-sm-12 col-md-4 mb-4" }, [
+                  _vm._m(8),
+                  _vm._v(" "),
+                  _c("input", {
+                    directives: [
+                      {
+                        name: "model",
+                        rawName: "v-model",
+                        value: _vm.contact,
+                        expression: "contact"
+                      }
+                    ],
+                    staticClass: "form-control",
+                    attrs: {
+                      placeholder: "Contact number ex. 09876543210",
+                      type: "text",
+                      name: "contact",
+                      autocomplete: "contact"
+                    },
+                    domProps: { value: _vm.contact },
+                    on: {
+                      input: function($event) {
+                        if ($event.target.composing) {
+                          return
+                        }
+                        _vm.contact = $event.target.value
+                      }
+                    }
+                  }),
+                  _vm._v(" "),
+                  _vm.response_status.contact
+                    ? _c("div", { staticClass: "text-danger" }, [
+                        _c("small", [
+                          _vm._v(" " + _vm._s(_vm.response_status.contact[0]))
+                        ])
+                      ])
+                    : _vm._e()
                 ])
               ]),
               _vm._v(" "),
-              _c("div", { staticClass: "row my-4 " }, [
-                _vm._m(6),
-                _vm._v(" "),
-                _c("div", { staticClass: "col-12 col-sm-12 col-md-9" }, [
-                  _c(
-                    "div",
-                    { staticClass: "custom-control custom-radio mr-sm-2" },
-                    [
-                      _c("input", {
-                        directives: [
-                          {
-                            name: "model",
-                            rawName: "v-model",
-                            value: _vm.gender,
-                            expression: "gender"
-                          }
-                        ],
-                        staticClass: "custom-control-input",
-                        attrs: {
-                          type: "radio",
-                          name: "gender",
-                          value: "Male",
-                          id: "male"
-                        },
-                        domProps: { checked: _vm._q(_vm.gender, "Male") },
-                        on: {
-                          change: function($event) {
-                            _vm.gender = "Male"
-                          }
-                        }
-                      }),
-                      _vm._v(" "),
-                      _c(
-                        "label",
-                        {
-                          staticClass: "custom-control-label",
-                          attrs: { for: "male" }
-                        },
-                        [_vm._v("Male")]
-                      )
-                    ]
-                  ),
+              _c("div", { staticClass: "row" }, [
+                _c("div", { staticClass: "col-12 col-sm-12 col-md-10" }, [
+                  _vm._m(9),
                   _vm._v(" "),
-                  _c(
-                    "div",
-                    { staticClass: "custom-control custom-radio mr-sm-2" },
-                    [
-                      _c("input", {
-                        directives: [
-                          {
-                            name: "model",
-                            rawName: "v-model",
-                            value: _vm.gender,
-                            expression: "gender"
-                          }
-                        ],
-                        staticClass: "custom-control-input",
-                        attrs: {
-                          type: "radio",
-                          name: "gender",
-                          value: "Female",
-                          id: "female"
-                        },
-                        domProps: { checked: _vm._q(_vm.gender, "Female") },
-                        on: {
-                          change: function($event) {
-                            _vm.gender = "Female"
-                          }
-                        }
-                      }),
-                      _vm._v(" "),
+                  _c("div", { staticClass: "row px-3" }, [
+                    _c("div", { staticClass: "col-1dfd" }, [
                       _c(
-                        "label",
-                        {
-                          staticClass: "custom-control-label",
-                          attrs: { for: "female" }
-                        },
-                        [_vm._v("Female")]
+                        "div",
+                        { staticClass: "custom-control custom-radio mr-sm-2" },
+                        [
+                          _c("input", {
+                            directives: [
+                              {
+                                name: "model",
+                                rawName: "v-model",
+                                value: _vm.gender,
+                                expression: "gender"
+                              }
+                            ],
+                            staticClass: "custom-control-input",
+                            attrs: {
+                              type: "radio",
+                              name: "gender",
+                              value: "Male",
+                              id: "male"
+                            },
+                            domProps: { checked: _vm._q(_vm.gender, "Male") },
+                            on: {
+                              change: function($event) {
+                                _vm.gender = "Male"
+                              }
+                            }
+                          }),
+                          _vm._v(" "),
+                          _c(
+                            "label",
+                            {
+                              staticClass: "custom-control-label",
+                              attrs: { for: "male" }
+                            },
+                            [_vm._v("Male")]
+                          )
+                        ]
                       )
-                    ]
-                  ),
+                    ]),
+                    _vm._v(" "),
+                    _c("div", { staticClass: "col-1dfd" }, [
+                      _c(
+                        "div",
+                        { staticClass: "custom-control custom-radio mr-sm-2" },
+                        [
+                          _c("input", {
+                            directives: [
+                              {
+                                name: "model",
+                                rawName: "v-model",
+                                value: _vm.gender,
+                                expression: "gender"
+                              }
+                            ],
+                            staticClass: "custom-control-input",
+                            attrs: {
+                              type: "radio",
+                              name: "gender",
+                              value: "Female",
+                              id: "female"
+                            },
+                            domProps: { checked: _vm._q(_vm.gender, "Female") },
+                            on: {
+                              change: function($event) {
+                                _vm.gender = "Female"
+                              }
+                            }
+                          }),
+                          _vm._v(" "),
+                          _c(
+                            "label",
+                            {
+                              staticClass: "custom-control-label",
+                              attrs: { for: "female" }
+                            },
+                            [_vm._v("Female")]
+                          )
+                        ]
+                      )
+                    ])
+                  ]),
                   _vm._v(" "),
                   _vm.response_status.gender
                     ? _c("div", { staticClass: "text-danger" }, [
@@ -42923,71 +43073,81 @@ var staticRenderFns = [
     var _vm = this
     var _h = _vm.$createElement
     var _c = _vm._self._c || _h
-    return _c(
-      "div",
-      { staticClass: "col-12 col-sm-12 col-md-3 font-weight-bold" },
-      [_c("label", [_vm._v("Household Number")])]
-    )
+    return _c("div", { staticClass: " font-weight-bold" }, [
+      _c("label", [_vm._v("Household Number")])
+    ])
   },
   function() {
     var _vm = this
     var _h = _vm.$createElement
     var _c = _vm._self._c || _h
-    return _c(
-      "div",
-      { staticClass: "col-12 col-sm-12 col-md-3 font-weight-bold" },
-      [_c("label", [_vm._v("First Name")])]
-    )
+    return _c("div", { staticClass: " font-weight-bold" }, [
+      _c("label", [_vm._v("Street Name")])
+    ])
   },
   function() {
     var _vm = this
     var _h = _vm.$createElement
     var _c = _vm._self._c || _h
-    return _c(
-      "div",
-      { staticClass: "col-12 col-sm-12 col-md-3 font-weight-bold" },
-      [_c("label", [_vm._v("Middle Name")])]
-    )
+    return _c("div", { staticClass: "font-weight-bold" }, [
+      _c("label", [_vm._v("Barangay")])
+    ])
   },
   function() {
     var _vm = this
     var _h = _vm.$createElement
     var _c = _vm._self._c || _h
-    return _c(
-      "div",
-      { staticClass: "col-12 col-sm-12 col-md-3 font-weight-bold" },
-      [_c("label", [_vm._v("Last Name")])]
-    )
+    return _c("div", { staticClass: "font-weight-bold" }, [
+      _c("label", [_vm._v("First Name")])
+    ])
   },
   function() {
     var _vm = this
     var _h = _vm.$createElement
     var _c = _vm._self._c || _h
-    return _c(
-      "div",
-      { staticClass: "col-12 col-sm-12 col-md-3 font-weight-bold" },
-      [_c("label", [_vm._v("Age")])]
-    )
+    return _c("div", { staticClass: "font-weight-bold" }, [
+      _c("label", [_vm._v("Middle Name")])
+    ])
   },
   function() {
     var _vm = this
     var _h = _vm.$createElement
     var _c = _vm._self._c || _h
-    return _c(
-      "div",
-      { staticClass: "col-12 col-sm-12 col-md-3 font-weight-bold" },
-      [_c("label", [_vm._v("Student/Employed Status")])]
-    )
+    return _c("div", { staticClass: "font-weight-bold" }, [
+      _c("label", [_vm._v("Last Name")])
+    ])
   },
   function() {
     var _vm = this
     var _h = _vm.$createElement
     var _c = _vm._self._c || _h
-    return _c(
-      "div",
-      { staticClass: "col-12 col-sm-12 col-md-3 font-weight-bold" },
-      [_c("label", [_vm._v("Gender")])]
-    )
+    return _c("div", { staticClass: "font-weight-bold" }, [
+      _c("label", [_vm._v("Age")])
+    ])
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("div", { staticClass: "font-weight-bold" }, [
+      _c("label", [_vm._v("Student/Employed Status")])
+    ])
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("div", { staticClass: "font-weight-bold" }, [
+      _c("label", [_vm._v("Contact Number")])
+    ])
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("div", { staticClass: "font-weight-bold" }, [
+      _c("label", [_vm._v("Gender")])
+    ])
   }
 ]
 render._withStripped = true
