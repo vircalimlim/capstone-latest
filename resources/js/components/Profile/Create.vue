@@ -90,20 +90,6 @@
         <small> {{response_status.age[0]}}</small>
     </div>
   </div>
-  
-  <div class="col-12 col-sm-12 col-md-4 mb-4">
-  <div class="font-weight-bold">
-    <label>Student/Employed Status</label>
-  </div>
-  <select v-model="status" class="form-control" name="status">
-    <option value="0">None</option>
-    <option value="1">Student</option>
-    <option value="2">Employed</option>
-  </select>
-    <div class="text-danger" v-if="response_status.status">
-        <small> {{response_status.status[0]}}</small>
-    </div>
-  </div>
 
   <div class="col-12 col-sm-12 col-md-4 mb-4">
   <div class="font-weight-bold">
@@ -114,13 +100,8 @@
         <small> {{response_status.contact[0]}}</small>
     </div>
   </div>
-  
-</div>
 
-
-<div class="row">
-  
-  <div class="col-12 col-sm-12 col-md-10">
+  <div class="col-12 col-sm-12 col-md-4 mb-4">
   <div class="font-weight-bold">
     <label>Gender</label>
   </div>
@@ -132,6 +113,9 @@
         <input v-model="gender" type="radio" name="gender" value="Male" class="custom-control-input" id="male">
         <label class="custom-control-label" for="male">Male</label>
       </div>
+      <div class="text-danger" v-if="response_status.gender">
+        <small> {{response_status.gender[0]}}</small>
+    </div>
     </div>
      
     <div class="col-1dfd">
@@ -142,12 +126,6 @@
     </div>
 
     </div>
-
-  
-    <div class="text-danger" v-if="response_status.gender">
-        <small> {{response_status.gender[0]}}</small>
-    </div>
-    
     
   </div>
   
@@ -185,7 +163,6 @@ export default {
         lastname: '',
         age: '',
         gender: '',
-        status: '0',
         barangay: '',
         street: '',
         contact: '',
@@ -204,7 +181,6 @@ export default {
                 middlename: this.middlename,
                 lastname: this.lastname,
                 age: this.age,
-                status: this.status,
                 gender: this.gender,
                 barangay: this.barangay,
                 street: this.street,

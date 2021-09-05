@@ -2149,28 +2149,6 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
   mounted: function mounted() {
     document.querySelector('.css-loader').classList.add('d-none');
@@ -2184,7 +2162,6 @@ __webpack_require__.r(__webpack_exports__);
       lastname: '',
       age: '',
       gender: '',
-      status: '0',
       barangay: '',
       street: '',
       contact: '',
@@ -2203,7 +2180,6 @@ __webpack_require__.r(__webpack_exports__);
         middlename: this.middlename,
         lastname: this.lastname,
         age: this.age,
-        status: this.status,
         gender: this.gender,
         barangay: this.barangay,
         street: this.street,
@@ -42864,60 +42840,6 @@ var render = function() {
                 _c("div", { staticClass: "col-12 col-sm-12 col-md-4 mb-4" }, [
                   _vm._m(7),
                   _vm._v(" "),
-                  _c(
-                    "select",
-                    {
-                      directives: [
-                        {
-                          name: "model",
-                          rawName: "v-model",
-                          value: _vm.status,
-                          expression: "status"
-                        }
-                      ],
-                      staticClass: "form-control",
-                      attrs: { name: "status" },
-                      on: {
-                        change: function($event) {
-                          var $$selectedVal = Array.prototype.filter
-                            .call($event.target.options, function(o) {
-                              return o.selected
-                            })
-                            .map(function(o) {
-                              var val = "_value" in o ? o._value : o.value
-                              return val
-                            })
-                          _vm.status = $event.target.multiple
-                            ? $$selectedVal
-                            : $$selectedVal[0]
-                        }
-                      }
-                    },
-                    [
-                      _c("option", { attrs: { value: "0" } }, [_vm._v("None")]),
-                      _vm._v(" "),
-                      _c("option", { attrs: { value: "1" } }, [
-                        _vm._v("Student")
-                      ]),
-                      _vm._v(" "),
-                      _c("option", { attrs: { value: "2" } }, [
-                        _vm._v("Employed")
-                      ])
-                    ]
-                  ),
-                  _vm._v(" "),
-                  _vm.response_status.status
-                    ? _c("div", { staticClass: "text-danger" }, [
-                        _c("small", [
-                          _vm._v(" " + _vm._s(_vm.response_status.status[0]))
-                        ])
-                      ])
-                    : _vm._e()
-                ]),
-                _vm._v(" "),
-                _c("div", { staticClass: "col-12 col-sm-12 col-md-4 mb-4" }, [
-                  _vm._m(8),
-                  _vm._v(" "),
                   _c("input", {
                     directives: [
                       {
@@ -42952,12 +42874,10 @@ var render = function() {
                         ])
                       ])
                     : _vm._e()
-                ])
-              ]),
-              _vm._v(" "),
-              _c("div", { staticClass: "row" }, [
-                _c("div", { staticClass: "col-12 col-sm-12 col-md-10" }, [
-                  _vm._m(9),
+                ]),
+                _vm._v(" "),
+                _c("div", { staticClass: "col-12 col-sm-12 col-md-4 mb-4" }, [
+                  _vm._m(8),
                   _vm._v(" "),
                   _c("div", { staticClass: "row px-3" }, [
                     _c("div", { staticClass: "col-1dfd" }, [
@@ -42998,7 +42918,17 @@ var render = function() {
                             [_vm._v("Male")]
                           )
                         ]
-                      )
+                      ),
+                      _vm._v(" "),
+                      _vm.response_status.gender
+                        ? _c("div", { staticClass: "text-danger" }, [
+                            _c("small", [
+                              _vm._v(
+                                " " + _vm._s(_vm.response_status.gender[0])
+                              )
+                            ])
+                          ])
+                        : _vm._e()
                     ]),
                     _vm._v(" "),
                     _c("div", { staticClass: "col-1dfd" }, [
@@ -43041,15 +42971,7 @@ var render = function() {
                         ]
                       )
                     ])
-                  ]),
-                  _vm._v(" "),
-                  _vm.response_status.gender
-                    ? _c("div", { staticClass: "text-danger" }, [
-                        _c("small", [
-                          _vm._v(" " + _vm._s(_vm.response_status.gender[0]))
-                        ])
-                      ])
-                    : _vm._e()
+                  ])
                 ])
               ]),
               _vm._v(" "),
@@ -43123,14 +43045,6 @@ var staticRenderFns = [
     var _c = _vm._self._c || _h
     return _c("div", { staticClass: "font-weight-bold" }, [
       _c("label", [_vm._v("Age")])
-    ])
-  },
-  function() {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
-    return _c("div", { staticClass: "font-weight-bold" }, [
-      _c("label", [_vm._v("Student/Employed Status")])
     ])
   },
   function() {
