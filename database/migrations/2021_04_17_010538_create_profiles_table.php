@@ -21,6 +21,7 @@ class CreateProfilesTable extends Migration
             $table->string('firstname');
             $table->string('middlename');
             $table->string('lastname');
+            $table->date('birthdate');
             $table->integer('age');
             $table->unsignedBigInteger('contact')->nullable();
             $table->string('gender');

@@ -2149,6 +2149,16 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
   mounted: function mounted() {
     document.querySelector('.css-loader').classList.add('d-none');
@@ -2160,6 +2170,7 @@ __webpack_require__.r(__webpack_exports__);
       firstname: '',
       middlename: '',
       lastname: '',
+      birthdate: '',
       age: '',
       gender: '',
       barangay: '',
@@ -2179,6 +2190,7 @@ __webpack_require__.r(__webpack_exports__);
         firstname: this.firstname,
         middlename: this.middlename,
         lastname: this.lastname,
+        birthdate: this.birthdate,
         age: this.age,
         gender: this.gender,
         barangay: this.barangay,
@@ -2194,7 +2206,7 @@ __webpack_require__.r(__webpack_exports__);
           _this.houseNum = '';
           _this.firstname = '';
           _this.middlename = '';
-          _this.lastname = '', _this.age = '', _this.gender = '';
+          _this.lastname = '', _this.birthdate = '', _this.age = '', _this.gender = '';
           _this.barangay = '';
           _this.street = '';
           _this.contact = '';
@@ -2206,6 +2218,22 @@ __webpack_require__.r(__webpack_exports__);
       })["catch"](function (error) {
         return console.log(error);
       });
+    },
+    getAge: function getAge() {
+      var now = new Date();
+      var birthDate = new Date(this.birthdate);
+      var current_year = now.getFullYear();
+      var year_diff = current_year - birthDate.getFullYear(); //var birthday_this_year = current_year, birthDate.getMonth(), birthDate.getDate();
+
+      var has_had_birthday_this_year = now >= birthDate;
+
+      if (birthDate > now) {
+        this.age = 'Invalid Age';
+      } else if (year_diff == 0) {
+        this.age = year_diff + 1;
+      } else if (year_diff > 0) {
+        this.age = year_diff;
+      }
     }
   }
 });
@@ -42806,6 +42834,46 @@ var render = function() {
                       {
                         name: "model",
                         rawName: "v-model",
+                        value: _vm.birthdate,
+                        expression: "birthdate"
+                      }
+                    ],
+                    staticClass: "form-control ",
+                    attrs: {
+                      "data-provide": "datepicker",
+                      name: "birthdate",
+                      placeholder: "date",
+                      type: "date"
+                    },
+                    domProps: { value: _vm.birthdate },
+                    on: {
+                      change: _vm.getAge,
+                      input: function($event) {
+                        if ($event.target.composing) {
+                          return
+                        }
+                        _vm.birthdate = $event.target.value
+                      }
+                    }
+                  }),
+                  _vm._v(" "),
+                  _vm.response_status.birthdate
+                    ? _c("div", { staticClass: "text-danger" }, [
+                        _c("small", [
+                          _vm._v(" " + _vm._s(_vm.response_status.birthdate[0]))
+                        ])
+                      ])
+                    : _vm._e()
+                ]),
+                _vm._v(" "),
+                _c("div", { staticClass: "col-12 col-sm-12 col-md-4 mb-4" }, [
+                  _vm._m(7),
+                  _vm._v(" "),
+                  _c("input", {
+                    directives: [
+                      {
+                        name: "model",
+                        rawName: "v-model",
                         value: _vm.age,
                         expression: "age"
                       }
@@ -42813,7 +42881,7 @@ var render = function() {
                     staticClass: "form-control",
                     attrs: {
                       placeholder: "Age",
-                      type: "text",
+                      type: "number",
                       name: "age",
                       autocomplete: "age"
                     },
@@ -42838,7 +42906,7 @@ var render = function() {
                 ]),
                 _vm._v(" "),
                 _c("div", { staticClass: "col-12 col-sm-12 col-md-4 mb-4" }, [
-                  _vm._m(7),
+                  _vm._m(8),
                   _vm._v(" "),
                   _c("input", {
                     directives: [
@@ -42877,7 +42945,7 @@ var render = function() {
                 ]),
                 _vm._v(" "),
                 _c("div", { staticClass: "col-12 col-sm-12 col-md-4 mb-4" }, [
-                  _vm._m(8),
+                  _vm._m(9),
                   _vm._v(" "),
                   _c("div", { staticClass: "row px-3" }, [
                     _c("div", { staticClass: "col-1dfd" }, [
@@ -43037,6 +43105,14 @@ var staticRenderFns = [
     var _c = _vm._self._c || _h
     return _c("div", { staticClass: "font-weight-bold" }, [
       _c("label", [_vm._v("Last Name")])
+    ])
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("div", { staticClass: "font-weight-bold" }, [
+      _c("label", [_vm._v("Birthdate")])
     ])
   },
   function() {

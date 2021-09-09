@@ -80,12 +80,22 @@
 
 
 <div class="row">
-  
+
+  <div class="col-12 col-sm-12 col-md-4 mb-4">
+  <div class="font-weight-bold">
+    <label>Birthdate</label>
+  </div>
+  <input @change="getAge" data-provide="datepicker" v-model="birthdate" name="birthdate" placeholder="date" type="date" class="form-control ">
+    <div class="text-danger" v-if="response_status.birthdate">
+        <small> {{response_status.birthdate[0]}}</small>
+    </div>
+  </div>
+
   <div class="col-12 col-sm-12 col-md-4 mb-4">
   <div class="font-weight-bold">
     <label>Age</label>
   </div>
-  <input placeholder="Age" v-model="age" class="form-control" type="text" name="age" autocomplete="age"/>
+  <input placeholder="Age" v-model="age" class="form-control" type="number" name="age" autocomplete="age"/>
     <div class="text-danger" v-if="response_status.age">
         <small> {{response_status.age[0]}}</small>
     </div>
@@ -128,7 +138,7 @@
     </div>
     
   </div>
-  
+ 
 </div>
 
 
@@ -149,6 +159,7 @@
 </template>
 
 <script>
+
 export default {
     mounted(){
           document.querySelector('.css-loader').classList.add('d-none')
@@ -161,6 +172,7 @@ export default {
         firstname: '',
         middlename: '',
         lastname: '',
+        birthdate: '',
         age: '',
         gender: '',
         barangay: '',
@@ -168,8 +180,10 @@ export default {
         contact: '',
         response_status: '',
         loading: false,
+        
     }
 },
+
     methods: {
         submit(){
           
@@ -180,6 +194,7 @@ export default {
                 firstname: this.firstname,
                 middlename: this.middlename,
                 lastname: this.lastname,
+                birthdate: this.birthdate,
                 age: this.age,
                 gender: this.gender,
                 barangay: this.barangay,
@@ -197,6 +212,7 @@ export default {
                     this.firstname = ''
                     this.middlename = ''
                     this.lastname = '',
+                    this.birthdate = '',
                     this.age = '',
                     this.gender = ''
                     this.barangay = ''
@@ -210,6 +226,27 @@ export default {
                 }
             })
             .catch(error => console.log(error))
+        },
+
+      
+
+        getAge() {
+        var now = new Date();
+        var birthDate = new Date(this.birthdate);
+        var current_year = now.getFullYear();
+        var year_diff = current_year - birthDate.getFullYear();
+        //var birthday_this_year = current_year, birthDate.getMonth(), birthDate.getDate();
+        var has_had_birthday_this_year = (now >= birthDate);
+        if(birthDate > now){
+          this.age = 'Invalid Age';
+        }
+        else if(year_diff == 0){
+          this.age = year_diff + 1
+        }
+        else if(year_diff > 0){
+          this.age = year_diff
+        }
+        
         },
         
         

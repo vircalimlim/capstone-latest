@@ -47,6 +47,7 @@ class ProfileController extends Controller
           'firstname' => 'required|string|max:150|min:2',
           'middlename' => 'required|max:150',
           'lastname' => 'required|max:150|min:2',
+          'birthdate' => 'required',
           'age' => 'required|numeric',
           'gender' => 'required|string',
           'barangay' => 'required',
