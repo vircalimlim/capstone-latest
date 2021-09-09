@@ -7,6 +7,7 @@ use App\Models\Work;
 use App\Models\Student;
 use Illuminate\Http\Request;
 use Illuminate\Validation\ValidationException;
+use RealRashid\SweetAlert\Facades\Alert;
 
 
 class ProfileController extends Controller
@@ -102,12 +103,16 @@ class ProfileController extends Controller
     public function update(Request $request, Profile $profile)
     {
        $dataOfProfile = request()->validate([
-          'houseNum' => ['required', 'numeric'],
-          'firstname' => 'required',
-          'middlename' => 'required',
-          'lastname' => 'required',
-          'gender' => 'required',
-          'age' => 'required|numeric'
+        'houseNum' => 'required|numeric',
+        'firstname' => 'required|string|max:150|min:2',
+        'middlename' => 'required|max:150',
+        'lastname' => 'required|max:150|min:2',
+        'birthdate' => 'required',
+        'age' => 'required|numeric',
+        'gender' => 'required|string',
+        'barangay' => 'required',
+        'street' => 'nullable|string',
+        'contact' => 'nullable|numeric|digits:11'
           ]);
           
        $profile->update($dataOfProfile);
@@ -138,7 +143,7 @@ class ProfileController extends Controller
           
         }
         */
-        return redirect('/profile/'.$profile->id);
+        return redirect('/profile/'.$profile->id)->with('success', 'Updated successfully!');
           
     }
 
@@ -151,6 +156,6 @@ class ProfileController extends Controller
     public function destroy(Profile $profile)
     {
          $profile->delete();
-         return redirect('/profile');
+         return redirect('/profile')->with('success', 'Deleted successfully!');
     }
 }

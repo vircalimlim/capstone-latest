@@ -24,7 +24,7 @@
     </div>
     <div class="col text-primary py-2 headings">
       <h5 class="text-uppercase font-weight-bold m-0">{{$profile->lastname}}, {{$profile->firstname}} {{$profile->middlename}}</h5>
-      <p class="m-0">{{$profile->houseNum}} Sitio Bokig Brgy. Abonagan Malasiqui, Pangasinan </p>
+      <p class="m-0">{{$profile->houseNum}} {{$profile->street}}  Brgy. {{$profile->barangay}} Malasiqui, Pangasinan </p>
     </div>
   </div>
   
@@ -42,7 +42,7 @@
     
     <div class="col-12 col-sm-8 col-md-8">
       <p class=" px-3">
-        07/21/2021
+      {{$profile->birthdate}}
       </p>
     </div>
   </div>
@@ -70,40 +70,17 @@
   
   <div class="row align-items-center pl-4">
     <div class="col-12 col-sm-3 col-md-3">
-      <label><strong>Birthplace</strong></label>
-    </div>
-    
-    <div class="col-12 col-sm-8 col-md-8">
-      <p class=" px-3">
-        Malasiqui, Pangasinan
-      </p>
-    </div>
-  </div>
-  
-  
-  <div class="row align-items-center pl-4">
-    <div class="col-12 col-sm-3 col-md-3">
-      <label><strong>Civil Status</strong></label>
-    </div>
-    
-    <div class="col-12 col-sm-8 col-md-8">
-      <p class=" px-3">
-        Single
-      </p>
-    </div>
-  </div>
-  
-  <div class="row align-items-center pl-4">
-    <div class="col-12 col-sm-3 col-md-3">
       <label><strong>Contact Number</strong></label>
     </div>
     
     <div class="col-12 col-sm-8 col-md-8">
-      <p class=" px-3 ">
-        09496127012
+      <p class=" px-3">
+      {{$profile->contact ? 0 . $profile->contact : 'N/A'}}
+      
       </p>
     </div>
   </div>
+  
   
   
   
