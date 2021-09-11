@@ -40,7 +40,7 @@ Route::delete('/profile/{profile}/delete', [ProfileController::class, 'destroy']
 Route::get('/profile/{profile}/edit', [ProfileController::class, 'edit']);
 Route::patch('/profile/{profile}', [ProfileController::class, 'update']);
 
-Route::get('/importExportView', [ExcelController::class, 'importExportView']);
+Route::get('/importExportView', [ExcelController::class, 'importExportView'])->name('importExportView');
 Route::get('/export', [ExcelController::class, 'export'])->name('export');
 Route::post('/import', [ExcelController::class, 'import'])->name('import');
 

@@ -6,6 +6,7 @@ use App\Models\Blood;
 use App\Models\Profile;
 use Illuminate\Http\Request;
 use Illuminate\Validation\ValidationException;
+use RealRashid\SweetAlert\Facades\Alert;
 
 class BloodController extends Controller
 {
@@ -47,7 +48,8 @@ class BloodController extends Controller
         
         try {
         $profile->blood()->create($data);
-        return redirect('/profile/'. $profile->id)->with('success', 'Created successfully!');
+        //Alert::success('Saved', 'Successfully');
+        return redirect('/profile/'. $profile->id)->with('success', 'Saved');
         }
         catch (\Exception $e){
             return redirect()->back()

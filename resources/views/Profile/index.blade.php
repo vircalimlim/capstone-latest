@@ -3,7 +3,8 @@
 
   <div class="row justify-content-center pt-4">
     <div class="px-0 pb-2 col-12 col-md-9">
-      <a class="btn btn-warning" href="{{ route('export') }}">Export User Data</a>
+      <a class="btn btn-outline-success" href="{{ route('export') }}">Export Patient Data</a>
+      <a class="btn btn-primary" href="{{ route('importExportView') }}">Import Patient Data</a>
     </div>
   </div>
 

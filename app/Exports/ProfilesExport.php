@@ -13,12 +13,12 @@ class ProfilesExport implements FromCollection, WithHeadings
     */
     public function collection()
     {
-        return Profile::get(['houseNum', 'firstname', 'middlename', 'lastname', 'gender', 'age']);
+        return Profile::get(["houseNum", "street", "barangay", "firstname", "middlename", "lastname", "gender", "birthdate", "age", "contact"]);
     }
 
 
     public function headings(): array
     {
-        return ["houseNum", "firstname", "middlename", "lastname", "gender", "age"];
+        return ["houseNum", "street", "barangay", "firstname", "middlename", "lastname", "gender", "birthdate", "age", "contact"];
     }
 }

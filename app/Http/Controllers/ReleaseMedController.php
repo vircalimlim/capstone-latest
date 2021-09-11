@@ -66,7 +66,7 @@ class ReleaseMedController extends Controller
         $profile->medicine()->attach($data['medicine_id'], $data);
         $medicine->update(['quantity' => $totalQuantity
           ]);
-        return redirect('/profile/'.$profile->id)->with('success', 'Created successfully!');
+        return redirect('/profile/'.$profile->id)->with('success', 'Saved');
         }
         catch (\Exception $e){
           return redirect()->back()

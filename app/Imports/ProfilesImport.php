@@ -5,6 +5,7 @@ namespace App\Imports;
 use App\Models\Profile;
 use Maatwebsite\Excel\Concerns\ToModel;
 use Maatwebsite\Excel\Concerns\WithHeadingRow;
+use RealRashid\SweetAlert\Facades\Alert;
 
 class ProfilesImport implements ToModel, WithHeadingRow
 {
@@ -16,7 +17,8 @@ class ProfilesImport implements ToModel, WithHeadingRow
     public function model(array $row)
     {
         //dd($row['age']);
-        return new Profile($row);
+        $profile = new Profile($row);
+        return $profile;
       
     }
 
