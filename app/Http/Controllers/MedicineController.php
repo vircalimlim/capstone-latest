@@ -14,8 +14,7 @@ class MedicineController extends Controller
      */
     public function index()
     {
-        $medicines = Medicine::get();
-        return view('Medicine.index', compact('medicines'));
+        
     }
 
     /**
@@ -25,7 +24,8 @@ class MedicineController extends Controller
      */
     public function create()
     {
-        //
+        $medicines = Medicine::get();
+        return view('Medicine.create', compact('medicines'));
     }
 
     /**

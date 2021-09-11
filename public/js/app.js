@@ -7248,7 +7248,7 @@ __webpack_require__.r(__webpack_exports__);
 
 var ___CSS_LOADER_EXPORT___ = _node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_0___default()(function(i){return i[1]});
 // Module
-___CSS_LOADER_EXPORT___.push([module.id, "\nbody{\n    font-size: 12px;\n    height: 100vh;\n}\n.pointer{\n    cursor: pointer;\n}\n.logout{\n    outline: none;\n    font-size: 1.3rem;\n    border: none;\n    color: white;\n    padding: 5px 10px;\n    border-radius: 5px;\n}\nnav{\n    height: 100vh;\n    min-width: 40%;\n    max-width: 60%;\n    position: fixed;\n    top: 3.5rem;\n    left: 0;\n    z-index: 99;\n    background: #70baff;\n    padding: 5px 5px 100px 5px;\n}\n.overlay{\n    position: absolute;\n    width: 100%;\n    height: 100vh;\n    z-index: 999;\n}\n.navbar-button{\n    opacity: .7;\n}\n.navbar-button:hover{\n    opacity: 1;\n    cursor: pointer;\n}\n.navbar{\n    height: 3.5rem;\n    position: fixed;\n    top: 0;\n    left: 0;\n    width: 100%;\n    z-index: 99;\n}\n.list{\n    font-size: 1.2rem;\n    color: #f6f6f6;\n}\na{\n    padding: 10px 5px;\n    text-decoration: none !important;\n}\n.caret-bottom{\n    transform: rotate(90deg);\n    transition: all .3s ease;\n}\n.dropdown-list{\n    font-size: 1.1rem;\ncolor: #f6f6f6;\n}\n.nav-enter{\n  opacity: .5;\n  transform: rotate(90deg);\n}\n.nav-enter-active{\n  transition: all .3s ease;\n}\n.fade-enter-active, .fade-leave-active {\n  transition: all .5s ease;\n}\n.fade-enter, .fade-leave-to /* .fade-leave-active below version 2.1.8 */ {\n  opacity: 0; \n  transform: translateX(-50px);\n}\n.dropdown-enter-active, .dropdown-leave-active {\n  transition: all .5s ease;\n}\n.dropdown-enter, .dropdown-leave-to /* .fade-leave-active below version 2.1.8 */ {\n  opacity: 0; \n  transform: translateY(-20px);\n}\n\n    \n    \n", ""]);
+___CSS_LOADER_EXPORT___.push([module.id, "\nbody{\n    font-size: 12px;\n    height: 100vh;\n}\n.pointer{\n    cursor: pointer;\n}\n.logout{\n    outline: none;\n    font-size: 1.3rem;\n    border: none;\n    color: white;\n    padding: 5px 10px;\n    border-radius: 5px;\n}\n#sidenav{\n    height: 100vh;\n    min-width: 40%;\n    max-width: 60%;\n    position: fixed;\n    top: 3.5rem;\n    left: 0;\n    z-index: 99;\n    background: #70baff;\n    padding: 5px 5px 100px 5px;\n}\n.overlay{\n    position: absolute;\n    width: 100%;\n    height: 100vh;\n    z-index: 999;\n}\n.navbar-button{\n    opacity: .7;\n}\n.navbar-button:hover{\n    opacity: 1;\n    cursor: pointer;\n}\n.navbar{\n    height: 3.5rem;\n    position: fixed;\n    top: 0;\n    left: 0;\n    width: 100%;\n    z-index: 99;\n}\n.list{\n    font-size: 1.2rem;\n    color: #f6f6f6;\n}\na{\n    padding: 10px 5px;\n    text-decoration: none !important;\n}\n.caret-bottom{\n    transform: rotate(90deg);\n    transition: all .3s ease;\n}\n.dropdown-list{\n    font-size: 1.1rem;\ncolor: #f6f6f6;\n}\n.nav-enter{\n  opacity: .5;\n  transform: rotate(90deg);\n}\n.nav-enter-active{\n  transition: all .3s ease;\n}\n.fade-enter-active, .fade-leave-active {\n  transition: all .5s ease;\n}\n.fade-enter, .fade-leave-to /* .fade-leave-active below version 2.1.8 */ {\n  opacity: 0; \n  transform: translateX(-50px);\n}\n.dropdown-enter-active, .dropdown-leave-active {\n  transition: all .5s ease;\n}\n.dropdown-enter, .dropdown-leave-to /* .fade-leave-active below version 2.1.8 */ {\n  opacity: 0; \n  transform: translateY(-20px);\n}\n\n    \n    \n", ""]);
 // Exports
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (___CSS_LOADER_EXPORT___);
 
@@ -43875,397 +43875,351 @@ var render = function() {
         _vm._v(" "),
         _c("transition", { attrs: { name: "fade" } }, [
           _vm.show
-            ? _c("nav", { staticClass: "overflow-auto pb-6" }, [
-                _c(
-                  "div",
-                  {
-                    staticClass:
-                      "d-flex align-items-center py-1 px-2 text-light "
-                  },
-                  [
-                    _c("img", {
-                      staticClass: "d-none d-sm-block",
-                      attrs: { alt: "image" }
-                    }),
-                    _vm._v(" "),
-                    _c("h4", { staticClass: " dm-1" }, [
-                      _vm._v("Barangay Health Record")
-                    ])
-                  ]
-                ),
-                _vm._v(" "),
-                _c("hr", {}),
-                _vm._v(" "),
-                _c(
-                  "div",
-                  { staticClass: "list" },
-                  [
-                    _c(
-                      "div",
-                      {
-                        staticClass:
-                          "px-2 border-bottom d-flex align-items-center"
-                      },
-                      [
-                        _c(
-                          "a",
-                          {
-                            staticClass:
-                              "my-1 px-0 text-light d-flex justify-content-between align-items-center",
-                            attrs: { href: "/" }
-                          },
-                          [
-                            _c(
-                              "svg",
-                              {
-                                staticClass: " bi bi-speedometer2",
-                                attrs: {
-                                  xmlns: "http://www.w3.org/2000/svg",
-                                  width: "25",
-                                  height: "25",
-                                  fill: "currentColor",
-                                  viewBox: "0 0 16 16"
-                                }
-                              },
-                              [
-                                _c("path", {
+            ? _c(
+                "nav",
+                { staticClass: "overflow-auto pb-6", attrs: { id: "sidenav" } },
+                [
+                  _c(
+                    "div",
+                    {
+                      staticClass:
+                        "d-flex align-items-center py-1 px-2 text-light "
+                    },
+                    [
+                      _c("img", {
+                        staticClass: "d-none d-sm-block",
+                        attrs: { alt: "image" }
+                      }),
+                      _vm._v(" "),
+                      _c("h4", { staticClass: " dm-1" }, [
+                        _vm._v("Barangay Health Record")
+                      ])
+                    ]
+                  ),
+                  _vm._v(" "),
+                  _c("hr", {}),
+                  _vm._v(" "),
+                  _c(
+                    "div",
+                    { staticClass: "list" },
+                    [
+                      _c(
+                        "div",
+                        {
+                          staticClass:
+                            "px-2 border-bottom d-flex align-items-center"
+                        },
+                        [
+                          _c(
+                            "a",
+                            {
+                              staticClass:
+                                "my-1 px-0 text-light d-flex justify-content-between align-items-center",
+                              attrs: { href: "/" }
+                            },
+                            [
+                              _c(
+                                "svg",
+                                {
+                                  staticClass: " bi bi-speedometer2",
                                   attrs: {
-                                    d:
-                                      "M8 4a.5.5 0 0 1 .5.5V6a.5.5 0 0 1-1 0V4.5A.5.5 0 0 1 8 4zM3.732 5.732a.5.5 0 0 1 .707 0l.915.914a.5.5 0 1 1-.708.708l-.914-.915a.5.5 0 0 1 0-.707zM2 10a.5.5 0 0 1 .5-.5h1.586a.5.5 0 0 1 0 1H2.5A.5.5 0 0 1 2 10zm9.5 0a.5.5 0 0 1 .5-.5h1.5a.5.5 0 0 1 0 1H12a.5.5 0 0 1-.5-.5zm.754-4.246a.389.389 0 0 0-.527-.02L7.547 9.31a.91.91 0 1 0 1.302 1.258l3.434-4.297a.389.389 0 0 0-.029-.518z"
+                                    xmlns: "http://www.w3.org/2000/svg",
+                                    width: "25",
+                                    height: "25",
+                                    fill: "currentColor",
+                                    viewBox: "0 0 16 16"
                                   }
-                                }),
-                                _vm._v(" "),
-                                _c("path", {
-                                  attrs: {
-                                    "fill-rule": "evenodd",
-                                    d:
-                                      "M0 10a8 8 0 1 1 15.547 2.661c-.442 1.253-1.845 1.602-2.932 1.25C11.309 13.488 9.475 13 8 13c-1.474 0-3.31.488-4.615.911-1.087.352-2.49.003-2.932-1.25A7.988 7.988 0 0 1 0 10zm8-7a7 7 0 0 0-6.603 9.329c.203.575.923.876 1.68.63C4.397 12.533 6.358 12 8 12s3.604.532 4.923.96c.757.245 1.477-.056 1.68-.631A7 7 0 0 0 8 3z"
-                                  }
-                                })
-                              ]
-                            ),
-                            _vm._v("  \r\n    Dashboard")
-                          ]
-                        )
-                      ]
-                    ),
-                    _vm._v(" "),
-                    _c(
-                      "div",
-                      {
-                        staticClass:
-                          "dropdown px-2 pb-2 border-bottom d-flex align-items-center",
-                        on: { click: _vm.dropdown }
-                      },
-                      [
-                        _c(
-                          "svg",
-                          {
-                            staticClass: "bi bi-people",
-                            attrs: {
-                              xmlns: "http://www.w3.org/2000/svg",
-                              width: "25",
-                              height: "25",
-                              fill: "currentColor",
-                              viewBox: "0 0 16 16"
-                            }
-                          },
-                          [
-                            _c("path", {
+                                },
+                                [
+                                  _c("path", {
+                                    attrs: {
+                                      d:
+                                        "M8 4a.5.5 0 0 1 .5.5V6a.5.5 0 0 1-1 0V4.5A.5.5 0 0 1 8 4zM3.732 5.732a.5.5 0 0 1 .707 0l.915.914a.5.5 0 1 1-.708.708l-.914-.915a.5.5 0 0 1 0-.707zM2 10a.5.5 0 0 1 .5-.5h1.586a.5.5 0 0 1 0 1H2.5A.5.5 0 0 1 2 10zm9.5 0a.5.5 0 0 1 .5-.5h1.5a.5.5 0 0 1 0 1H12a.5.5 0 0 1-.5-.5zm.754-4.246a.389.389 0 0 0-.527-.02L7.547 9.31a.91.91 0 1 0 1.302 1.258l3.434-4.297a.389.389 0 0 0-.029-.518z"
+                                    }
+                                  }),
+                                  _vm._v(" "),
+                                  _c("path", {
+                                    attrs: {
+                                      "fill-rule": "evenodd",
+                                      d:
+                                        "M0 10a8 8 0 1 1 15.547 2.661c-.442 1.253-1.845 1.602-2.932 1.25C11.309 13.488 9.475 13 8 13c-1.474 0-3.31.488-4.615.911-1.087.352-2.49.003-2.932-1.25A7.988 7.988 0 0 1 0 10zm8-7a7 7 0 0 0-6.603 9.329c.203.575.923.876 1.68.63C4.397 12.533 6.358 12 8 12s3.604.532 4.923.96c.757.245 1.477-.056 1.68-.631A7 7 0 0 0 8 3z"
+                                    }
+                                  })
+                                ]
+                              ),
+                              _vm._v("  \r\n    Dashboard")
+                            ]
+                          )
+                        ]
+                      ),
+                      _vm._v(" "),
+                      _c(
+                        "div",
+                        {
+                          staticClass:
+                            "dropdown px-2 pb-2 border-bottom d-flex align-items-center",
+                          on: { click: _vm.dropdown }
+                        },
+                        [
+                          _c(
+                            "svg",
+                            {
+                              staticClass: "bi bi-people",
                               attrs: {
-                                d:
-                                  "M15 14s1 0 1-1-1-4-5-4-5 3-5 4 1 1 1 1h8zm-7.978-1A.261.261 0 0 1 7 12.996c.001-.264.167-1.03.76-1.72C8.312 10.629 9.282 10 11 10c1.717 0 2.687.63 3.24 1.276.593.69.758 1.457.76 1.72l-.008.002a.274.274 0 0 1-.014.002H7.022zM11 7a2 2 0 1 0 0-4 2 2 0 0 0 0 4zm3-2a3 3 0 1 1-6 0 3 3 0 0 1 6 0zM6.936 9.28a5.88 5.88 0 0 0-1.23-.247A7.35 7.35 0 0 0 5 9c-4 0-5 3-5 4 0 .667.333 1 1 1h4.216A2.238 2.238 0 0 1 5 13c0-1.01.377-2.042 1.09-2.904.243-.294.526-.569.846-.816zM4.92 10A5.493 5.493 0 0 0 4 13H1c0-.26.164-1.03.76-1.724.545-.636 1.492-1.256 3.16-1.275zM1.5 5.5a3 3 0 1 1 6 0 3 3 0 0 1-6 0zm3-2a2 2 0 1 0 0 4 2 2 0 0 0 0-4z"
+                                xmlns: "http://www.w3.org/2000/svg",
+                                width: "25",
+                                height: "25",
+                                fill: "currentColor",
+                                viewBox: "0 0 16 16"
                               }
-                            })
-                          ]
-                        ),
-                        _vm._v("  \r\n    "),
-                        _c(
-                          "a",
-                          {
-                            staticClass: "my-1 pl-1 text-light pointer",
-                            attrs: { role: "button" }
-                          },
-                          [_vm._v("\r\n    Residents\r\n    ")]
-                        ),
-                        _vm._v(" "),
-                        _c(
-                          "div",
-                          { staticClass: "flex-grow-1 caret  text-right" },
-                          [
-                            _c(
-                              "svg",
-                              {
-                                staticClass: "text-right bi bi-caret-right",
-                                class: { "caret-bottom": _vm.drop },
+                            },
+                            [
+                              _c("path", {
                                 attrs: {
-                                  xmlns: "http://www.w3.org/2000/svg",
-                                  width: "20",
-                                  height: "20",
-                                  fill: "currentColor",
-                                  viewBox: "0 0 16 16"
+                                  d:
+                                    "M15 14s1 0 1-1-1-4-5-4-5 3-5 4 1 1 1 1h8zm-7.978-1A.261.261 0 0 1 7 12.996c.001-.264.167-1.03.76-1.72C8.312 10.629 9.282 10 11 10c1.717 0 2.687.63 3.24 1.276.593.69.758 1.457.76 1.72l-.008.002a.274.274 0 0 1-.014.002H7.022zM11 7a2 2 0 1 0 0-4 2 2 0 0 0 0 4zm3-2a3 3 0 1 1-6 0 3 3 0 0 1 6 0zM6.936 9.28a5.88 5.88 0 0 0-1.23-.247A7.35 7.35 0 0 0 5 9c-4 0-5 3-5 4 0 .667.333 1 1 1h4.216A2.238 2.238 0 0 1 5 13c0-1.01.377-2.042 1.09-2.904.243-.294.526-.569.846-.816zM4.92 10A5.493 5.493 0 0 0 4 13H1c0-.26.164-1.03.76-1.724.545-.636 1.492-1.256 3.16-1.275zM1.5 5.5a3 3 0 1 1 6 0 3 3 0 0 1-6 0zm3-2a2 2 0 1 0 0 4 2 2 0 0 0 0-4z"
                                 }
-                              },
-                              [
-                                _c("path", {
+                              })
+                            ]
+                          ),
+                          _vm._v("  \r\n    "),
+                          _c(
+                            "a",
+                            {
+                              staticClass: "my-1 pl-1 text-light pointer",
+                              attrs: { role: "button" }
+                            },
+                            [_vm._v("\r\n    Residents\r\n    ")]
+                          ),
+                          _vm._v(" "),
+                          _c(
+                            "div",
+                            { staticClass: "flex-grow-1 caret  text-right" },
+                            [
+                              _c(
+                                "svg",
+                                {
+                                  staticClass: "text-right bi bi-caret-right",
+                                  class: { "caret-bottom": _vm.drop },
                                   attrs: {
-                                    d:
-                                      "M6 12.796V3.204L11.481 8 6 12.796zm.659.753 5.48-4.796a1 1 0 0 0 0-1.506L6.66 2.451C6.011 1.885 5 2.345 5 3.204v9.592a1 1 0 0 0 1.659.753z"
+                                    xmlns: "http://www.w3.org/2000/svg",
+                                    width: "20",
+                                    height: "20",
+                                    fill: "currentColor",
+                                    viewBox: "0 0 16 16"
                                   }
-                                })
-                              ]
-                            )
-                          ]
-                        )
-                      ]
-                    ),
-                    _vm._v(" "),
-                    _c("transition", { attrs: { name: "dropdown" } }, [
-                      _vm.drop
-                        ? _c("div", { staticClass: "dropdown-list" }, [
-                            _c(
-                              "div",
-                              { staticClass: "pl-4 py-2  border-bottom" },
-                              [
-                                _c(
-                                  "a",
-                                  {
-                                    staticClass: "text-light",
-                                    attrs: { href: "/profile/create" }
-                                  },
-                                  [
-                                    _c(
-                                      "svg",
-                                      {
-                                        staticClass: "bi bi-person-plus",
-                                        attrs: {
-                                          xmlns: "http://www.w3.org/2000/svg",
-                                          width: "1.2rem",
-                                          height: "1.2rem",
-                                          fill: "currentColor",
-                                          viewBox: "0 0 16 16"
-                                        }
-                                      },
-                                      [
-                                        _c("path", {
+                                },
+                                [
+                                  _c("path", {
+                                    attrs: {
+                                      d:
+                                        "M6 12.796V3.204L11.481 8 6 12.796zm.659.753 5.48-4.796a1 1 0 0 0 0-1.506L6.66 2.451C6.011 1.885 5 2.345 5 3.204v9.592a1 1 0 0 0 1.659.753z"
+                                    }
+                                  })
+                                ]
+                              )
+                            ]
+                          )
+                        ]
+                      ),
+                      _vm._v(" "),
+                      _c("transition", { attrs: { name: "dropdown" } }, [
+                        _vm.drop
+                          ? _c("div", { staticClass: "dropdown-list" }, [
+                              _c(
+                                "div",
+                                { staticClass: "pl-4 py-2  border-bottom" },
+                                [
+                                  _c(
+                                    "a",
+                                    {
+                                      staticClass: "text-light",
+                                      attrs: { href: "/profile/create" }
+                                    },
+                                    [
+                                      _c(
+                                        "svg",
+                                        {
+                                          staticClass: "bi bi-person-plus",
                                           attrs: {
-                                            d:
-                                              "M6 8a3 3 0 1 0 0-6 3 3 0 0 0 0 6zm2-3a2 2 0 1 1-4 0 2 2 0 0 1 4 0zm4 8c0 1-1 1-1 1H1s-1 0-1-1 1-4 6-4 6 3 6 4zm-1-.004c-.001-.246-.154-.986-.832-1.664C9.516 10.68 8.289 10 6 10c-2.29 0-3.516.68-4.168 1.332-.678.678-.83 1.418-.832 1.664h10z"
+                                            xmlns: "http://www.w3.org/2000/svg",
+                                            width: "1.2rem",
+                                            height: "1.2rem",
+                                            fill: "currentColor",
+                                            viewBox: "0 0 16 16"
                                           }
-                                        }),
-                                        _vm._v(" "),
-                                        _c("path", {
+                                        },
+                                        [
+                                          _c("path", {
+                                            attrs: {
+                                              d:
+                                                "M6 8a3 3 0 1 0 0-6 3 3 0 0 0 0 6zm2-3a2 2 0 1 1-4 0 2 2 0 0 1 4 0zm4 8c0 1-1 1-1 1H1s-1 0-1-1 1-4 6-4 6 3 6 4zm-1-.004c-.001-.246-.154-.986-.832-1.664C9.516 10.68 8.289 10 6 10c-2.29 0-3.516.68-4.168 1.332-.678.678-.83 1.418-.832 1.664h10z"
+                                            }
+                                          }),
+                                          _vm._v(" "),
+                                          _c("path", {
+                                            attrs: {
+                                              "fill-rule": "evenodd",
+                                              d:
+                                                "M13.5 5a.5.5 0 0 1 .5.5V7h1.5a.5.5 0 0 1 0 1H14v1.5a.5.5 0 0 1-1 0V8h-1.5a.5.5 0 0 1 0-1H13V5.5a.5.5 0 0 1 .5-.5z"
+                                            }
+                                          })
+                                        ]
+                                      ),
+                                      _vm._v("\r\n      Add Resident\r\n    ")
+                                    ]
+                                  )
+                                ]
+                              ),
+                              _vm._v(" "),
+                              _c(
+                                "div",
+                                { staticClass: "pl-4 py-2 border-bottom" },
+                                [
+                                  _c(
+                                    "a",
+                                    {
+                                      staticClass: "text-light",
+                                      attrs: { href: "/profile" }
+                                    },
+                                    [
+                                      _c(
+                                        "svg",
+                                        {
+                                          staticClass:
+                                            "bi bi-person-lines-fill",
                                           attrs: {
-                                            "fill-rule": "evenodd",
-                                            d:
-                                              "M13.5 5a.5.5 0 0 1 .5.5V7h1.5a.5.5 0 0 1 0 1H14v1.5a.5.5 0 0 1-1 0V8h-1.5a.5.5 0 0 1 0-1H13V5.5a.5.5 0 0 1 .5-.5z"
+                                            xmlns: "http://www.w3.org/2000/svg",
+                                            width: "16",
+                                            height: "16",
+                                            fill: "currentColor",
+                                            viewBox: "0 0 16 16"
                                           }
-                                        })
-                                      ]
-                                    ),
-                                    _vm._v("\r\n      Add Resident\r\n    ")
-                                  ]
-                                )
-                              ]
-                            ),
-                            _vm._v(" "),
-                            _c(
-                              "div",
-                              { staticClass: "pl-4 py-2 border-bottom" },
-                              [
-                                _c(
-                                  "a",
-                                  {
-                                    staticClass: "text-light",
-                                    attrs: { href: "/profile" }
-                                  },
-                                  [
-                                    _c(
-                                      "svg",
-                                      {
-                                        staticClass: "bi bi-person-lines-fill",
-                                        attrs: {
-                                          xmlns: "http://www.w3.org/2000/svg",
-                                          width: "16",
-                                          height: "16",
-                                          fill: "currentColor",
-                                          viewBox: "0 0 16 16"
-                                        }
-                                      },
-                                      [
-                                        _c("path", {
-                                          attrs: {
-                                            d:
-                                              "M6 8a3 3 0 1 0 0-6 3 3 0 0 0 0 6zm-5 6s-1 0-1-1 1-4 6-4 6 3 6 4-1 1-1 1H1zM11 3.5a.5.5 0 0 1 .5-.5h4a.5.5 0 0 1 0 1h-4a.5.5 0 0 1-.5-.5zm.5 2.5a.5.5 0 0 0 0 1h4a.5.5 0 0 0 0-1h-4zm2 3a.5.5 0 0 0 0 1h2a.5.5 0 0 0 0-1h-2zm0 3a.5.5 0 0 0 0 1h2a.5.5 0 0 0 0-1h-2z"
-                                          }
-                                        })
-                                      ]
-                                    ),
-                                    _vm._v("\r\n    Show Resident\r\n  ")
-                                  ]
-                                )
-                              ]
-                            )
-                          ])
-                        : _vm._e()
-                    ]),
-                    _vm._v(" "),
-                    _c(
-                      "div",
-                      {
-                        staticClass:
-                          "px-2 border-bottom d-flex align-items-center"
-                      },
-                      [
-                        _c(
-                          "a",
-                          {
-                            staticClass:
-                              "my-1 px-0 text-light d-flex justify-content-between align-items-center",
-                            attrs: { href: "/bp" }
-                          },
-                          [
-                            _c(
-                              "svg",
-                              {
-                                staticClass: "bi bi-droplet-half",
-                                attrs: {
-                                  xmlns: "http://www.w3.org/2000/svg",
-                                  width: "25",
-                                  height: "25",
-                                  fill: "currentColor",
-                                  viewBox: "0 0 16 16"
-                                }
-                              },
-                              [
-                                _c("path", {
+                                        },
+                                        [
+                                          _c("path", {
+                                            attrs: {
+                                              d:
+                                                "M6 8a3 3 0 1 0 0-6 3 3 0 0 0 0 6zm-5 6s-1 0-1-1 1-4 6-4 6 3 6 4-1 1-1 1H1zM11 3.5a.5.5 0 0 1 .5-.5h4a.5.5 0 0 1 0 1h-4a.5.5 0 0 1-.5-.5zm.5 2.5a.5.5 0 0 0 0 1h4a.5.5 0 0 0 0-1h-4zm2 3a.5.5 0 0 0 0 1h2a.5.5 0 0 0 0-1h-2zm0 3a.5.5 0 0 0 0 1h2a.5.5 0 0 0 0-1h-2z"
+                                            }
+                                          })
+                                        ]
+                                      ),
+                                      _vm._v("\r\n    Show Resident\r\n  ")
+                                    ]
+                                  )
+                                ]
+                              )
+                            ])
+                          : _vm._e()
+                      ]),
+                      _vm._v(" "),
+                      _c(
+                        "div",
+                        {
+                          staticClass:
+                            "px-2 border-bottom d-flex align-items-center"
+                        },
+                        [
+                          _c(
+                            "a",
+                            {
+                              staticClass:
+                                "my-1 px-0 text-light d-flex justify-content-between align-items-center",
+                              attrs: { href: "/bp" }
+                            },
+                            [
+                              _c(
+                                "svg",
+                                {
+                                  staticClass: "bi bi-droplet-half",
                                   attrs: {
-                                    "fill-rule": "evenodd",
-                                    d:
-                                      "M7.21.8C7.69.295 8 0 8 0c.109.363.234.708.371 1.038.812 1.946 2.073 3.35 3.197 4.6C12.878 7.096 14 8.345 14 10a6 6 0 0 1-12 0C2 6.668 5.58 2.517 7.21.8zm.413 1.021A31.25 31.25 0 0 0 5.794 3.99c-.726.95-1.436 2.008-1.96 3.07C3.304 8.133 3 9.138 3 10c0 0 2.5 1.5 5 .5s5-.5 5-.5c0-1.201-.796-2.157-2.181-3.7l-.03-.032C9.75 5.11 8.5 3.72 7.623 1.82z"
+                                    xmlns: "http://www.w3.org/2000/svg",
+                                    width: "25",
+                                    height: "25",
+                                    fill: "currentColor",
+                                    viewBox: "0 0 16 16"
                                   }
-                                }),
-                                _vm._v(" "),
-                                _c("path", {
+                                },
+                                [
+                                  _c("path", {
+                                    attrs: {
+                                      "fill-rule": "evenodd",
+                                      d:
+                                        "M7.21.8C7.69.295 8 0 8 0c.109.363.234.708.371 1.038.812 1.946 2.073 3.35 3.197 4.6C12.878 7.096 14 8.345 14 10a6 6 0 0 1-12 0C2 6.668 5.58 2.517 7.21.8zm.413 1.021A31.25 31.25 0 0 0 5.794 3.99c-.726.95-1.436 2.008-1.96 3.07C3.304 8.133 3 9.138 3 10c0 0 2.5 1.5 5 .5s5-.5 5-.5c0-1.201-.796-2.157-2.181-3.7l-.03-.032C9.75 5.11 8.5 3.72 7.623 1.82z"
+                                    }
+                                  }),
+                                  _vm._v(" "),
+                                  _c("path", {
+                                    attrs: {
+                                      "fill-rule": "evenodd",
+                                      d:
+                                        "M4.553 7.776c.82-1.641 1.717-2.753 2.093-3.13l.708.708c-.29.29-1.128 1.311-1.907 2.87l-.894-.448z"
+                                    }
+                                  })
+                                ]
+                              ),
+                              _vm._v("  \r\n    Patients Blood Pressure")
+                            ]
+                          )
+                        ]
+                      ),
+                      _vm._v(" "),
+                      _c(
+                        "div",
+                        {
+                          staticClass:
+                            "px-2 border-bottom d-flex align-items-center"
+                        },
+                        [
+                          _c(
+                            "a",
+                            {
+                              staticClass:
+                                "my-1 px-0 text-light d-flex justify-content-between align-items-center",
+                              attrs: { href: "/medicine" }
+                            },
+                            [
+                              _c(
+                                "svg",
+                                {
+                                  staticClass: "bi bi-droplet-half",
                                   attrs: {
-                                    "fill-rule": "evenodd",
-                                    d:
-                                      "M4.553 7.776c.82-1.641 1.717-2.753 2.093-3.13l.708.708c-.29.29-1.128 1.311-1.907 2.87l-.894-.448z"
+                                    xmlns: "http://www.w3.org/2000/svg",
+                                    width: "25",
+                                    height: "25",
+                                    fill: "currentColor",
+                                    viewBox: "0 0 16 16"
                                   }
-                                })
-                              ]
-                            ),
-                            _vm._v("  \r\n    Patients Blood Pressure")
-                          ]
-                        )
-                      ]
-                    ),
-                    _vm._v(" "),
-                    _c(
-                      "div",
-                      {
-                        staticClass:
-                          "px-2 border-bottom d-flex align-items-center"
-                      },
-                      [
-                        _c(
-                          "a",
-                          {
-                            staticClass:
-                              "my-1 px-0 text-light d-flex justify-content-between align-items-center",
-                            attrs: { href: "/medicine" }
-                          },
-                          [
-                            _c(
-                              "svg",
-                              {
-                                staticClass: "bi bi-droplet-half",
-                                attrs: {
-                                  xmlns: "http://www.w3.org/2000/svg",
-                                  width: "25",
-                                  height: "25",
-                                  fill: "currentColor",
-                                  viewBox: "0 0 16 16"
-                                }
-                              },
-                              [
-                                _c("path", {
-                                  attrs: {
-                                    "fill-rule": "evenodd",
-                                    d:
-                                      "M7.21.8C7.69.295 8 0 8 0c.109.363.234.708.371 1.038.812 1.946 2.073 3.35 3.197 4.6C12.878 7.096 14 8.345 14 10a6 6 0 0 1-12 0C2 6.668 5.58 2.517 7.21.8zm.413 1.021A31.25 31.25 0 0 0 5.794 3.99c-.726.95-1.436 2.008-1.96 3.07C3.304 8.133 3 9.138 3 10c0 0 2.5 1.5 5 .5s5-.5 5-.5c0-1.201-.796-2.157-2.181-3.7l-.03-.032C9.75 5.11 8.5 3.72 7.623 1.82z"
-                                  }
-                                }),
-                                _vm._v(" "),
-                                _c("path", {
-                                  attrs: {
-                                    "fill-rule": "evenodd",
-                                    d:
-                                      "M4.553 7.776c.82-1.641 1.717-2.753 2.093-3.13l.708.708c-.29.29-1.128 1.311-1.907 2.87l-.894-.448z"
-                                  }
-                                })
-                              ]
-                            ),
-                            _vm._v("  \r\n    Add Medicine")
-                          ]
-                        )
-                      ]
-                    ),
-                    _vm._v(" "),
-                    _c(
-                      "div",
-                      {
-                        staticClass:
-                          "px-2 border-bottom d-flex align-items-center"
-                      },
-                      [
-                        _c(
-                          "a",
-                          {
-                            staticClass:
-                              "my-1 px-0 text-light d-flex justify-content-between align-items-center",
-                            attrs: { href: "/releasemed" }
-                          },
-                          [
-                            _c(
-                              "svg",
-                              {
-                                staticClass: "bi bi-droplet-half",
-                                attrs: {
-                                  xmlns: "http://www.w3.org/2000/svg",
-                                  width: "25",
-                                  height: "25",
-                                  fill: "currentColor",
-                                  viewBox: "0 0 16 16"
-                                }
-                              },
-                              [
-                                _c("path", {
-                                  attrs: {
-                                    "fill-rule": "evenodd",
-                                    d:
-                                      "M7.21.8C7.69.295 8 0 8 0c.109.363.234.708.371 1.038.812 1.946 2.073 3.35 3.197 4.6C12.878 7.096 14 8.345 14 10a6 6 0 0 1-12 0C2 6.668 5.58 2.517 7.21.8zm.413 1.021A31.25 31.25 0 0 0 5.794 3.99c-.726.95-1.436 2.008-1.96 3.07C3.304 8.133 3 9.138 3 10c0 0 2.5 1.5 5 .5s5-.5 5-.5c0-1.201-.796-2.157-2.181-3.7l-.03-.032C9.75 5.11 8.5 3.72 7.623 1.82z"
-                                  }
-                                }),
-                                _vm._v(" "),
-                                _c("path", {
-                                  attrs: {
-                                    "fill-rule": "evenodd",
-                                    d:
-                                      "M4.553 7.776c.82-1.641 1.717-2.753 2.093-3.13l.708.708c-.29.29-1.128 1.311-1.907 2.87l-.894-.448z"
-                                  }
-                                })
-                              ]
-                            ),
-                            _vm._v("  \r\n    Release Medicine")
-                          ]
-                        )
-                      ]
-                    )
-                  ],
-                  1
-                )
-              ])
+                                },
+                                [
+                                  _c("path", {
+                                    attrs: {
+                                      "fill-rule": "evenodd",
+                                      d:
+                                        "M7.21.8C7.69.295 8 0 8 0c.109.363.234.708.371 1.038.812 1.946 2.073 3.35 3.197 4.6C12.878 7.096 14 8.345 14 10a6 6 0 0 1-12 0C2 6.668 5.58 2.517 7.21.8zm.413 1.021A31.25 31.25 0 0 0 5.794 3.99c-.726.95-1.436 2.008-1.96 3.07C3.304 8.133 3 9.138 3 10c0 0 2.5 1.5 5 .5s5-.5 5-.5c0-1.201-.796-2.157-2.181-3.7l-.03-.032C9.75 5.11 8.5 3.72 7.623 1.82z"
+                                    }
+                                  }),
+                                  _vm._v(" "),
+                                  _c("path", {
+                                    attrs: {
+                                      "fill-rule": "evenodd",
+                                      d:
+                                        "M4.553 7.776c.82-1.641 1.717-2.753 2.093-3.13l.708.708c-.29.29-1.128 1.311-1.907 2.87l-.894-.448z"
+                                    }
+                                  })
+                                ]
+                              ),
+                              _vm._v("  \r\n    Add Medicine")
+                            ]
+                          )
+                        ]
+                      )
+                    ],
+                    1
+                  )
+                ]
+              )
             : _vm._e()
         ])
       ],

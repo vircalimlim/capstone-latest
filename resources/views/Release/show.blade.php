@@ -36,7 +36,7 @@
           <th>Concern</th>
         </tr>
         
-        @foreach($profile->medicine->reverse()->take(5) as $med)
+        @foreach($profiles as $med)
         <tr>
           <td>{{$med->med_name}}</td>
           <td>{{$med->pivot->date_released}}</td>
@@ -46,7 +46,11 @@
         @endforeach
         
       </table>
-     
+      
+      <div class="row justify-content-center">
+        <div class="">{!! $profiles->links() !!}</div>
+      </div>
+
     </div>
     </div>
 

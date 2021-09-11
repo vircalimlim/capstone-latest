@@ -36,7 +36,7 @@
         </tr>
 
         
-        @foreach($profile->blood as $blood)
+        @foreach($profiles as $blood)
         <tr>
           <td>{{ $blood->sp }} / {{$blood->dp }}</td>
           <td>{{ $blood->check_date }}</td>
@@ -48,7 +48,11 @@
         @endforeach
         
       </table>
-     
+      
+      <div class="row justify-content-center">
+      <div class="">{!! $profiles->links() !!}</div>
+      </div>
+
     </div>
     </div>
 

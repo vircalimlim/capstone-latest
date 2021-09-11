@@ -54,7 +54,7 @@ Route::get('/bp/{profile}', [BloodController::class, 'create']);
 Route::post('/bp/{profile}', [BloodController::class, 'store']);
 Route::get('/bp/{profile}/show', [BloodController::class, 'show']);
 
-Route::get('/medicine', [MedicineController::class, 'index']);
+Route::get('/medicine', [MedicineController::class, 'create']);
 Route::post('/medicine', [MedicineController::class, 'store']);
 
 Route::get('/releasemed', [ReleaseMedController::class, 'index']);

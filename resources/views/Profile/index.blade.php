@@ -53,6 +53,10 @@
     
   </table>
 
+  <div class="row justify-content-center">
+    <div class="">{!! $profiles->links() !!}</div>
+  </div>
+  
     </div>
   </div>
 

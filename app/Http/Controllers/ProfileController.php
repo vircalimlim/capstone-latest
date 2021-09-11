@@ -19,7 +19,7 @@ class ProfileController extends Controller
      */
     public function index()
     {
-        $profiles = Profile::get();
+        $profiles = Profile::paginate(10);
         return view('Profile.index', compact(['profiles']));
     }
 

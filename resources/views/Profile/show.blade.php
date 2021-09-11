@@ -144,7 +144,7 @@
         
       </table>
 
-      @if(count($profile->blood) > 5)
+      @if(count($profile->blood) > 4)
       <div class="row">
         <div class="col text-center bg-light rounded">
           <a href="/bp/{{$profile->id}}/show" class="text-center">See all</a>
@@ -184,8 +184,8 @@
         @endforelse
       </table>
 
-      @if(count($profile->medicine) > 5)
-      <div class="row">
+      @if(count($profile->medicine) > 4)
+      <div class="row mb-2">
         <div class="col text-center bg-light rounded">
           <a href="/releasemed/{{$profile->id}}/show" class="text-center">See all</a>
         </div>

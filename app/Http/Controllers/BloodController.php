@@ -68,7 +68,8 @@ class BloodController extends Controller
      */
     public function show(Profile $profile)
     {
-        return view('Bp.show', compact('profile'));
+        $profiles = $profile->blood()->paginate(10);
+        return view('Bp.show', compact(['profiles', 'profile']));
     }
 
     /**

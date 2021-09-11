@@ -27,7 +27,8 @@ class ReleaseMedController extends Controller
      */
     public function index()
     {
-        $profiles = Profile::paginate(1);
+        $profiles = Profile::get();
+        //$medicine = 
         return view('Release.index', compact('profiles'));
     }
     
@@ -84,7 +85,8 @@ class ReleaseMedController extends Controller
      */
     public function show(Profile $profile)
     {
-        return view('Release.show', compact('profile'));
+        $profiles = $profile->medicine()->paginate(10);
+        return view('Release.show', compact(['profile', 'profiles']));
     }
 
     /**
