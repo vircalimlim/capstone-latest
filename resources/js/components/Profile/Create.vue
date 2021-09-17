@@ -4,7 +4,7 @@
 <div class="row mt-md-3 py-2 justify-content-around">
 <div class="py-4 px-4 text-secondary rounded shadow-sm bg-white font-weight-light col-12 col-md-11 col-lg-9">
   
-<h3 class="text-center pb-4">Create Profile</h3>
+<h3 class="text-center pb-4">Fill up patients information</h3>
 
 <form method="POST" action="/profile" @submit.prevent="submit">
   <input type="hidden" name="_token" :value="csrf">

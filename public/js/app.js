@@ -2665,6 +2665,39 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
   mounted: function mounted() {
     document.querySelector('.css-loader').classList.add('d-none');
@@ -2673,7 +2706,8 @@ __webpack_require__.r(__webpack_exports__);
     return {
       csrf: document.querySelector('meta[name="csrf-token"]').getAttribute('content'),
       show: false,
-      drop: false
+      drop: false,
+      dropmed: false
     };
   },
   methods: {
@@ -2682,6 +2716,9 @@ __webpack_require__.r(__webpack_exports__);
     },
     dropdown: function dropdown() {
       this.drop = !this.drop;
+    },
+    dropdownmed: function dropdownmed() {
+      this.dropmed = !this.dropmed;
     }
   }
 });
@@ -42565,7 +42602,7 @@ var render = function() {
         },
         [
           _c("h3", { staticClass: "text-center pb-4" }, [
-            _vm._v("Create Profile")
+            _vm._v("Fill up patients information")
           ]),
           _vm._v(" "),
           _c(
@@ -43989,7 +44026,7 @@ var render = function() {
                               staticClass: "my-1 pl-1 text-light pointer",
                               attrs: { role: "button" }
                             },
-                            [_vm._v("\r\n    Residents\r\n    ")]
+                            [_vm._v("\r\n    Patients\r\n    ")]
                           ),
                           _vm._v(" "),
                           _c(
@@ -44066,7 +44103,7 @@ var render = function() {
                                           })
                                         ]
                                       ),
-                                      _vm._v("\r\n      Add Resident\r\n    ")
+                                      _vm._v("\r\n      Add Patients\r\n    ")
                                     ]
                                   )
                                 ]
@@ -44105,7 +44142,7 @@ var render = function() {
                                           })
                                         ]
                                       ),
-                                      _vm._v("\r\n    Show Resident\r\n  ")
+                                      _vm._v("\r\n    Show Patients\r\n  ")
                                     ]
                                   )
                                 ]
@@ -44169,25 +44206,61 @@ var render = function() {
                         "div",
                         {
                           staticClass:
-                            "px-2 border-bottom d-flex align-items-center"
+                            "dropdownmed px-2 pb-2 border-bottom d-flex align-items-center",
+                          on: { click: _vm.dropdownmed }
                         },
                         [
                           _c(
+                            "svg",
+                            {
+                              staticClass: "bi bi-plus-circle",
+                              attrs: {
+                                xmlns: "http://www.w3.org/2000/svg",
+                                width: "25",
+                                height: "25",
+                                fill: "currentColor",
+                                viewBox: "0 0 16 16"
+                              }
+                            },
+                            [
+                              _c("path", {
+                                attrs: {
+                                  d:
+                                    "M8 15A7 7 0 1 1 8 1a7 7 0 0 1 0 14zm0 1A8 8 0 1 0 8 0a8 8 0 0 0 0 16z"
+                                }
+                              }),
+                              _vm._v(" "),
+                              _c("path", {
+                                attrs: {
+                                  d:
+                                    "M8 4a.5.5 0 0 1 .5.5v3h3a.5.5 0 0 1 0 1h-3v3a.5.5 0 0 1-1 0v-3h-3a.5.5 0 0 1 0-1h3v-3A.5.5 0 0 1 8 4z"
+                                }
+                              })
+                            ]
+                          ),
+                          _vm._v(" "),
+                          _c(
                             "a",
                             {
-                              staticClass:
-                                "my-1 px-0 text-light d-flex justify-content-between align-items-center",
-                              attrs: { href: "/medicine" }
+                              staticClass: "my-1 pl-1 text-light pointer",
+                              attrs: { role: "button" }
                             },
+                            [_vm._v("\r\n    Medicine\r\n    ")]
+                          ),
+                          _vm._v(" "),
+                          _c(
+                            "div",
+                            { staticClass: "flex-grow-1 caret  text-right" },
                             [
                               _c(
                                 "svg",
                                 {
-                                  staticClass: "bi bi-droplet-half",
+                                  staticClass: "text-right bi bi-caret-right",
+                                  class: { "caret-bottom": _vm.drop },
                                   attrs: {
                                     xmlns: "http://www.w3.org/2000/svg",
-                                    width: "25",
-                                    height: "25",
+                                    width: "20",
+                                    height: "20",
                                     fill: "currentColor",
                                     viewBox: "0 0 16 16"
                                   }
@@ -44195,26 +44268,107 @@ var render = function() {
                                 [
                                   _c("path", {
                                     attrs: {
-                                      "fill-rule": "evenodd",
                                       d:
-                                        "M7.21.8C7.69.295 8 0 8 0c.109.363.234.708.371 1.038.812 1.946 2.073 3.35 3.197 4.6C12.878 7.096 14 8.345 14 10a6 6 0 0 1-12 0C2 6.668 5.58 2.517 7.21.8zm.413 1.021A31.25 31.25 0 0 0 5.794 3.99c-.726.95-1.436 2.008-1.96 3.07C3.304 8.133 3 9.138 3 10c0 0 2.5 1.5 5 .5s5-.5 5-.5c0-1.201-.796-2.157-2.181-3.7l-.03-.032C9.75 5.11 8.5 3.72 7.623 1.82z"
-                                    }
-                                  }),
-                                  _vm._v(" "),
-                                  _c("path", {
-                                    attrs: {
-                                      "fill-rule": "evenodd",
-                                      d:
-                                        "M4.553 7.776c.82-1.641 1.717-2.753 2.093-3.13l.708.708c-.29.29-1.128 1.311-1.907 2.87l-.894-.448z"
+                                        "M6 12.796V3.204L11.481 8 6 12.796zm.659.753 5.48-4.796a1 1 0 0 0 0-1.506L6.66 2.451C6.011 1.885 5 2.345 5 3.204v9.592a1 1 0 0 0 1.659.753z"
                                     }
                                   })
                                 ]
-                              ),
-                              _vm._v("  \r\n    Add Medicine")
+                              )
                             ]
                           )
                         ]
-                      )
+                      ),
+                      _vm._v(" "),
+                      _c("transition", { attrs: { name: "dropdown" } }, [
+                        _vm.dropmed
+                          ? _c("div", { staticClass: "dropdown-list" }, [
+                              _c(
+                                "div",
+                                { staticClass: "pl-4 py-2  border-bottom" },
+                                [
+                                  _c(
+                                    "a",
+                                    {
+                                      staticClass: "text-light",
+                                      attrs: { href: "/medicine/create" }
+                                    },
+                                    [
+                                      _c(
+                                        "svg",
+                                        {
+                                          staticClass: "bi bi-person-plus",
+                                          attrs: {
+                                            xmlns: "http://www.w3.org/2000/svg",
+                                            width: "1.2rem",
+                                            height: "1.2rem",
+                                            fill: "currentColor",
+                                            viewBox: "0 0 16 16"
+                                          }
+                                        },
+                                        [
+                                          _c("path", {
+                                            attrs: {
+                                              d:
+                                                "M6 8a3 3 0 1 0 0-6 3 3 0 0 0 0 6zm2-3a2 2 0 1 1-4 0 2 2 0 0 1 4 0zm4 8c0 1-1 1-1 1H1s-1 0-1-1 1-4 6-4 6 3 6 4zm-1-.004c-.001-.246-.154-.986-.832-1.664C9.516 10.68 8.289 10 6 10c-2.29 0-3.516.68-4.168 1.332-.678.678-.83 1.418-.832 1.664h10z"
+                                            }
+                                          }),
+                                          _vm._v(" "),
+                                          _c("path", {
+                                            attrs: {
+                                              "fill-rule": "evenodd",
+                                              d:
+                                                "M13.5 5a.5.5 0 0 1 .5.5V7h1.5a.5.5 0 0 1 0 1H14v1.5a.5.5 0 0 1-1 0V8h-1.5a.5.5 0 0 1 0-1H13V5.5a.5.5 0 0 1 .5-.5z"
+                                            }
+                                          })
+                                        ]
+                                      ),
+                                      _vm._v("\r\n      Add Medicine\r\n    ")
+                                    ]
+                                  )
+                                ]
+                              ),
+                              _vm._v(" "),
+                              _c(
+                                "div",
+                                { staticClass: "pl-4 py-2 border-bottom" },
+                                [
+                                  _c(
+                                    "a",
+                                    {
+                                      staticClass: "text-light",
+                                      attrs: { href: "/medicine" }
+                                    },
+                                    [
+                                      _c(
+                                        "svg",
+                                        {
+                                          staticClass:
+                                            "bi bi-person-lines-fill",
+                                          attrs: {
+                                            xmlns: "http://www.w3.org/2000/svg",
+                                            width: "16",
+                                            height: "16",
+                                            fill: "currentColor",
+                                            viewBox: "0 0 16 16"
+                                          }
+                                        },
+                                        [
+                                          _c("path", {
+                                            attrs: {
+                                              d:
+                                                "M6 8a3 3 0 1 0 0-6 3 3 0 0 0 0 6zm-5 6s-1 0-1-1 1-4 6-4 6 3 6 4-1 1-1 1H1zM11 3.5a.5.5 0 0 1 .5-.5h4a.5.5 0 0 1 0 1h-4a.5.5 0 0 1-.5-.5zm.5 2.5a.5.5 0 0 0 0 1h4a.5.5 0 0 0 0-1h-4zm2 3a.5.5 0 0 0 0 1h2a.5.5 0 0 0 0-1h-2zm0 3a.5.5 0 0 0 0 1h2a.5.5 0 0 0 0-1h-2z"
+                                            }
+                                          })
+                                        ]
+                                      ),
+                                      _vm._v("\r\n    Show Medicine\r\n  ")
+                                    ]
+                                  )
+                                ]
+                              )
+                            ])
+                          : _vm._e()
+                      ])
                     ],
                     1
                   )

@@ -14,7 +14,8 @@ class MedicineController extends Controller
      */
     public function index()
     {
-        
+        $medicines = Medicine::paginate(10);
+        return view('Medicine.index', compact('medicines'));
     }
 
     /**
@@ -37,17 +38,13 @@ class MedicineController extends Controller
     public function store(Request $request)
     {
         $data = $request->validate([
-          'med_id_num' => 'required',
           'med_name' => 'required',
           'med_type' => 'required',
-          'description' => 'required',
           'quantity' => 'required',
-          'supplier_name' => 'required',
           'date_received' => 'required',
-          'expiry_date' => 'required'
           ]);
         Medicine::create($data);
-        return back();
+        return redirect('medicine/create')->with('success', 'Saved');
     }
 
     /**
