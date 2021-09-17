@@ -11,6 +11,7 @@ use App\Http\Controllers\MedicineController;
 use App\Http\Controllers\ReleaseMedController;
 use App\Http\Controllers\ExcelController;
 use App\Http\Controllers\HTMLPDFController;
+use App\Http\Controllers\VaccineController;
 
 /*
 |--------------------------------------------------------------------------
@@ -63,5 +64,8 @@ Route::post('/releasemed/{profile}', [ReleaseMedController::class, 'store']);
 Route::get('/releasemed/{profile}/show', [ReleaseMedController::class, 'show']);
 
 Route::get('/html-pdf', [HTMLPDFController::class, 'htmlPdf'])->name('htmlPdf');
+
+Route::get('/vaccine/{profile}', [VaccineController::class, 'create']);
+Route::post('/vaccine/{profile}', [VaccineController::class, 'store']);
 
 });

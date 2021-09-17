@@ -260,6 +260,18 @@
     </div>
     </div>
 
+    <div class="row hover align-items-center pl-4 py-2">
+    <div class="col">
+      <label><strong> Vaccine </strong></label>
+    </div>
+    
+    <div class="col">
+      <a href="/vaccine/{{$profile->id}}" class="btn btn-outline-success px-3 ">
+        Go
+      </a>
+    </div>
+    </div>
+
   </div>
   </div>
 </div>
