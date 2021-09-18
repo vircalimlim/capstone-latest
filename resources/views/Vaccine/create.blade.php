@@ -9,7 +9,7 @@
 
 <div class="my-2 bg-white border p-4">
  
-<h3>Vaccination Record Form</h3> 
+<h3>Immunization Record Form</h3> 
 <form method="POST" action="/vaccine/{{$profile->id}}">
 @csrf
 <div class="row">
@@ -21,10 +21,10 @@
   </div>
   
   <div class="col-12 col-md-6">
-    <label>Vaccine Type</label>
+    <label>Immunization Type</label>
     <div class="align-items-center">
-    <input type="text" placeholder="Vaccine type ex. polio vaccine" class="form-control mr-2 @error('vaccine_type') is-invalid @enderror" name="vaccine_type">
-    @error('vaccine_type')
+    <input type="text" placeholder="Immunization type ex. polio vaccine" class="form-control mr-2 @error('immunization_type') is-invalid @enderror" name="immunization_type">
+    @error('immunization_type')
     <div class="col-4 p-0 ml-1 text-danger">
       <small>{{$message}}</small>
     </div>

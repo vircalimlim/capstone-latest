@@ -166,6 +166,50 @@
     </div>
   </div>
 
+  <div class="row px-3 my-3">
+    <div class="col-12 bg-light">
+      <h5 class="pt-2">Immunization History</h5>
+    </div>
+  </div>
+  
+  <div class="row">
+    <div class="col">
+      <table class="table table-hover">
+        <tr>
+          <th>Immunization Type</th>
+          <th>Medical concern</th>
+          <th>Checkup Date</th>
+          
+          
+        </tr>
+
+        
+        @forelse($profile->vaccine->reverse()->take(5) as $vaccine)
+        <tr>
+          <td>{{ $vaccine->immunization_type }}</td>
+          <td>{{ $vaccine->medical_concern }}</td>
+          <td>{{ $vaccine->check_date }}</td>
+          
+        </tr>
+
+        @empty
+        <caption class="text-center"><h4>No data</h4></caption>
+        
+        @endforelse
+        
+      </table>
+
+      @if(count($profile->blood) > 4)
+      <div class="row">
+        <div class="col text-center bg-light rounded">
+          <a href="/bp/{{$profile->id}}/show" class="text-center">See all</a>
+        </div>
+      </div>
+      @endif
+
+    </div>
+    </div>
+
   
   <div class="text-right">
     <div class="d-inline p-2">
@@ -233,7 +277,7 @@
 
     <div class="row hover align-items-center pl-4 py-2">
     <div class="col">
-      <label><strong> Vaccine </strong></label>
+      <label><strong> Immunization </strong></label>
     </div>
     
     <div class="col">

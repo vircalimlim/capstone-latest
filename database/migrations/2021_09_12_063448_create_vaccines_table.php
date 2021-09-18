@@ -16,7 +16,7 @@ class CreateVaccinesTable extends Migration
         Schema::create('vaccines', function (Blueprint $table) {
             $table->id();
             $table->foreignId('profile_id')->constrained('profiles')->onDelete('cascade');
-            $table->string('vaccine_type');
+            $table->string('immunization_type');
             $table->text('med_concern')->nullable();
             $table->date('check_date');
         });

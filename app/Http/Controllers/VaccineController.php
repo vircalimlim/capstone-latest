@@ -37,7 +37,7 @@ class VaccineController extends Controller
     public function store(Request $request, Profile $profile)
     {
         $data = $request->validate([
-            'vaccine_type' => 'required',
+            'immunization_type' => 'required',
             'med_concern' => 'nullable',
             'check_date' => 'required'
         ]);
