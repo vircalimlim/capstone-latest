@@ -12,7 +12,7 @@
 
     <div class="row py-3">
         <div class="col border-bottom border-info text-lizght py-2 headings">
-        <h3 class="text-capitalize">Blood pressure history</h3>
+        <h3 class="text-capitalize">Immunization history</h3>
         </div>
     </div>
 
@@ -30,19 +30,17 @@
     <div class="col">
       <table class="table table-hover">
         <tr>
-          <th>Blood Pressure</th>
+          <th>Immunization</th>
           <th>Checkup Date</th>
-          <!-- <th>Action</th> -->
+          <th>Medical concern</th>
         </tr>
 
         
-        @foreach($profiles as $blood)
+        @foreach($profiles as $vaccine)
         <tr>
-          <td>{{ $blood->sp }} / {{$blood->dp }}</td>
-          <td>{{ $blood->check_date }}</td>
-          <!-- <td>
-            <span class="px-1 text-danger">Delete</span>
-          </td> -->
+          <td>{{ $vaccine->immunization_type }}</td>
+          <td>{{ $vaccine->check_date }}</td>
+          <td>{{ $vaccine->med_concern }}</td>
         </tr>
         
         @endforeach

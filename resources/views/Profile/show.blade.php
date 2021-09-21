@@ -156,7 +156,7 @@
       </table>
 
       @if(count($profile->medicine) > 4)
-      <div class="row mb-2">
+      <div class="row">
         <div class="col text-center bg-light rounded">
           <a href="/releasemed/{{$profile->id}}/show" class="text-center">See all</a>
         </div>
@@ -177,8 +177,8 @@
       <table class="table table-hover">
         <tr>
           <th>Immunization Type</th>
-          <th>Medical concern</th>
           <th>Checkup Date</th>
+          <th>Medical concern</th>
           
           
         </tr>
@@ -187,8 +187,8 @@
         @forelse($profile->vaccine->reverse()->take(5) as $vaccine)
         <tr>
           <td>{{ $vaccine->immunization_type }}</td>
-          <td>{{ $vaccine->medical_concern }}</td>
           <td>{{ $vaccine->check_date }}</td>
+          <td>{{ $vaccine->med_concern }}</td>
           
         </tr>
 
@@ -199,10 +199,10 @@
         
       </table>
 
-      @if(count($profile->blood) > 4)
-      <div class="row">
+      @if(count($profile->vaccine) > 4)
+      <div class="row mb-2">
         <div class="col text-center bg-light rounded">
-          <a href="/bp/{{$profile->id}}/show" class="text-center">See all</a>
+          <a href="/vaccine/{{$profile->id}}/show" class="text-center">See all</a>
         </div>
       </div>
       @endif

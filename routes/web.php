@@ -68,5 +68,6 @@ Route::get('/html-pdf', [HTMLPDFController::class, 'htmlPdf'])->name('htmlPdf');
 
 Route::get('/vaccine/{profile}', [VaccineController::class, 'create']);
 Route::post('/vaccine/{profile}', [VaccineController::class, 'store']);
+Route::get('/vaccine/{profile}/show', [VaccineController::class, 'show']);
 
 });

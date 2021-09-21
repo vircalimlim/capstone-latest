@@ -43,7 +43,7 @@ class VaccineController extends Controller
         ]);
 
         $profile->vaccine()->create($data);
-        return back();
+        return redirect('/vaccine/'.$profile->id)->with('success', 'Saved!');
     }
 
     /**
@@ -52,9 +52,10 @@ class VaccineController extends Controller
      * @param  \App\Models\Vaccine  $vaccine
      * @return \Illuminate\Http\Response
      */
-    public function show(Vaccine $vaccine)
+    public function show(Vaccine $vaccine, Profile $profile)
     {
-        //
+        $profiles = $profile->vaccine()->paginate(10);
+        return view('Vaccine.show', compact(['profile', 'profiles']));
     }
 
     /**
