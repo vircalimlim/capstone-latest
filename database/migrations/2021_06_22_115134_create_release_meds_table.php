@@ -17,7 +17,7 @@ class CreateReleaseMedsTable extends Migration
             $table->id();
             $table->foreignId('medicine_id');
             $table->string('res_name');
-            $table->text('concern');
+            $table->text('concern')->nullable();
             $table->date('date_released');
             
         });

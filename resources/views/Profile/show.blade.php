@@ -210,6 +210,50 @@
     </div>
     </div>
 
+@if($profile->gender == "Female")
+    <div class="row px-3 my-3">
+    <div class="col-12 bg-light">
+      <h5 class="pt-2">Prenatal History</h5>
+    </div>
+  </div>
+
+    <div class="row">
+    <div class="col">
+      <table class="table table-hover">
+        <tr>
+          <th>Last Menstrual Period</th>
+          <th>Checkup Date</th>
+          
+          
+        </tr>
+
+        
+        @forelse($profile->prenatal->reverse()->take(5) as $prenatal)
+        <tr>
+          <td>{{ $prenatal->lmp }}</td>
+          <td>{{ $prenatal->check_date }}</td>
+          
+        </tr>
+
+        @empty
+        <caption class="text-center"><h4>No data</h4></caption>
+        
+        @endforelse
+        
+      </table>
+
+      @if(count($profile->prenatal) > 4)
+      <div class="row mb-2">
+        <div class="col text-center bg-light rounded">
+          <a href="/vaccine/{{$profile->id}}/show" class="text-center">See all</a>
+        </div>
+      </div>
+      @endif
+
+    </div>
+    </div>
+    @endif
+
   
   <div class="text-right">
     <div class="d-inline p-2">
@@ -263,7 +307,7 @@
     </div>
   </div>
   
-  <div class="row hover align-items-center pl-4 py-2">
+  <!-- <div class="row hover align-items-center pl-4 py-2">
     <div class="col">
       <label><strong> Check-up </strong></label>
     </div>
@@ -273,7 +317,7 @@
         Go
       </a>
     </div>
-    </div>
+    </div> -->
 
     <div class="row hover align-items-center pl-4 py-2">
     <div class="col">
@@ -286,6 +330,19 @@
       </a>
     </div>
     </div>
+@if($profile->gender == 'Female')
+    <div class="row hover align-items-center pl-4 py-2">
+    <div class="col">
+      <label><strong> Prenatal </strong></label>
+    </div>
+    
+    <div class="col">
+      <a href="/prenatal/{{$profile->id}}/create" class="btn btn-outline-success px-3 ">
+        Go
+      </a>
+    </div>
+    </div>
+@endif
 
   </div>
   </div>

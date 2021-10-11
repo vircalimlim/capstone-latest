@@ -26,6 +26,10 @@ class Profile extends Model
     public function vaccine(){
       return $this->hasMany(Vaccine::class);
     }
+
+    public function prenatal(){
+      return $this->hasMany(Prenatal::class);
+    }
     
     public function medicine(){
       return $this->belongsToMany(Medicine::class)->withPivot('quantity', 'date_released', 'concern');

@@ -12,6 +12,7 @@ use App\Http\Controllers\ReleaseMedController;
 use App\Http\Controllers\ExcelController;
 use App\Http\Controllers\HTMLPDFController;
 use App\Http\Controllers\VaccineController;
+use App\Http\Controllers\PrenatalController;
 
 /*
 |--------------------------------------------------------------------------
@@ -70,4 +71,6 @@ Route::get('/vaccine/{profile}', [VaccineController::class, 'create']);
 Route::post('/vaccine/{profile}', [VaccineController::class, 'store']);
 Route::get('/vaccine/{profile}/show', [VaccineController::class, 'show']);
 
+Route::get('/prenatal/{profile}/create', [PrenatalController::class, 'create']);
+Route::post('/prenatal/{profile}', [PrenatalController::class, 'store']);
 });

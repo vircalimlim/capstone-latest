@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreateMedicineProfileTable extends Migration
+class CreatePrenatalsTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,13 +13,12 @@ class CreateMedicineProfileTable extends Migration
      */
     public function up()
     {
-        Schema::create('medicine_profile', function (Blueprint $table) {
+        Schema::create('prenatals', function (Blueprint $table) {
             $table->id();
-            $table->foreignId('medicine_id');
             $table->foreignId('profile_id')->constrained('profiles')->onDelete('cascade');
-            $table->text('concern')->nullable();
-            $table->unsignedBigInteger('quantity');
-            $table->date('date_released');
+            $table->date('lmp');
+            $table->date('check_date');
+    
         });
     }
 
@@ -30,6 +29,6 @@ class CreateMedicineProfileTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('medicine_profile');
+        Schema::dropIfExists('prenatals');
     }
 }

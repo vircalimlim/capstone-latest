@@ -47,7 +47,7 @@ class ReleaseMedController extends Controller
           'medicine_id' => ['required', 'numeric'],
           'date_released' => 'required',
           'quantity' => ['required', 'numeric', 'min:1'],
-          'concern' => 'required'
+          'concern' => 'nullable'
           ]);
 
          $medicine = Medicine::find($data['medicine_id']);
