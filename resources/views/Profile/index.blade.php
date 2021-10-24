@@ -1,12 +1,20 @@
 @extends('layouts.app')
 @section('content')
+<div class="row  text-break justify-content-center">
+    <div class="pd-2 col-12 col-md-9">
 
-  <div class="row justify-content-center pt-4">
-    <div class="px-0 pb-2 col-12 col-md-9">
-      <a class="btn btn-outline-success" href="{{ route('export') }}">Export Patient Data</a>
-      <a class="btn btn-primary" href="{{ route('importExportView') }}">Import Patient Data</a>
+  <div class="row pt-4 px-1">
+    <div class="px-0 pb-2 col-6 text-rigdht">
+      <a class="btn btn-outline-success" href="/profile/create">Add patient</a>
+    </div>
+    <div class="px-0 pb-2 col-6 text-right">
+      <a class="btn btn-primary" href="{{ route('importExportView') }}">Import</a>
+      <a class="btn btn-outline-secondary" href="{{ route('export') }}">Export</a>
     </div>
   </div>
+
+</div>
+</div>
 
   <div class="row  text-break justify-content-center pb-4">
     <div class="text-white shadow-sm p-2 col-12 col-md-9">
