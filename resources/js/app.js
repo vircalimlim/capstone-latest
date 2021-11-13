@@ -19,6 +19,10 @@ const toast = swal.mixin({
   });
   window.toast = toast;
 
+//Including vuejs pagination
+import JwPagination from 'jw-vue-pagination';
+Vue.component('jw-pagination', JwPagination);
+
 /**
  * The following block of code may be used to automatically register your
  * Vue components. It will recursively scan this directory for the Vue
@@ -42,6 +46,8 @@ Vue.component('info-profile', require('./components/Profile/Info.vue').default);
 Vue.component('css-loader', require('./components/Loader.vue').default);
 
 Vue.component('side-bar', require('./components/Sidebar.vue').default);
+
+Vue.component('Report', require('./components/Profile/Report.vue').default);
 /**
  * Next, we will create a fresh Vue application instance and attach it to
  * the page. Then, you may begin adding components to this application

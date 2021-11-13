@@ -1,6 +1,6 @@
 @extends('layouts.app')
 @section('content')
 
-<Report :obj-profiles="{{ $profiles }}"></Report>
+    <Report :profiles="{{ $profiles }}"></Report>
 
 @endsection

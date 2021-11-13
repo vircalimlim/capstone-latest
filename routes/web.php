@@ -13,6 +13,7 @@ use App\Http\Controllers\ExcelController;
 use App\Http\Controllers\HTMLPDFController;
 use App\Http\Controllers\VaccineController;
 use App\Http\Controllers\PrenatalController;
+use App\Http\Controllers\ReportController;
 
 /*
 |--------------------------------------------------------------------------
@@ -35,6 +36,7 @@ Route::get('/home', [HomeController::class, 'index'])->name('home');
 
 
 Route::get('/profile', [ProfileController::class, 'index']);
+Route::get('/profile/paginate', [ProfileController::class, 'paginated']);
 Route::get('/profile/create', [ProfileController::class, 'create']);
 Route::post('/profile', [ProfileController::class, 'store']);
 Route::get('/profile/{profile}', [ProfileController::class, 'show']);
@@ -73,4 +75,6 @@ Route::get('/vaccine/{profile}/show', [VaccineController::class, 'show']);
 
 Route::get('/prenatal/{profile}/create', [PrenatalController::class, 'create']);
 Route::post('/prenatal/{profile}', [PrenatalController::class, 'store']);
+
+Route::get('/report', [ReportController::class, 'index']);
 });
