@@ -23,8 +23,32 @@ class ProfileController extends Controller
         return view('Profile.index', compact(['profiles']));
     }
 
-    public function paginated(){
+    public function paginated(Request $request){
+    
       return $profiles = Profile::latest()->get();
+      
+    }
+
+    public function sorted(Request $request){
+      //return request('sort');
+      if($request->sort == 1){
+        return Profile::latest()->get();
+      }
+      else if($request->sort == 2){
+        return Profile::orderBy('lastname', 'asc')->get();
+      }
+      else if($request->sort == 3){
+        return Profile::orderBy('lastname', 'desc')->get();
+      }
+      else if($request->sort == 4){
+        return Profile::orderBy('age', 'asc')->get();
+      }
+      else if($request->sort == 5){
+        return Profile::orderBy('age', 'desc')->get();
+      }
+      else{
+        return $profiles = Profile::latest()->get();
+      }
     }
 
     /**

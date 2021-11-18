@@ -2,12 +2,27 @@
     <div>
 <div class="row justify-content-center mt-3">
   <div class="col-12 col-md-9 border rounded p-1 px-2" style="backgrodund: gray;">
-    <label for="">Number of rows:</label>
-    <select class="" @change="paginate" v-model.number="perPage" name="" id="">
-      <option value="6" selected="">6</option>
-      <option value="8">8</option>
-      <option value="12">12</option>
-    </select>
+    
+    <div class="d-inline pr-2 text-secondary">
+      <label for="">Number of rows:</label>
+      <select class="" @change="sort" v-model.number="perPage" name="" id="">
+        <option value="5" selected="">5</option>
+        <option value="8">8</option>
+        <option value="12">12</option>
+      </select>
+    </div>
+
+    <div class="d-inline pr-2 text-secondary">
+      <label for="">Sort by:</label>
+      <select v-model="sortChoice" name="" id="" @change="sort">
+        <option value="1">Latest</option>
+        <option value="2">Name(asc)</option>
+        <option value="3">Name(desc)</option>
+        <option value="4">Age(asc)</option>
+        <option value="5">Age(desc)</option>
+      </select>
+    </div>
+
   </div>
 </div>
 
@@ -17,11 +32,13 @@
   <table class="table text-secondary table-hover">
 
     <tr class="bg-primary text-light">
+      <th class="p-2">Last Name</th>
+
       <th class="p-2">First Name</th>
 
       <th class="p-2">Middle Name</th>
 
-      <th class="p-2">Last Name</th>
+      <th class="p-2">Age</th>
       
       <th class="p-2">Action</th>
     </tr>
@@ -29,11 +46,13 @@
     
     <tr v-if="objProfiles" v-for="profile in pageOfItems" :key="profile.id">
       
+      <td class="p-2">{{ profile.lastname }}</td>
+      
       <td class="p-2">{{ profile.firstname }}</td>
       
       <td class="p-2">{{ profile.middlename }}</td>
-      
-      <td class="p-2">{{ profile.lastname }}</td>
+
+      <td class="p-2">{{ profile.age }}</td>
       
       <td class="p-2">
       <small>
@@ -63,7 +82,6 @@
     </div>
   </div>
 
-
     </div>
 </template>
 
@@ -78,6 +96,8 @@ export default {
         pageOfItems: [],
         perPage: 5,
         dataProfile: this.objProfiles,
+        sortChoice: 1,
+        sortData: []
       }
     },
 
@@ -88,13 +108,21 @@ export default {
             this.pageOfItems = pageOfItems;
         },
 
-      
+
+      sort(){
+        axios.get('/profile/sort?perPage=' + this.perPage + '&sort=' + this.sortChoice).then(res => {
+          this.dataProfile = res.data
+          //alert(this.sortData);
+        })
+      },
+
       paginate(){
         this.perPage
         axios.get('/profile/paginate').then(res => {
           this.dataProfile = res.data
         })
-      }
+        this.sort();
+      },
     }
 }
 </script>

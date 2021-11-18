@@ -2383,6 +2383,24 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
   props: ['objProfiles'],
   data: function data() {
@@ -2390,7 +2408,9 @@ __webpack_require__.r(__webpack_exports__);
       //exampleItems,
       pageOfItems: [],
       perPage: 5,
-      dataProfile: this.objProfiles
+      dataProfile: this.objProfiles,
+      sortChoice: 1,
+      sortData: []
     };
   },
   methods: {
@@ -2398,13 +2418,21 @@ __webpack_require__.r(__webpack_exports__);
       // update page of items
       this.pageOfItems = pageOfItems;
     },
-    paginate: function paginate() {
+    sort: function sort() {
       var _this = this;
+
+      axios.get('/profile/sort?perPage=' + this.perPage + '&sort=' + this.sortChoice).then(function (res) {
+        _this.dataProfile = res.data; //alert(this.sortData);
+      });
+    },
+    paginate: function paginate() {
+      var _this2 = this;
 
       this.perPage;
       axios.get('/profile/paginate').then(function (res) {
-        _this.dataProfile = res.data;
+        _this2.dataProfile = res.data;
       });
+      this.sort();
     }
   }
 });
@@ -43422,50 +43450,100 @@ var render = function() {
           staticStyle: { backgrodund: "gray" }
         },
         [
-          _c("label", { attrs: { for: "" } }, [_vm._v("Number of rows:")]),
-          _vm._v(" "),
-          _c(
-            "select",
-            {
-              directives: [
-                {
-                  name: "model",
-                  rawName: "v-model.number",
-                  value: _vm.perPage,
-                  expression: "perPage",
-                  modifiers: { number: true }
+          _c("div", { staticClass: "d-inline pr-2 text-secondary" }, [
+            _c("label", { attrs: { for: "" } }, [_vm._v("Number of rows:")]),
+            _vm._v(" "),
+            _c(
+              "select",
+              {
+                directives: [
+                  {
+                    name: "model",
+                    rawName: "v-model.number",
+                    value: _vm.perPage,
+                    expression: "perPage",
+                    modifiers: { number: true }
+                  }
+                ],
+                attrs: { name: "", id: "" },
+                on: {
+                  change: [
+                    function($event) {
+                      var $$selectedVal = Array.prototype.filter
+                        .call($event.target.options, function(o) {
+                          return o.selected
+                        })
+                        .map(function(o) {
+                          var val = "_value" in o ? o._value : o.value
+                          return _vm._n(val)
+                        })
+                      _vm.perPage = $event.target.multiple
+                        ? $$selectedVal
+                        : $$selectedVal[0]
+                    },
+                    _vm.sort
+                  ]
                 }
-              ],
-              attrs: { name: "", id: "" },
-              on: {
-                change: [
-                  function($event) {
-                    var $$selectedVal = Array.prototype.filter
-                      .call($event.target.options, function(o) {
-                        return o.selected
-                      })
-                      .map(function(o) {
-                        var val = "_value" in o ? o._value : o.value
-                        return _vm._n(val)
-                      })
-                    _vm.perPage = $event.target.multiple
-                      ? $$selectedVal
-                      : $$selectedVal[0]
-                  },
-                  _vm.paginate
-                ]
-              }
-            },
-            [
-              _c("option", { attrs: { value: "6", selected: "" } }, [
-                _vm._v("6")
-              ]),
-              _vm._v(" "),
-              _c("option", { attrs: { value: "8" } }, [_vm._v("8")]),
-              _vm._v(" "),
-              _c("option", { attrs: { value: "12" } }, [_vm._v("12")])
-            ]
-          )
+              },
+              [
+                _c("option", { attrs: { value: "5", selected: "" } }, [
+                  _vm._v("5")
+                ]),
+                _vm._v(" "),
+                _c("option", { attrs: { value: "8" } }, [_vm._v("8")]),
+                _vm._v(" "),
+                _c("option", { attrs: { value: "12" } }, [_vm._v("12")])
+              ]
+            )
+          ]),
+          _vm._v(" "),
+          _c("div", { staticClass: "d-inline pr-2 text-secondary" }, [
+            _c("label", { attrs: { for: "" } }, [_vm._v("Sort by:")]),
+            _vm._v(" "),
+            _c(
+              "select",
+              {
+                directives: [
+                  {
+                    name: "model",
+                    rawName: "v-model",
+                    value: _vm.sortChoice,
+                    expression: "sortChoice"
+                  }
+                ],
+                attrs: { name: "", id: "" },
+                on: {
+                  change: [
+                    function($event) {
+                      var $$selectedVal = Array.prototype.filter
+                        .call($event.target.options, function(o) {
+                          return o.selected
+                        })
+                        .map(function(o) {
+                          var val = "_value" in o ? o._value : o.value
+                          return val
+                        })
+                      _vm.sortChoice = $event.target.multiple
+                        ? $$selectedVal
+                        : $$selectedVal[0]
+                    },
+                    _vm.sort
+                  ]
+                }
+              },
+              [
+                _c("option", { attrs: { value: "1" } }, [_vm._v("Latest")]),
+                _vm._v(" "),
+                _c("option", { attrs: { value: "2" } }, [_vm._v("Name(asc)")]),
+                _vm._v(" "),
+                _c("option", { attrs: { value: "3" } }, [_vm._v("Name(desc)")]),
+                _vm._v(" "),
+                _c("option", { attrs: { value: "4" } }, [_vm._v("Age(asc)")]),
+                _vm._v(" "),
+                _c("option", { attrs: { value: "5" } }, [_vm._v("Age(desc)")])
+              ]
+            )
+          ])
         ]
       )
     ]),
@@ -43485,6 +43563,10 @@ var render = function() {
                 return _vm.objProfiles
                   ? _c("tr", { key: profile.id }, [
                       _c("td", { staticClass: "p-2" }, [
+                        _vm._v(_vm._s(profile.lastname))
+                      ]),
+                      _vm._v(" "),
+                      _c("td", { staticClass: "p-2" }, [
                         _vm._v(_vm._s(profile.firstname))
                       ]),
                       _vm._v(" "),
@@ -43493,7 +43575,7 @@ var render = function() {
                       ]),
                       _vm._v(" "),
                       _c("td", { staticClass: "p-2" }, [
-                        _vm._v(_vm._s(profile.lastname))
+                        _vm._v(_vm._s(profile.age))
                       ]),
                       _vm._v(" "),
                       _c("td", { staticClass: "p-2" }, [
@@ -43572,11 +43654,13 @@ var staticRenderFns = [
     var _h = _vm.$createElement
     var _c = _vm._self._c || _h
     return _c("tr", { staticClass: "bg-primary text-light" }, [
+      _c("th", { staticClass: "p-2" }, [_vm._v("Last Name")]),
+      _vm._v(" "),
       _c("th", { staticClass: "p-2" }, [_vm._v("First Name")]),
       _vm._v(" "),
       _c("th", { staticClass: "p-2" }, [_vm._v("Middle Name")]),
       _vm._v(" "),
-      _c("th", { staticClass: "p-2" }, [_vm._v("Last Name")]),
+      _c("th", { staticClass: "p-2" }, [_vm._v("Age")]),
       _vm._v(" "),
       _c("th", { staticClass: "p-2" }, [_vm._v("Action")])
     ])

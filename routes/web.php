@@ -37,6 +37,7 @@ Route::get('/home', [HomeController::class, 'index'])->name('home');
 
 Route::get('/profile', [ProfileController::class, 'index']);
 Route::get('/profile/paginate', [ProfileController::class, 'paginated']);
+Route::get('/profile/sort', [ProfileController::class, 'sorted']);
 Route::get('/profile/create', [ProfileController::class, 'create']);
 Route::post('/profile', [ProfileController::class, 'store']);
 Route::get('/profile/{profile}', [ProfileController::class, 'show']);
