@@ -25,6 +25,7 @@ class CreateProfilesTable extends Migration
             $table->integer('age');
             $table->unsignedBigInteger('contact')->nullable();
             $table->string('gender');
+            $table->text('fullname');
             $table->timestamps();
         });
     }

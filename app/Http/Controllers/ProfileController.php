@@ -51,6 +51,34 @@ class ProfileController extends Controller
       }
     }
 
+    public function search(Request $request){
+      //return Profile::where('lastname','LIKE','%'.request('search').'%')->orWhere('firstname','LIKE','%'.request('search').'%')->get();
+
+      /* Profile::where(function($query){
+        $query->orWhere(DB::raw('CONCAT(firstname, " ", middlename," ",lastname)'), 'LIKE', '%'.request('search').'%')
+                ->orWhere('first_name', 'LIKE', '%'.request('search').'%')
+                ->orWhere('middle_name', 'LIKE', '%'.request('search').'%')
+                ->orWhere('last_name', 'LIKE', '%'.request('search').'%');
+    });*/
+   //$query = Profile::get();
+   $search = $request->search;
+  
+   /* $lol = $query->where(function($query) use($search)  {
+      $query->where(DB::raw("CONCAT('firstname', ' ', 'middlename')"), 'ilike', '%'.$search.'%')
+              ->orWhere(DB::raw("CONCAT('firstname', ' ', 'lastname')"), 'ilike', '%'.$search.'%')
+              ->orWhere(DB::raw("CONCAT('lastname', ', ', 'firstname')"), 'ilike', '%'.$search.'%')
+              ->orWhere(DB::raw("CONCAT('firstname', ' ', 'middlename', ' ', 'lastname')"), 'ilike', '%'.$search.'%')
+              ->orWhere(DB::raw("CONCAT('lastname', ', ', 'firstname', ' ', 'middlename')"), 'ilike', '%'.$search.'%')
+              ->orWhere('firstname', 'ilike', '%'.$search.'%')
+              ->orWhere('middlename', 'ilike', '%'.$search.'%')
+              ->orWhere('lastname', 'ilike', '%'.$search.'%');
+  });*/
+
+  return Profile::where('fullname', 'like', '%'.$search.'%')->get();
+ // return "hell";
+    
+    }
+
     /**
      * Show the form for creating a new resource.
      *
@@ -69,6 +97,7 @@ class ProfileController extends Controller
      */
     public function store(Request $request)
     {
+    
       try{
          
         $data = request()->validate([
@@ -83,8 +112,12 @@ class ProfileController extends Controller
           'street' => 'nullable|string',
           'contact' => 'nullable|numeric|digits:11'
           ]);
-          
-        Profile::create($data);
+
+          $fullname = [
+            'fullname' => $data['firstname'] . ' ' . $data['middlename'] . ' ' . $data['lastname']
+          ];
+          //dd($data->firstname);
+        Profile::create(array_merge($data, $fullname));
         //return redirect()->back()->with('success', 'Created successfully!');
         return ['success'    => 'success'];
         //return redirect()->back();
