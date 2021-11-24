@@ -25,8 +25,10 @@
       <label for="">Number of rows:</label>
       <select class="" @change="sort" v-model.number="perPage" name="" id="">
         <option value="5" selected="">5</option>
-        <option value="8">8</option>
-        <option value="12">12</option>
+        <option value="10">10</option>
+        <option value="15">15</option>
+        <option value="20">20</option>
+        <option value="30">30</option>
       </select>
     </div>
 
@@ -43,7 +45,7 @@
 
     <div class="col-12 col-sm text-secondary">
         <div class="input-group input-group-sm">
-          <input type="text" v-model="searchData" class="form-control" aria-label="Small" aria-describedby="inputGroup-sizing-sm">
+          <input type="text" v-model="searchData" placeholder="Search by Lastname" class="form-control" aria-label="Small" aria-describedby="inputGroup-sizing-sm">
           <div class="input-group-append">
           <button @click="search" class="btn btn-outline-primary" type="button">Search</button>
         </div>
