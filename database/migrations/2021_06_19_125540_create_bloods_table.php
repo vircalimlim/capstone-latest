@@ -20,7 +20,7 @@ class CreateBloodsTable extends Migration
             $table->integer('dp');
             $table->integer('sp');
             $table->date('check_date');
-            //$table->timestamps();
+            $table->timestamps();
         });
     }
 

@@ -1,55 +1,32 @@
 <template>
     <div class="">
 
-<div class="row  text-break justify-content-center">
-    <div class="pd-2 col-12 col-md-9">
-
-  <div class="row pt-4 px-1">
-    <div class="px-0 pb-2 col-6 text-rigdht">
-      <a class="btn btn-outline-success" href="/profile/create">Add patient</a>
-    </div>
-    <div class="px-0 pb-2 col-6 text-right">
-      <a class="btn btn-primary" href="/importExportView">Import</a>
-      <a class="btn btn-outline-secondary" href="/export">Export</a>
-    </div>
-  </div>
-
-</div>
-</div>
-
 <div class="row justify-content-center">
-  <div class="col-12 col-md-9 border rounded p-1 px-2" style="backgrodund: gray;">
+  <div class="col-12 col-md-9 border rounded p-1 px-2 mt-3">
+
     <div class="row">
 
-      <div class="col-6 col-sm text-secondary">
-      <label for="">Number of rows:</label>
-      <select class="" @change="sort" v-model.number="perPage" name="" id="">
-        <option value="5" selected="">5</option>
-        <option value="10">10</option>
-        <option value="15">15</option>
-        <option value="20">20</option>
-        <option value="30">30</option>
+      <div class="col-6 pb-2 col-sm text-secondary">
+      <label for="">Select Report:</label>
+      <select @change="report" v-model.number="reportChoice" class="" name="" id="">
+        <option value="1" selected="">Added patients</option>
+        <option value="2">Released medicine</option>
+        
       </select>
     </div>
 
-    <div class="col-6 col-sm text-secondary">
-      <label for="">Sort by:</label>
-      <select v-model="sortChoice" name="" id="" @change="sort">
-        <option value="1">Latest</option>
-        <option value="2">Name(asc)</option>
-        <option value="3">Name(desc)</option>
-        <option value="4">Age(asc)</option>
-        <option value="5">Age(desc)</option>
+    <div class="col-6 pb-2 col-sm text-secondary">
+      <label for="">Timeframe:</label>
+      <select @change="report" v-model.number="tfChoice" class="" name="" id="">
+        <option value="1">Daily</option>
+        <option value="2">Weekly</option>
+        <option value="3">Monthly</option>
       </select>
     </div>
 
-    <div class="col-12 col-sm text-secondary">
-        <div class="input-group input-group-sm">
-          <input type="text" v-model="searchData" placeholder="Search by Lastname" class="form-control" aria-label="Small" aria-describedby="inputGroup-sizing-sm">
-          <div class="input-group-append">
-          <button @click="search" class="btn btn-outline-primary" type="button">Search</button>
-        </div>
-        </div>
+    <div class="col-6 pb-2 col-sm text-secondary">
+      <label for="">Print Report:</label>
+      <button :class="{'btn-outline-success': isDisabled }" class="btn-md btn-success" @click="generateReport" :disabled='isDisabled'>Print</button>
     </div>
 
     </div>
@@ -57,117 +34,166 @@
   </div>
 </div>
 
-<div class="row mt-1  text-break justify-content-center pb-4">
+<div v-if="reportChoice == 1" ref="printable" id="printable" class="row mt-1  text-break justify-content-center pb-4">
     <div class="text-white shadow-sm p-2 col-12 col-md-9">
     
   <table class="table text-secondary table-hover">
 
-    <tr class="bg-primary text-light">
-      <th class="p-2">Last Name</th>
-
+    <tr class="bg-primadry text-lisght">
       <th class="p-2">First Name</th>
-
       <th class="p-2">Middle Name</th>
-
+      <th class="p-2">Last Name</th>
+      <th class="p-2">Birthdate</th>
       <th class="p-2">Age</th>
-      
-      <th class="p-2">Action</th>
+      <th class="p-2">Contact Number</th>
     </tr>
     
-      
+    <tr v-for="patients in data" :key="patients.id">
+        
+        <td class="p-2">{{ patients.firstname }}</td>
+        
+        <td class="p-2">{{ patients.middlename }}</td>
+        
+        <td class="p-2">{{ patients.lastname }}</td>
 
-      <tr v-for="profile in pageOfItems" :key="profile.id">
-        
-        <td class="p-2">{{ profile.lastname }}</td>
-        
-        <td class="p-2">{{ profile.firstname }}</td>
-        
-        <td class="p-2">{{ profile.middlename }}</td>
+        <td class="p-2">{{ patients.birthdate }}</td>
 
-        <td class="p-2">{{ profile.age }}</td>
-        
-        <td class="p-2">
-        <small>
-          <a :href="'/profile/' + profile.id ">
-          <svg xmlns="http://www.w3.org/2000/svg" width="13" height="13" fill="currentColor" class="bi bi-eye-fill" viewBox="0 0 16 16"> <path d="M10.5 8a2.5 2.5 0 1 1-5 0 2.5 2.5 0 0 1 5 0z"/> <path d="M0 8s3-5.5 8-5.5S16 8 16 8s-3 5.5-8 5.5S0 8 0 8zm8 3.5a3.5 3.5 0 1 0 0-7 3.5 3.5 0 0 0 0 7z"/> </svg>
-          View</a>
-          </small>
-          </td>
-      </tr>
+        <td class="p-2">{{ patients.age }}</td>
 
-      <caption v-if="pageOfItems == ''" class="py-4">
-        <div class="text-center py-4">
-        <h3 class="py-1 text-center text-secondary">
-          Empty result
-        </h3>
-        <a href="/profile/create" role="button" class="btn btn-outline-primary">Create new record</a>
-        </div>
-      </caption>
+        <td class="p-2">0{{ patients.contact }}</td>
+        
+    </tr>
     
   </table>
-
-  <div class="row justify-content-center">
-    <jw-pagination :pageSize="perPage" :maxPages="7" :items="dataProfile" @changePage="onChangePage"></jw-pagination>
-  </div>
   
     </div>
   </div>
 
+  <div v-else-if="reportChoice == 2" ref="printable" id="printable" class="row mt-1  text-break justify-content-center pb-4">
+    <div class="text-white shadow-sm p-2 col-12 col-md-9">
+    
+  <table class="table text-secondary table-hover">
+
+    <tr class="bg-primadry text-lisght">
+      <th class="p-2">Name</th>
+      <th class="p-2">Type</th>
+      <th class="p-2">Quantity</th>
+      <th class="p-2">Date Received</th>
+    </tr>
+    
+    <tr v-for="med in data" :key="med.id">
+        
+        <td class="p-2">{{ med.med_name }}</td>
+        
+        <td class="p-2">{{ med.med_type }}</td>
+        
+        <td class="p-2">{{ med.quantity }}</td>
+
+        <td class="p-2">{{ med.date_received }}</td>
+        
+    </tr>
+   
+  </table>
+  
+    </div>
+  </div>
+
+
+<vue-html2pdf
+        :show-layout="false"
+        :float-layout="true"
+        :enable-download="true"
+        :preview-modal="false"
+        :paginate-elements-by-height="1400"
+        filename="report"
+        :pdf-quality="2"
+        :manual-pagination="false"
+        pdf-format="a4"
+        pdf-orientation="portrait"
+        pdf-content-width="800px"
+ 
+        
+        @hasStartedGeneration="hasStartedGeneration()"
+        @hasGenerated="hasGenerated($event)"
+        ref="html2Pdf"
+    >
+        <section slot="pdf-content">
+            <div v-html="printHtml"></div>
+            
+        </section>
+    </vue-html2pdf>
     </div>
 </template>
 
 <script>
+
 export default {
+  mounted(){
+    axios.get('/report/patient?rc=' + this.reportChoice + '&tf=' + this.tfChoice)
+          .then(res => {
+            this.data = res.data
+          })
+          //this.printHtml = document.getElementById('printable').innerHTML
+          //this.printHtml = this.$refs.printable.innerHTML
+          setTimeout( () => {
+            this.printHtml = this.$refs.printable.innerHTML
+            this.isDisabled = !this.isDisabled
+        }, 1500)
+  },
 
-    props: ['objProfiles'],
-
-   /* mounted(){
-      axios.get('/profile/paginate').then(res => {
-          this.dataProfile = res.data
-        })
-        document.querySelector('.wrap').classList.add('d-block')
-    },*/
-
-    data(){
-      return{
-        //exampleItems,
-        pageOfItems: [],
-        perPage: 5,
-        dataProfile: this.objProfiles,
-        sortChoice: 1,
-        sortData: [],
-        searchData: ''
-      }
-    },
-
-    
-    methods: {
-      onChangePage(pageOfItems) {
-            // update page of items
-            this.pageOfItems = pageOfItems;
-        },
-
-
-      sort(){
-        axios.get('/profile/sort?perPage=' + this.perPage + '&sort=' + this.sortChoice).then(res => {
-          this.dataProfile = res.data
-          //alert(this.sortData);
-        })
-      },
-
-      paginate(){
-        this.perPage
-        axios.get('/profile/paginate').then(res => {
-          this.dataProfile = res.data
-        })
-        this.sort();
-      },
-
-      search(){
-        axios.get('/profile/search?search=' + this.searchData).then(res => {
-          this.dataProfile = res.data
-        })
-      }
+  data(){
+    return{
+      reportChoice: 1,
+      tfChoice: 1,
+      data: [],
+      meds: [],
+      printHtml: '',
+      isDisabled: true,
     }
+  },
+
+  methods: {
+    report(){
+      
+      if(this.reportChoice == 1){
+        axios.get('/report/patient?rc=' + this.reportChoice + '&tf=' + this.tfChoice)
+          .then(res => {
+            this.data = res.data
+          })
+        }
+      else if(this.reportChoice == 2){
+        axios.get('/report/medicine?rc=' + this.reportChoice + '&tf=' + this.tfChoice)
+          .then(res => {
+            this.data = res.data
+            //alert("2")
+          })
+        }
+      else if(this.reportChoice == 3){
+        axios.get('/report/bp?rc=' + this.reportChoice + '&tf=' + this.tfChoice)
+          .then(res => {
+            this.data = res.data
+          })
+        }
+
+        this.isDisabled = 'true'
+      setTimeout( () => {
+        this.printHtml = this.$refs.printable.innerHTML
+        this.isDisabled = !this.isDisabled
+        }, 1500)
+      },
+
+      printme(){
+        this.$refs.printable.generatePdf();
+      },
+
+      generateReport() {
+            this.$refs.html2Pdf.generatePdf()
+        }
+      
+      },
+
+  
+    
+    
 }
 </script>

@@ -19,7 +19,7 @@ class CreateMedicinesTable extends Migration
             $table->string('med_type');
             $table->unsignedBigInteger('quantity');
             $table->date('date_received');
-            
+            $table->timestamps();
         });
     }
 

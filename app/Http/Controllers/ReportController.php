@@ -3,6 +3,10 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Models\Profile;
+use App\Models\Medicine;
+use App\Models\Blood;
+use Carbon\Carbon;
 
 class ReportController extends Controller
 {
@@ -14,6 +18,53 @@ class ReportController extends Controller
     public function index()
     {
         return view('Report.index');
+    }
+
+    public function patient(Request $request)
+    {
+        if($request->tf == 1){
+            //daily
+            return Profile::whereDate('created_at', today())->get();
+        }
+        else if($request->tf == 2){
+            //weekly
+            return Profile::whereDate('created_at', '>', now()->subDays(7))->get();
+        }
+        else if($request->tf == 3){
+            //monthly
+            return Profile::whereDate('created_at', '>=', now()->subDays(30))->get();
+        }
+    }
+
+    public function medicine(Request $request)
+    {
+        if($request->tf == 1){
+            return Medicine::whereDate('created_at', today())->get();
+        }
+        else if($request->tf == 2){
+            //weekly
+            return Medicine::whereDate('created_at', '>', now()->subDays(7))->get();
+        }
+        else if($request->tf == 3){
+            //monthly
+            return Medicine::whereDate('created_at', '>=', now()->subDays(30))->get();
+        }
+    }
+
+    public function bp(Request $request)
+    {
+        if($request->tf == 1){
+            //daily
+            return Blood::whereDate('created_at', today())->get();
+        }
+        else if($request->tf == 2){
+            //weekly
+            return Blood::whereDate('created_at', '>', now()->subDays(7))->get();
+        }
+        else if($request->tf == 3){
+            //monthly
+            return Blood::whereDate('created_at', '>=', now()->subDays(30))->get();
+        }
     }
 
     /**

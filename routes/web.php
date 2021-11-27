@@ -79,4 +79,7 @@ Route::get('/prenatal/{profile}/create', [PrenatalController::class, 'create']);
 Route::post('/prenatal/{profile}', [PrenatalController::class, 'store']);
 
 Route::get('/report', [ReportController::class, 'index']);
+Route::get('/report/patient', [ReportController::class, 'patient']);
+Route::get('/report/medicine', [ReportController::class, 'medicine']);
+Route::get('/report/bp', [ReportController::class, 'bp']);
 });

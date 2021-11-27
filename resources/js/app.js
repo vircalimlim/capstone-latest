@@ -23,6 +23,9 @@ const toast = swal.mixin({
 import JwPagination from 'jw-vue-pagination';
 Vue.component('jw-pagination', JwPagination);
 
+
+import VueHtml2pdf from 'vue-html2pdf'
+Vue.component('vue-html2pdf', VueHtml2pdf);
 /**
  * The following block of code may be used to automatically register your
  * Vue components. It will recursively scan this directory for the Vue
