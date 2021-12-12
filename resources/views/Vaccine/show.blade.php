@@ -3,11 +3,11 @@
 
 <div class="row">
   <div class="col mt-4 px-2">
-    <a href="/profile/{{$profile->id}}" class="btn btn-outline-secondary">Go to profile</a>
+    <a href="/profile/{{$profile->id}}" class="btn btn-outline-secondary">Back</a>
   </div>
 </div>
 
-<div class="row px-2 pb-4 pt-3 justify-content-center">
+<div class="row px-2 pb-4 pt-2 justify-content-center">
     <div class="col-12 col-md-12 border shadow-sm bg-white pb-4 rounded text-dark">
 
     <div class="row py-3">
@@ -17,9 +17,6 @@
     </div>
 
     <div class="row align-items-center pl-3 pb-3">
-    <div class="d-none col-md-2 d-md-block">
-      <img src="sjsj.png" alt="image">
-    </div>
     <div class="col text-primary py-2 headings">
       <h5 class="text-uppercase font-weight-bold m-0">{{$profile->lastname}}, {{$profile->firstname}} {{$profile->middlename}}</h5>
       <p class="m-0">{{$profile->houseNum}} Sitio Bokig Brgy. Abonagan Malasiqui, Pangasinan </p>

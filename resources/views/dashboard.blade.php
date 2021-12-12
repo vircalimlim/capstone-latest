@@ -2,74 +2,17 @@
 
 @section('content')
 
-<div class="">
-  <div class="row justify-content-around mb-3 mt-3 p-2 ">
+<div class="p-2">
+  <div class="row justify-content-around mb-3 mt-3 border border-success p-2 rounded">
     
     <div class="col-12 p-1 col-sm-6 col-md-4">
-    <div class="bg-success p-2 rounded">
-      
-      <div class="row">
-        
-        <div class="col-8  pl-3 text-light">
-          <h4 class="font-weight-light">Total Patients</h4>
-          <h2 class="pl-2 ">{{$profiles->count()}}</h2>
-        </div>
-        
-        <!-- <div class="col-4">
-          <svg xmlns="http://www.w3.org/2000/svg" width="4.5rem" height="4.5rem" fill="currentColor" class="text-light bi bi-people" viewBox="0 0 16 16"> <path d="M15 14s1 0 1-1-1-4-5-4-5 3-5 4 1 1 1 1h8zm-7.978-1A.261.261 0 0 1 7 12.996c.001-.264.167-1.03.76-1.72C8.312 10.629 9.282 10 11 10c1.717 0 2.687.63 3.24 1.276.593.69.758 1.457.76 1.72l-.008.002a.274.274 0 0 1-.014.002H7.022zM11 7a2 2 0 1 0 0-4 2 2 0 0 0 0 4zm3-2a3 3 0 1 1-6 0 3 3 0 0 1 6 0zM6.936 9.28a5.88 5.88 0 0 0-1.23-.247A7.35 7.35 0 0 0 5 9c-4 0-5 3-5 4 0 .667.333 1 1 1h4.216A2.238 2.238 0 0 1 5 13c0-1.01.377-2.042 1.09-2.904.243-.294.526-.569.846-.816zM4.92 10A5.493 5.493 0 0 0 4 13H1c0-.26.164-1.03.76-1.724.545-.636 1.492-1.256 3.16-1.275zM1.5 5.5a3 3 0 1 1 6 0 3 3 0 0 1-6 0zm3-2a2 2 0 1 0 0 4 2 2 0 0 0 0-4z"/> </svg>
-        </div> -->
-        
-      </div>
-      
-      <div class="row">
-        <div class="col-12 text-right text-light border-top border-light">
-          <a class="text-light" href="/profile">View</a>
-        </div>
-      </div>
-  
-    </div>
-    </div>
+    <div class="borfder borfder-success p-2 rounded">
     
-    <div class="col-12 p-1 col-sm-6 col-md-4">
-    <div class="bg-success p-2 rounded">
-      
       <div class="row">
-        
-        <div class="col-8  pl-3 text-light">
-          <h4 class="font-weight-light">Medicine Available</h4>
-          <h2 class="pl-2 ">{{$medicines->count()}}</h2>
-        </div>
-        
-        <!-- <div class="col-4">
-          <svg xmlns="http://www.w3.org/2000/svg" width="4.5rem" height="4.5rem" fill="currentColor" class="text-light bi bi-people" viewBox="0 0 16 16"> <path d="M15 14s1 0 1-1-1-4-5-4-5 3-5 4 1 1 1 1h8zm-7.978-1A.261.261 0 0 1 7 12.996c.001-.264.167-1.03.76-1.72C8.312 10.629 9.282 10 11 10c1.717 0 2.687.63 3.24 1.276.593.69.758 1.457.76 1.72l-.008.002a.274.274 0 0 1-.014.002H7.022zM11 7a2 2 0 1 0 0-4 2 2 0 0 0 0 4zm3-2a3 3 0 1 1-6 0 3 3 0 0 1 6 0zM6.936 9.28a5.88 5.88 0 0 0-1.23-.247A7.35 7.35 0 0 0 5 9c-4 0-5 3-5 4 0 .667.333 1 1 1h4.216A2.238 2.238 0 0 1 5 13c0-1.01.377-2.042 1.09-2.904.243-.294.526-.569.846-.816zM4.92 10A5.493 5.493 0 0 0 4 13H1c0-.26.164-1.03.76-1.724.545-.636 1.492-1.256 3.16-1.275zM1.5 5.5a3 3 0 1 1 6 0 3 3 0 0 1-6 0zm3-2a2 2 0 1 0 0 4 2 2 0 0 0 0-4z"/> </svg>
-        </div> -->
-        
+      <div class="col-8  pl-3">
+      <h4 class="font-weight-light">Patients</h4>
+      <dash-board :male="{{$profiles->where('gender', 'male')->count()}}" :female="{{$profiles->where('gender', 'female')->count()}}"></dash-board>
       </div>
-      
-      <div class="row">
-        <div class="col-12 text-right text-light border-top border-light">
-          <a class="text-light" href="/medicine">View</a>
-        </div>
-      </div>
-  
-    </div>
-    </div>
-    
-
-    <div class="col-12 p-1 col-sm-6 col-md-4">
-    <div class="bg-success p-2 rounded">
-      
-      <div class="row">
-        
-        <div class="col-8  pl-3 text-light">
-          <h4 class="font-weight-light"> Male</h4>
-          <h2 class="pl-2 ">{{$profiles->where('gender', 'Male')->count()}}</h2>
-        </div>
-        
-        <!-- <div class="col-4">
-          <svg xmlns="http://www.w3.org/2000/svg" width="4.5rem" height="4.5rem" fill="currentColor" class="text-light bi bi-people" viewBox="0 0 16 16"> <path d="M15 14s1 0 1-1-1-4-5-4-5 3-5 4 1 1 1 1h8zm-7.978-1A.261.261 0 0 1 7 12.996c.001-.264.167-1.03.76-1.72C8.312 10.629 9.282 10 11 10c1.717 0 2.687.63 3.24 1.276.593.69.758 1.457.76 1.72l-.008.002a.274.274 0 0 1-.014.002H7.022zM11 7a2 2 0 1 0 0-4 2 2 0 0 0 0 4zm3-2a3 3 0 1 1-6 0 3 3 0 0 1 6 0zM6.936 9.28a5.88 5.88 0 0 0-1.23-.247A7.35 7.35 0 0 0 5 9c-4 0-5 3-5 4 0 .667.333 1 1 1h4.216A2.238 2.238 0 0 1 5 13c0-1.01.377-2.042 1.09-2.904.243-.294.526-.569.846-.816zM4.92 10A5.493 5.493 0 0 0 4 13H1c0-.26.164-1.03.76-1.724.545-.636 1.492-1.256 3.16-1.275zM1.5 5.5a3 3 0 1 1 6 0 3 3 0 0 1-6 0zm3-2a2 2 0 1 0 0 4 2 2 0 0 0 0-4z"/> </svg>
-        </div> -->
-        
       </div>
       
       <div class="row">
@@ -81,81 +24,64 @@
     </div>
     </div>
 
+    <div class="col-12 p-1 col-sm-6 col-md-6">
+    <div class="borfder bordfer-success p-2 rounded">
+      
+      <div class="row">
+        
+        <div class="col-12  pl-3 ">
+          <h4 class="font-weight-light">Daily Summary</h4>
+          <ul class="list-group">
+            <li class="list-group-item list-group-item-action d-flex justify-content-between align-items-center">
+              Check-up
+              <span class="badge badge-primary badge-pill" style="font-size: 14px">{{$checkup}}</span>
+            </li>
+            <li class="list-group-item list-group-item-action d-flex justify-content-between align-items-center">
+              Added patients
+              <span class="badge badge-primary badge-pill" style="font-size: 14px">{{$patient}}</span>
+            </li>
+            <li class="list-group-item list-group-item-action d-flex justify-content-between align-items-center">
+              Added Medicine
+              <span class="badge badge-primary badge-pill" style="font-size: 14px">{{$med}}</span>
+            </li>
+          </ul>
+        </div>
+        
+      </div>
+  
+    </div>
+    </div>
+    
+    <div class="col-12 p-1 col-sm-12 col-md-12">
+    <div class="bordefr bordfer-success  p-2 rounded">
+      
+      <div class="row justify-content-center">
+        <div class="col-12 text-center  pl-3">
 
-    <div class="col-12 p-1 col-sm-6 col-md-4">
-    <div class="bg-success p-2 rounded">
-      
-      <div class="row">
-        
-        <div class="col-8  pl-3 text-light">
-          <h4 class="font-weight-light"> Female</h4>
-          <h2 class="pl-2 ">{{$profiles->where('gender', 'Female')->count()}}</h2>
-        </div>
-        
-        <!-- <div class="col-4">
-          <svg xmlns="http://www.w3.org/2000/svg" width="4.5rem" height="4.5rem" fill="currentColor" class="text-light bi bi-people" viewBox="0 0 16 16"> <path d="M15 14s1 0 1-1-1-4-5-4-5 3-5 4 1 1 1 1h8zm-7.978-1A.261.261 0 0 1 7 12.996c.001-.264.167-1.03.76-1.72C8.312 10.629 9.282 10 11 10c1.717 0 2.687.63 3.24 1.276.593.69.758 1.457.76 1.72l-.008.002a.274.274 0 0 1-.014.002H7.022zM11 7a2 2 0 1 0 0-4 2 2 0 0 0 0 4zm3-2a3 3 0 1 1-6 0 3 3 0 0 1 6 0zM6.936 9.28a5.88 5.88 0 0 0-1.23-.247A7.35 7.35 0 0 0 5 9c-4 0-5 3-5 4 0 .667.333 1 1 1h4.216A2.238 2.238 0 0 1 5 13c0-1.01.377-2.042 1.09-2.904.243-.294.526-.569.846-.816zM4.92 10A5.493 5.493 0 0 0 4 13H1c0-.26.164-1.03.76-1.724.545-.636 1.492-1.256 3.16-1.275zM1.5 5.5a3 3 0 1 1 6 0 3 3 0 0 1-6 0zm3-2a2 2 0 1 0 0 4 2 2 0 0 0 0-4z"/> </svg>
-        </div> -->
-        
-      </div>
-      
-      <div class="row">
-        <div class="col-12 text-right text-light border-top border-light">
-          <a class="text-light" href="/profile">View</a>
+        <h4 class="font-weight-light">Available Medicine</h4>
+          <ul class="list-group">
+            @foreach($medicines->take(5) as $medicine)
+            <li  class="list-group-item list-group-item-action d-flex justify-content-between align-items-center">
+              {{$medicine->med_name}}
+              <span class="badge badge-primary badge-pill" style="font-size: 14px">{{$medicine->quantity}}</span>
+            </li>
+            @endforeach
+            <a href="/medicine" class="text-primary list-group-item list-group-item-action d-flex justify-content-center align-items-center">
+              View All
+            </a>
+          </ul>
+
         </div>
       </div>
+      
+     <!-- <div class="row">
+        <div class="col-12 text-right ">
+          <a class="" href="/medicine">View</a>
+        </div>
+      </div> -->
   
     </div>
     </div>
-    
-   <!-- <div class="col-12 p-1 col-sm-6 col-md-4">
-    <div class="bg-success p-2 rounded">
-      
-      <div class="row">
-        
-        <div class="col-8  pl-3 text-light">
-          <h4 class="font-weight-light">Senior Citizens</h4>
-          <h2 class="pl-2 ">883</h2>
-        </div>
-        
-        <div class="col-4">
-          <svg xmlns="http://www.w3.org/2000/svg" width="4.5rem" height="4.5rem" fill="currentColor" class="text-light bi bi-people" viewBox="0 0 16 16"> <path d="M15 14s1 0 1-1-1-4-5-4-5 3-5 4 1 1 1 1h8zm-7.978-1A.261.261 0 0 1 7 12.996c.001-.264.167-1.03.76-1.72C8.312 10.629 9.282 10 11 10c1.717 0 2.687.63 3.24 1.276.593.69.758 1.457.76 1.72l-.008.002a.274.274 0 0 1-.014.002H7.022zM11 7a2 2 0 1 0 0-4 2 2 0 0 0 0 4zm3-2a3 3 0 1 1-6 0 3 3 0 0 1 6 0zM6.936 9.28a5.88 5.88 0 0 0-1.23-.247A7.35 7.35 0 0 0 5 9c-4 0-5 3-5 4 0 .667.333 1 1 1h4.216A2.238 2.238 0 0 1 5 13c0-1.01.377-2.042 1.09-2.904.243-.294.526-.569.846-.816zM4.92 10A5.493 5.493 0 0 0 4 13H1c0-.26.164-1.03.76-1.724.545-.636 1.492-1.256 3.16-1.275zM1.5 5.5a3 3 0 1 1 6 0 3 3 0 0 1-6 0zm3-2a2 2 0 1 0 0 4 2 2 0 0 0 0-4z"/> </svg>
-        </div>
-        
-      </div>
-      
-      <div class="row">
-        <div class="col-12 border-top border-light">
-          haha
-        </div>
-      </div>
-  
-    </div>
-    </div> -->
-    
-    <!-- <div class="col-12 p-1 col-sm-6 col-md-4">
-    <div class="bg-primary p-2 rounded">
-      
-      <div class="row">
-        
-        <div class="col-8  pl-3 text-light">
-          <h4 class="font-weight-light">Total Household</h4>
-          <h2 class="pl-2 ">264</h2>
-        </div>
-        
-        <div class="col-4">
-          <svg xmlns="http://www.w3.org/2000/svg" width="4.5rem" height="4.5rem" fill="currentColor" class="text-light bi bi-people" viewBox="0 0 16 16"> <path d="M15 14s1 0 1-1-1-4-5-4-5 3-5 4 1 1 1 1h8zm-7.978-1A.261.261 0 0 1 7 12.996c.001-.264.167-1.03.76-1.72C8.312 10.629 9.282 10 11 10c1.717 0 2.687.63 3.24 1.276.593.69.758 1.457.76 1.72l-.008.002a.274.274 0 0 1-.014.002H7.022zM11 7a2 2 0 1 0 0-4 2 2 0 0 0 0 4zm3-2a3 3 0 1 1-6 0 3 3 0 0 1 6 0zM6.936 9.28a5.88 5.88 0 0 0-1.23-.247A7.35 7.35 0 0 0 5 9c-4 0-5 3-5 4 0 .667.333 1 1 1h4.216A2.238 2.238 0 0 1 5 13c0-1.01.377-2.042 1.09-2.904.243-.294.526-.569.846-.816zM4.92 10A5.493 5.493 0 0 0 4 13H1c0-.26.164-1.03.76-1.724.545-.636 1.492-1.256 3.16-1.275zM1.5 5.5a3 3 0 1 1 6 0 3 3 0 0 1-6 0zm3-2a2 2 0 1 0 0 4 2 2 0 0 0 0-4z"/> </svg>
-        </div>
-        
-      </div>
-      
-      <div class="row">
-        <div class="col-12 border-top border-light">
-          haha
-        </div>
-      </div>
-  
-    </div>
-    </div> -->
 
       
   </div>

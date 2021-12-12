@@ -18,6 +18,7 @@ class CreatePrenatalsTable extends Migration
             $table->foreignId('profile_id')->constrained('profiles')->onDelete('cascade');
             $table->date('lmp');
             $table->date('check_date');
+            $table->timestamps();
     
         });
     }

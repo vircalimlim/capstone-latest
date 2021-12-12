@@ -23,9 +23,12 @@ const toast = swal.mixin({
 import JwPagination from 'jw-vue-pagination';
 Vue.component('jw-pagination', JwPagination);
 
-
-import VueHtml2pdf from 'vue-html2pdf'
+import VueHtml2pdf from 'vue-html2pdf';
 Vue.component('vue-html2pdf', VueHtml2pdf);
+
+
+import VueApexCharts from 'vue-apexcharts'
+Vue.component('apexchart', VueApexCharts)
 /**
  * The following block of code may be used to automatically register your
  * Vue components. It will recursively scan this directory for the Vue
@@ -51,6 +54,10 @@ Vue.component('css-loader', require('./components/Loader.vue').default);
 Vue.component('side-bar', require('./components/Sidebar.vue').default);
 
 Vue.component('Report', require('./components/Profile/Report.vue').default);
+
+Vue.component('index-med', require('./components/Medicine/Index.vue').default);
+
+Vue.component('dash-board', require('./components/Dashboard.vue').default);
 /**
  * Next, we will create a fresh Vue application instance and attach it to
  * the page. Then, you may begin adding components to this application

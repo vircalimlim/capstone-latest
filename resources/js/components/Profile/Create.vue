@@ -50,7 +50,7 @@
   <div class="font-weight-bold">
     <label>First Name</label>
   </div>
-  <input placeholder="First Name" v-model="firstname" class="form-control" type="text" name="firstname" autocomplete="firstname"/>
+  <input placeholder="First Name" v-model="firstname" class="form-control text-lowercase" type="text" name="firstname" autocomplete="firstname"/>
     <div class="text-danger" v-if="response_status.firstname">
         <small> {{response_status.firstname[0]}}</small>
     </div>

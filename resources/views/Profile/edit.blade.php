@@ -144,7 +144,7 @@
 
     <select name="gender" class="form-control @error('gender') is-invalid @enderror">
         <option @if(strtolower($profile->gender) == 'male'  )  selected='selected' @endif value="male">Male</option>
-        <option @if(strtolower($profile->gender) ==  'female' )  selected='selected' @endif value="Female">Female</option>
+        <option @if(strtolower($profile->gender) ==  'female' )  selected='selected' @endif value="female">Female</option>
       </select>
   
       @error('gender')

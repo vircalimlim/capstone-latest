@@ -5,12 +5,13 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class Prenatal extends Model
+class Checkup extends Model
 {
     use HasFactory;
+
     protected $guarded = [];
-    
+
     public function profile(){
-      return $this->belongsTo(Profile::class);
-    }
+        return $this->belongsTo(Profile::class);
+      }
 }

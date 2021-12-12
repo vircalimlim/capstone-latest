@@ -3,7 +3,7 @@
 
 <div class="row">
   <div class="col mt-4 ">
-    <a href="/profile/{{$profile->id}}" class="btn btn-outline-secondary">Go to profile</a>
+    <a href="/profile/{{$profile->id}}" class="btn btn-outline-secondary">Back</a>
   </div>
 </div>
 
@@ -22,10 +22,10 @@
   <div class="col-12 col-md-6">
     <label>Blood Pressure</label>
     <div class="d-flex align-items-center">
-    <input type="number" placeholder="Systolic Pressure Ex. 120 mmHg" class="form-control col-4 mr-2 @error('sp') is-invalid @enderror" name="sp">
+    <input type="number" placeholder="Systolic Pressure Ex. 120 mmHg" value="{{ old('sp') }}" class="form-control col-4 mr-2 @error('sp') is-invalid @enderror" name="sp">
     
     <h2 class="px-2 m-0 text-secondary">/</h2>
-    <input type="number" placeholder="Diastolic Pressure Ex. 80 mmHg" class="form-control col-4 mx-2 @error('dp') is-invalid @enderror" name="dp">
+    <input type="number" placeholder="Diastolic Pressure Ex. 80 mmHg" value="{{ old('dp') }}" class="form-control col-4 mx-2 @error('dp') is-invalid @enderror" name="dp">
     </div>
     
     <div class="d-flex">
@@ -55,7 +55,7 @@
   
   <div class="col-6">
     <label>Date</label>
-    <input class="form-control @error('check_date') is-invalid @enderror" data-provide="datepicker" name="check_date" placeholder="date" type="date">
+    <input class="form-control @error('check_date') is-invalid @enderror" value="{{ old('check_date') }}" data-provide="datepicker" name="check_date" placeholder="date" type="date">
     @error('check_date')
     <div class="text-danger">
       <small>{{$message}}</small>

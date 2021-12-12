@@ -2,15 +2,14 @@
     <div class="">
 
 <div v-if="objUser.name == 'admin'" class="row  text-break justify-content-center">
-    <div class="pd-2 col-12 pt-3 col-md-9">
+    <div class="pd-2 col-12 col-md-9">
 
-  <div class="row px-1">
+  <div class="row pt-4 px-1">
     <div class="px-0 pb-2 col-6 text-rigdht">
-      <a class="btn btn-outline-success" href="/profile/create">Add patient</a>
+      <a class="btn btn-outline-success" href="/medicine/create">Add Medicine</a>
     </div>
     <div class="px-0 pb-2 col-6 text-right">
-      <a class="btn btn-primary" href="/importExportView">Import</a>
-      <a class="btn btn-outline-secondary" href="/export">Export</a>
+      
     </div>
   </div>
 
@@ -18,7 +17,7 @@
 </div>
 
 <div :class="{'pt-4': objUser.name !== 'admin'}" class="row justify-content-center">
-  <div class="col-12 col-md-9 border rounded p-1 px-2" style="backgrodund: gray;">
+  <div class="col-12 col-md-9 border rounded p-1 px-2">
     <div class="row">
 
       <div class="col-6 col-sm text-secondary">
@@ -38,14 +37,14 @@
         <option value="1">Latest</option>
         <option value="2">Name(asc)</option>
         <option value="3">Name(desc)</option>
-        <option value="4">Age(asc)</option>
-        <option value="5">Age(desc)</option>
+        <option value="4">Quantity(asc)</option>
+        <option value="5">Quantity(desc)</option>
       </select>
     </div>
 
     <div class="col-12 col-sm text-secondary">
         <div class="input-group input-group-sm">
-          <input type="text" v-model="searchData" placeholder="Search by Lastname" class="form-control" aria-label="Small" aria-describedby="inputGroup-sizing-sm">
+          <input type="text" v-model="searchData" placeholder="Search by Medicine Name" class="form-control" aria-label="Small" aria-describedby="inputGroup-sizing-sm">
           <div class="input-group-append">
           <button @click="search" class="btn btn-outline-primary" type="button">Search</button>
         </div>
@@ -63,36 +62,27 @@
   <table class="table text-secondary table-hover">
 
     <tr class="bg-primary text-light">
-      <th class="p-2">Last Name</th>
-
-      <th class="p-2">First Name</th>
-
-      <th class="p-2">Middle Name</th>
-
-      <th class="p-2">Age</th>
-      
-      <th class="p-2">Action</th>
+        <th>Name</th>
+        <th>Type</th>
+        <th>Quantity</th>
+        <th>Date Received</th>
+        <th :class="{'d-none': objUser.name !== 'admin'}">Action</th>
     </tr>
     
       
 
-      <tr v-for="profile in pageOfItems" :key="profile.id">
+      <tr v-for="medicine in pageOfItems" :key="medicine.id">
         
-        <td class="p-2 text-capitalize">{{ profile.lastname }}</td>
+        <td class="p-2 text-lowercase">{{ medicine.med_name }}</td>
         
-        <td class="p-2 text-capitalize">{{ profile.firstname }}</td>
+        <td class="p-2 text-lowercase">{{ medicine.med_type }}</td>
         
-        <td class="p-2 text-capitalize">{{ profile.middlename }}</td>
+        <td class="p-2 text-lowercase">{{ medicine.quantity }}</td>
 
-        <td class="p-2 text-capitalize">{{ profile.age }}</td>
+        <td class="p-2 text-lowercase">{{ medicine.date_received }}</td>
+
+        <td :class="{'d-none': objUser.name !== 'admin'}" class="p-2 text-lowercase"><a class="text-danger" :href="'/medicine/' + medicine.id + '/edit'">edit</a></td>
         
-        <td class="p-2 text-capitalize">
-        <small>
-          <a :href="'/profile/' + profile.id ">
-          <svg xmlns="http://www.w3.org/2000/svg" width="13" height="13" fill="currentColor" class="bi bi-eye-fill" viewBox="0 0 16 16"> <path d="M10.5 8a2.5 2.5 0 1 1-5 0 2.5 2.5 0 0 1 5 0z"/> <path d="M0 8s3-5.5 8-5.5S16 8 16 8s-3 5.5-8 5.5S0 8 0 8zm8 3.5a3.5 3.5 0 1 0 0-7 3.5 3.5 0 0 0 0 7z"/> </svg>
-          View</a>
-          </small>
-          </td>
       </tr>
 
       <caption v-if="pageOfItems == ''" class="py-4">
@@ -100,14 +90,14 @@
         <h3 class="py-1 text-center text-secondary">
           Empty result
         </h3>
-        <a href="/profile/create" role="button" class="btn btn-outline-primary">Create new record</a>
+        <a href="/medicine/create" role="button" class="btn btn-outline-primary">Create new record</a>
         </div>
       </caption>
     
   </table>
 
   <div class="row justify-content-center">
-    <jw-pagination :pageSize="perPage" :maxPages="7" :items="dataProfile" @changePage="onChangePage"></jw-pagination>
+    <jw-pagination :pageSize="perPage" :maxPages="7" :items="dataMedicine" @changePage="onChangePage"></jw-pagination>
   </div>
   
     </div>
@@ -119,7 +109,7 @@
 <script>
 export default {
 
-    props: ['objProfiles', 'objUser'],
+    props: ['objMedicines', 'objUser'],
 
    /* mounted(){
       axios.get('/profile/paginate').then(res => {
@@ -133,7 +123,7 @@ export default {
         //exampleItems,
         pageOfItems: [],
         perPage: 5,
-        dataProfile: this.objProfiles,
+        dataMedicine: this.objMedicines,
         sortChoice: 1,
         sortData: [],
         searchData: ''
@@ -149,23 +139,23 @@ export default {
 
 
       sort(){
-        axios.get('/profile/sort?perPage=' + this.perPage + '&sort=' + this.sortChoice).then(res => {
-          this.dataProfile = res.data
-          //alert(this.sortData);
+        axios.get('/medicine/sort?perPage=' + this.perPage + '&sort=' + this.sortChoice).then(res => {
+          this.dataMedicine = res.data
+          console.log(res.data[0].barangay);
         })
       },
 
       paginate(){
         this.perPage
-        axios.get('/profile/paginate').then(res => {
-          this.dataProfile = res.data
+        axios.get('/medicine/paginate').then(res => {
+          this.dataMedicine = res.data
         })
         this.sort();
       },
 
       search(){
-        axios.get('/profile/search?search=' + this.searchData).then(res => {
-          this.dataProfile = res.data
+        axios.get('/medicine/search?search=' + this.searchData).then(res => {
+          this.dataMedicine = res.data
         })
       }
     }

@@ -12,11 +12,12 @@
 
     <div class="row py-3">
         <div class="col border-bottom border-info text-lizght py-2 headings">
-        <h3 class="text-capitalize">Blood pressure history</h3>
+        <h3 class="text-capitalize">Check-up history</h3>
         </div>
     </div>
 
     <div class="row align-items-center pl-3 pb-3">
+    
     <div class="col text-primary py-2 headings">
       <h5 class="text-uppercase font-weight-bold m-0">{{$profile->lastname}}, {{$profile->firstname}} {{$profile->middlename}}</h5>
       <p class="m-0">{{$profile->houseNum}} Sitio Bokig Brgy. Abonagan Malasiqui, Pangasinan </p>
@@ -27,16 +28,16 @@
     <div class="col">
       <table class="table table-hover">
         <tr>
-          <th>Blood Pressure</th>
+          <th>Medical Concern</th>
           <th>Checkup Date</th>
           <!-- <th>Action</th> -->
         </tr>
 
         
-        @foreach($profiles as $blood)
+        @foreach($profiles as $checkup)
         <tr>
-          <td>{{ $blood->sp }} / {{$blood->dp }}</td>
-          <td>{{ $blood->check_date }}</td>
+          <td>{{ $checkup->med_concern }}</td>
+          <td>{{ $checkup->check_date }}</td>
           <!-- <td>
             <span class="px-1 text-danger">Delete</span>
           </td> -->

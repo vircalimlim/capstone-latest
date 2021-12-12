@@ -17,6 +17,8 @@
     <link rel="dns-prefetch" href="//fonts.gstatic.com">
     <link href="https://fonts.googleapis.com/css?family=Nunito" rel="stylesheet">
     
+    
+    
 
 </head>
 <body class="">
@@ -39,7 +41,6 @@
       @endauth
 
         <main class="py-5 px-md-4 container-fluid text-break ">
-        @include('sweetalert::alert')
             @yield('content')
         </main>
         
@@ -49,5 +50,6 @@
         </footer>
         
     </div>
+    @include('sweetalert::alert')
 </body>
 </html>

@@ -19,12 +19,10 @@
   </div>
   
   <div class="row align-items-center pl-3 pb-3">
-    <div class="d-none col-md-2 d-md-block">
-      <img src="sjsj.png" alt="image">
-    </div>
+    
     <div class="col text-primary py-2 headings">
       <h5 class="text-uppercase font-weight-bold m-0">{{$profile->lastname}}, {{$profile->firstname}} {{$profile->middlename}}</h5>
-      <p class="m-0">{{$profile->houseNum}} {{$profile->street}}  Brgy. {{$profile->barangay}} Malasiqui, Pangasinan </p>
+      <p class="m-0 text-capitalize">{{$profile->houseNum}} {{$profile->street}}  Brgy. {{$profile->barangay}} Malasiqui, Pangasinan </p>
     </div>
   </div>
   
@@ -101,7 +99,7 @@
         </tr>
 
         
-        @forelse($profile->blood->reverse()->take(5) as $blood)
+        @forelse($profile->blood->reverse()->take(3) as $blood)
         <tr>
           <td>{{ $blood->sp }} / {{$blood->dp }}</td>
           <td>{{ $blood->check_date }}</td>
@@ -115,7 +113,7 @@
         
       </table>
 
-      @if(count($profile->blood) > 4)
+      @if(count($profile->blood) > 2)
       <div class="row">
         <div class="col text-center bg-light rounded">
           <a href="/bp/{{$profile->id}}/show" class="text-center">See all</a>
@@ -125,6 +123,49 @@
 
     </div>
     </div>
+
+    <div class="row px-3 my-3">
+    <div class="col-12 bg-light">
+      <h5 class="pt-2">Check-up History</h5>
+    </div>
+  </div>
+  
+  <div class="row">
+    <div class="col">
+      <table class="table table-hover">
+        <tr>
+          <th>Medical Concern</th>
+          <th>Checkup Date</th>
+          
+          
+        </tr>
+
+        
+        @forelse($profile->checkup->reverse()->take(3) as $checkup)
+        <tr>
+          <td>{{ $checkup->med_concern }}</td>
+          <td>{{ $checkup->check_date }}</td>
+          
+        </tr>
+
+        @empty
+        <caption class="text-center"><h4>No data</h4></caption>
+        
+        @endforelse
+        
+      </table>
+
+      @if(count($profile->checkup) > 2)
+      <div class="row">
+        <div class="col text-center bg-light rounded">
+          <a href="/checkup/{{$profile->id}}/show" class="text-center">See all</a>
+        </div>
+      </div>
+      @endif
+
+    </div>
+    </div>
+
     
   <div class="row px-3 my-3">
     <div class="col-12 bg-light">
@@ -142,7 +183,7 @@
           <th>Concern</th>
         </tr>
         
-        @forelse($profile->medicine->reverse()->take(5) as $med)
+        @forelse($profile->medicine->reverse()->take(3) as $med)
         <tr>
           <td>{{$med->med_name}}</td>
           <td>{{$med->pivot->date_released}}</td>
@@ -155,7 +196,7 @@
         @endforelse
       </table>
 
-      @if(count($profile->medicine) > 4)
+      @if(count($profile->medicine) > 2)
       <div class="row">
         <div class="col text-center bg-light rounded">
           <a href="/releasemed/{{$profile->id}}/show" class="text-center">See all</a>
@@ -184,7 +225,7 @@
         </tr>
 
         
-        @forelse($profile->vaccine->reverse()->take(5) as $vaccine)
+        @forelse($profile->vaccine->reverse()->take(3) as $vaccine)
         <tr>
           <td>{{ $vaccine->immunization_type }}</td>
           <td>{{ $vaccine->check_date }}</td>
@@ -199,7 +240,7 @@
         
       </table>
 
-      @if(count($profile->vaccine) > 4)
+      @if(count($profile->vaccine) > 2)
       <div class="row mb-2">
         <div class="col text-center bg-light rounded">
           <a href="/vaccine/{{$profile->id}}/show" class="text-center">See all</a>
@@ -210,7 +251,7 @@
     </div>
     </div>
 
-@if($profile->gender == "Female")
+@if($profile->gender == "Female" || $profile->gender == "female")
     <div class="row px-3 my-3">
     <div class="col-12 bg-light">
       <h5 class="pt-2">Prenatal History</h5>
@@ -228,7 +269,7 @@
         </tr>
 
         
-        @forelse($profile->prenatal->reverse()->take(5) as $prenatal)
+        @forelse($profile->prenatal->reverse()->take(3) as $prenatal)
         <tr>
           <td>{{ $prenatal->lmp }}</td>
           <td>{{ $prenatal->check_date }}</td>
@@ -242,10 +283,10 @@
         
       </table>
 
-      @if(count($profile->prenatal) > 4)
+      @if(count($profile->prenatal) > 2)
       <div class="row mb-2">
         <div class="col text-center bg-light rounded">
-          <a href="/vaccine/{{$profile->id}}/show" class="text-center">See all</a>
+          <a href="/prenatal/{{$profile->id}}/show" class="text-center">See all</a>
         </div>
       </div>
       @endif
@@ -254,7 +295,8 @@
     </div>
     @endif
 
-  
+ 
+  @can('update', $profile)
   <div class="text-right">
     <div class="d-inline p-2">
       <a href="/profile/{{$profile->id}}/edit" role="button" class="btn btn-outline-success font-weight-bold py-2 px-4">Edit</a>
@@ -268,11 +310,12 @@
       </form>
     </div>
   </div>
+  @endcan
   
   </div>
 
 </div>
-
+@can('update', $profile)
 <div class="col-12 col-md-4">
   <div class="row px-md-2 py-2 py-md-0">
   <div class="col-12 border shadow-sm bg-white pb-4 rounded text-secondary">
@@ -283,6 +326,18 @@
     </div>
   </div>
     
+  <div class="row hover align-items-center pl-4 py-2">
+    <div class="col">
+      <label><strong>Check-up</strong></label>
+    </div>
+    
+    <div class="col">
+      <a href="/checkup/{{$profile->id}}" class="btn btn-outline-success px-3 ">
+        Go
+      </a>
+    </div>
+  </div>
+
   <div class="row hover align-items-center pl-4 py-2">
     <div class="col">
       <label><strong>Monitor Blood Pressure</strong></label>
@@ -330,7 +385,7 @@
       </a>
     </div>
     </div>
-@if($profile->gender == 'Female')
+@if($profile->gender == 'Female' || $profile->gender == 'female')
     <div class="row hover align-items-center pl-4 py-2">
     <div class="col">
       <label><strong> Prenatal </strong></label>
@@ -347,6 +402,7 @@
   </div>
   </div>
 </div>
+@endcan
 
 </div>
 

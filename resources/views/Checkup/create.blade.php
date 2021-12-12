@@ -9,32 +9,20 @@
 
 <div class="my-2 bg-white border p-4">
  
-<h3>Immunization Record Form</h3> 
-<form method="POST" action="/vaccine/{{$profile->id}}">
+<h3>Check-up Record Form</h3> 
+<form method="POST" action="/checkup/{{$profile->id}}">
 @csrf
 <div class="row">
-  <div class="col-12 col-md-6">
-    <label>Resident Name</label>
+  <div class="col-12 col-md-12">
+    <label>Patient Name</label>
     <p  class="border p-2 rounded text-capitalize" name="resident_name">
       {{$profile->lastname}}, {{$profile->firstname}} {{$profile->middlename}}
     </p>
   </div>
   
-  <div class="col-12 col-md-6">
-    <label>Immunization Type</label>
-    <div class="align-items-center">
-    <input type="text" placeholder="Immunization type ex. polio vaccine" class="form-control mr-2 @error('immunization_type') is-invalid @enderror" value="{{ old('immunization_type') }}" name="immunization_type">
-    @error('immunization_type')
-    <div class="col-4 p-0 ml-1 text-danger">
-      <small>{{$message}}</small>
-    </div>
-    @enderror
-    </div>
-
-</div>
 </div>
 
-<div class="row pt-3">
+<div class="row pt-2">
   <div class="col-6">
     <label>Age</label>
     <p class="border p-2 rounded">
@@ -65,7 +53,7 @@
     </div>
 </div>
 
-<div class="row pt-3">
+<div class="row pt-2">
   <div class="col-12">
   <button class="btn btn-primary" type="submit">Save</button>
   <input class="btn mx-2 btn-outline-secondary" type="reset" value="Clear">

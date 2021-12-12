@@ -13,6 +13,7 @@ use App\Http\Controllers\ExcelController;
 use App\Http\Controllers\HTMLPDFController;
 use App\Http\Controllers\VaccineController;
 use App\Http\Controllers\PrenatalController;
+use App\Http\Controllers\CheckupController;
 use App\Http\Controllers\ReportController;
 
 /*
@@ -61,8 +62,14 @@ Route::post('/bp/{profile}', [BloodController::class, 'store']);
 Route::get('/bp/{profile}/show', [BloodController::class, 'show']);
 
 Route::get('/medicine', [MedicineController::class, 'index']);
+Route::get('/medicine/paginate', [MedicineController::class, 'paginated']);
+Route::get('/medicine/sort', [MedicineController::class, 'sorted']);
+Route::get('/medicine/search', [MedicineController::class, 'search']);
 Route::get('/medicine/create', [MedicineController::class, 'create']);
 Route::post('/medicine', [MedicineController::class, 'store']);
+Route::delete('/medicine/{medicine}/delete', [MedicineController::class, 'destroy']);
+Route::get('/medicine/{medicine}/edit', [MedicineController::class, 'edit']);
+Route::patch('/medicine/{medicine}', [MedicineController::class, 'update']);
 
 Route::get('/releasemed', [ReleaseMedController::class, 'index']);
 Route::get('/releasemed/{profile}', [ReleaseMedController::class, 'create']);
@@ -75,11 +82,20 @@ Route::get('/vaccine/{profile}', [VaccineController::class, 'create']);
 Route::post('/vaccine/{profile}', [VaccineController::class, 'store']);
 Route::get('/vaccine/{profile}/show', [VaccineController::class, 'show']);
 
+Route::get('/checkup/{profile}', [CheckupController::class, 'create']);
+Route::post('/checkup/{profile}', [CheckupController::class, 'store']);
+Route::get('/checkup/{profile}/show', [CheckupController::class, 'show']);
+
 Route::get('/prenatal/{profile}/create', [PrenatalController::class, 'create']);
 Route::post('/prenatal/{profile}', [PrenatalController::class, 'store']);
+Route::get('/prenatal/{profile}/show', [PrenatalController::class, 'show']);
 
 Route::get('/report', [ReportController::class, 'index']);
 Route::get('/report/patient', [ReportController::class, 'patient']);
 Route::get('/report/medicine', [ReportController::class, 'medicine']);
+Route::get('/report/releasemed', [ReportController::class, 'releasemed']);
 Route::get('/report/bp', [ReportController::class, 'bp']);
+Route::get('/report/checkup', [ReportController::class, 'checkup']);
+Route::get('/report/immunization', [ReportController::class, 'immunization']);
+Route::get('/report/prenatal', [ReportController::class, 'prenatal']);
 });

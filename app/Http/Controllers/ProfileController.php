@@ -19,8 +19,12 @@ class ProfileController extends Controller
      */
     public function index()
     {
+        
+        $user = auth()->user();
         $profiles = Profile::latest()->get();
-        return view('Profile.index', compact(['profiles']));
+
+        //$this->authorize('update', $profiles);
+        return view('Profile.index', compact(['profiles', 'user']));
     }
 
     public function paginated(Request $request){
@@ -117,7 +121,7 @@ class ProfileController extends Controller
             'fullname' => $data['firstname'] . ' ' . $data['middlename'] . ' ' . $data['lastname']
           ];
           //dd($data->firstname);
-        Profile::create(array_merge($data, $fullname));
+        Profile::create(array_merge(array_map( 'strtolower', $data ), $fullname));
         //return redirect()->back()->with('success', 'Created successfully!');
         return ['success'    => 'success'];
         //return redirect()->back();
@@ -163,6 +167,7 @@ class ProfileController extends Controller
      */
     public function update(Request $request, Profile $profile)
     {
+      $this->authorize('update', $profile);
        $dataOfProfile = request()->validate([
         'houseNum' => 'required|numeric',
         'firstname' => 'required|string|max:150|min:2',

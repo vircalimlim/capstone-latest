@@ -2,11 +2,11 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\Prenatal;
+use App\Models\Checkup;
 use App\Models\Profile;
 use Illuminate\Http\Request;
 
-class PrenatalController extends Controller
+class CheckupController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -25,7 +25,8 @@ class PrenatalController extends Controller
      */
     public function create(Profile $profile)
     {
-        return view('Prenatal.create', compact(['profile']));
+        
+        return view('Checkup.create', compact('profile'));
     }
 
     /**
@@ -36,34 +37,35 @@ class PrenatalController extends Controller
      */
     public function store(Request $request, Profile $profile)
     {
+        //dd($profile);
         $data = $request->validate([
-            'lmp' => 'required',
+            'med_concern' => 'required',
             'check_date' => 'required',
             ]);
             
-        $profile->prenatal()->create($data);
-        return redirect('/prenatal/'. $profile->id.'/create')->with('success', 'Saved');
+        $profile->checkup()->create($data);
+        return redirect('/checkup/'. $profile->id)->with('success', 'Saved');
     }
 
     /**
      * Display the specified resource.
      *
-     * @param  \App\Models\Prenatal  $prenatal
+     * @param  \App\Models\Checkup  $checkup
      * @return \Illuminate\Http\Response
      */
-    public function show(Prenatal $prenatal, Profile $profile)
+    public function show(Checkup $checkup, Profile $profile)
     {
-        $profiles = $profile->prenatal()->paginate(10);
-        return view('Prenatal.show', compact(['profile', 'profiles']));
+        $profiles = $profile->checkup()->paginate(10);
+        return view('Checkup.show', compact(['profile', 'profiles']));
     }
 
     /**
      * Show the form for editing the specified resource.
      *
-     * @param  \App\Models\Prenatal  $prenatal
+     * @param  \App\Models\Checkup  $checkup
      * @return \Illuminate\Http\Response
      */
-    public function edit(Prenatal $prenatal)
+    public function edit(Checkup $checkup)
     {
         //
     }
@@ -72,10 +74,10 @@ class PrenatalController extends Controller
      * Update the specified resource in storage.
      *
      * @param  \Illuminate\Http\Request  $request
-     * @param  \App\Models\Prenatal  $prenatal
+     * @param  \App\Models\Checkup  $checkup
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Prenatal $prenatal)
+    public function update(Request $request, Checkup $checkup)
     {
         //
     }
@@ -83,10 +85,10 @@ class PrenatalController extends Controller
     /**
      * Remove the specified resource from storage.
      *
-     * @param  \App\Models\Prenatal  $prenatal
+     * @param  \App\Models\Checkup  $checkup
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Prenatal $prenatal)
+    public function destroy(Checkup $checkup)
     {
         //
     }

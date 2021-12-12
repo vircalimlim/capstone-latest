@@ -34,5 +34,9 @@ class Profile extends Model
     public function medicine(){
       return $this->belongsToMany(Medicine::class)->withPivot('quantity', 'date_released', 'concern');
     }
+
+    public function checkup(){
+      return $this->hasMany(Checkup::class);
+    }
     
 }

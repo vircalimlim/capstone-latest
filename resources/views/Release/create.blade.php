@@ -3,7 +3,7 @@
 
 <div class="row">
   <div class="col mt-4 ">
-    <a href="/profile/{{$profile->id}}" class="btn btn-outline-secondary">Go to profile</a>
+    <a href="/profile/{{$profile->id}}" class="btn btn-outline-secondary">Back</a>
   </div>
 </div>
 
