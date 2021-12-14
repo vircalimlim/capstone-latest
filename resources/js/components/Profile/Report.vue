@@ -98,13 +98,13 @@
     
     <tr v-for="medicine in data" :key="medicine.id">
         
-        <td class="p-2">{{ medicine.med_name }}</td>
+        <td class="p-2 text-capitalize">{{ medicine.med_name }}</td>
         
-        <td class="p-2">{{ medicine.med_type }}</td>
+        <td class="p-2 text-capitalize">{{ medicine.med_type }}</td>
         
-        <td class="p-2">{{ medicine.quantity }}</td>
+        <td class="p-2 text-capitalize">{{ medicine.quantity }}</td>
 
-        <td class="p-2">{{ medicine.date_received }}</td>
+        <td class="p-2 text-capitalize">{{ medicine.date_received }}</td>
 
     </tr>
 
@@ -121,6 +121,8 @@
   <table class="table text-secondary table-hover">
 
     <tr class="bg-primadry text-lisght">
+      <th class="p-2">Street</th>
+      <th class="p-2">Barangay</th>
       <th class="p-2">Receiver's Name</th>
       <th class="p-2">Medicine Name</th>
       <th class="p-2">Quantity</th>
@@ -130,13 +132,17 @@
     <template v-for="releasemed in releasemeds">
     <tr  v-for="profile in releasemed.profile" :key="profile.id">
         
-        <td class="p-2">{{ profile.lastname }}, {{ profile.firstname }} {{ profile.middlename }}</td>
+        <td class="p-2 text-capitalize">{{ profile.street }}</td>
 
-        <td class="p-2">{{ releasemed.med_name }}</td>
+        <td class="p-2 text-capitalize">{{ profile.barangay }}</td>
 
-        <td class="p-2">{{ profile.pivot.quantity }}</td>
+        <td class="p-2 text-capitalize">{{ profile.lastname }}, {{ profile.firstname }} {{ profile.middlename }}</td>
 
-        <td class="p-2">{{ releasemed.date_received }}</td>
+        <td class="p-2 text-capitalize">{{ releasemed.med_name }}</td>
+
+        <td class="p-2 text-capitalize">{{ profile.pivot.quantity }}</td>
+
+        <td class="p-2 text-capitalize">{{ releasemed.date_received }}</td>
         
     </tr>
     </template>
@@ -154,6 +160,8 @@
   <table class="table text-secondary table-hover">
 
     <tr class="bg-primadry text-lisght">
+      <th class="p-2">Street</th>
+      <th class="p-2">Barangay</th>
       <th class="p-2">Last Name</th>
       <th class="p-2">First Name</th>
       <th class="p-2">Middle Name</th>
@@ -161,14 +169,17 @@
     </tr>
    
     <tr v-for="blood in bloods" :key="blood.id">
+        <td class="p-2 text-capitalize">{{ blood.profile.street }}</td>
         
-        <td class="p-2 text-lowercase">{{ blood.profile.lastname }}</td>
-        
-        <td class="p-2 text-lowercase">{{blood.profile.firstname }}</td>
-        
-        <td class="p-2 text-lowercase">{{ blood.profile.middlename }}</td>
+        <td class="p-2 text-capitalize">{{blood.profile.barangay }}</td>
 
-        <td class="p-2 text-lowercase">{{ blood.sp}} / {{ blood.dp }}</td>
+        <td class="p-2 text-capitalize">{{ blood.profile.lastname }}</td>
+        
+        <td class="p-2 text-capitalize">{{blood.profile.firstname }}</td>
+        
+        <td class="p-2 text-capitalize">{{ blood.profile.middlename }}</td>
+
+        <td class="p-2 text-capitalize">{{ blood.sp}} / {{ blood.dp }}</td>
         
     </tr>
 
@@ -185,6 +196,8 @@
   <table class="table text-secondary table-hover">
 
     <tr class="bg-primadry text-lisght">
+      <th class="p-2">Street</th>
+      <th class="p-2">Barangay</th>
       <th class="p-2">Last Name</th>
       <th class="p-2">First Name</th>
       <th class="p-2">Middle Name</th>
@@ -193,6 +206,10 @@
     </tr>
    
     <tr v-for="checkup in checkups" :key="checkup.id">
+
+        <td class="p-2 text-lowercase">{{ checkup.profile.street }}</td>
+        
+        <td class="p-2 text-lowercase">{{checkup.profile.barangay }}</td>
         
         <td class="p-2 text-lowercase">{{ checkup.profile.lastname }}</td>
         
@@ -219,6 +236,8 @@
   <table class="table text-secondary table-hover">
 
     <tr class="bg-primadry text-lisght">
+      <th class="p-2">Street</th>
+      <th class="p-2">Barangay</th>
       <th class="p-2">Last Name</th>
       <th class="p-2">First Name</th>
       <th class="p-2">Middle Name</th>
@@ -227,6 +246,10 @@
     </tr>
   
     <tr v-for="immunization in immunizations" :key="immunization.id">
+
+        <td class="p-2 text-lowercase">{{ immunization.profile.street }}</td>
+        
+        <td class="p-2 text-lowercase">{{immunization.profile.barangay }}</td>
         
         <td class="p-2 text-lowercase">{{ immunization.profile.lastname }}</td>
         
@@ -253,6 +276,8 @@
   <table class="table text-secondary table-hover">
 
     <tr class="bg-primadry text-lisght">
+      <th class="p-2">Street</th>
+      <th class="p-2">Barangay</th>
       <th class="p-2">Last Name</th>
       <th class="p-2">First Name</th>
       <th class="p-2">Middle Name</th>
@@ -262,15 +287,19 @@
   
     <tr v-for="prenatal in prenatals" :key="prenatal.id">
         
-        <td class="p-2 text-lowercase">{{ prenatal.profile.lastname }}</td>
+        <td class="p-2 text-capitalize">{{ prenatal.profile.street }}</td>
         
-        <td class="p-2 text-lowercase">{{prenatal.profile.firstname }}</td>
+        <td class="p-2 text-capitalize">{{prenatal.profile.barangay }}</td>
+
+        <td class="p-2 text-capitalize">{{ prenatal.profile.lastname }}</td>
         
-        <td class="p-2 text-lowercase">{{ prenatal.profile.middlename }}</td>
+        <td class="p-2 text-capitalize">{{prenatal.profile.firstname }}</td>
+        
+        <td class="p-2 text-capitalize">{{ prenatal.profile.middlename }}</td>
 
-        <td class="p-2 text-lowercase">{{ prenatal.lmp }}</td>
+        <td class="p-2 text-capitalize">{{ prenatal.lmp }}</td>
 
-        <td class="p-2 text-lowercase">{{ prenatal.check_date }}</td>
+        <td class="p-2 text-capitalize">{{ prenatal.check_date }}</td>
         
     </tr>
 

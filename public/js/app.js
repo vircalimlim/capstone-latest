@@ -3285,6 +3285,35 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 
 var dateObj = new Date();
 var currentDate = dateObj.getFullYear() + "-" + dateObj.getMonth() + "-" + dateObj.getDate();
@@ -77834,19 +77863,19 @@ var render = function() {
                       _vm._v(" "),
                       _vm._l(_vm.data, function(medicine) {
                         return _c("tr", { key: medicine.id }, [
-                          _c("td", { staticClass: "p-2" }, [
+                          _c("td", { staticClass: "p-2 text-capitalize" }, [
                             _vm._v(_vm._s(medicine.med_name))
                           ]),
                           _vm._v(" "),
-                          _c("td", { staticClass: "p-2" }, [
+                          _c("td", { staticClass: "p-2 text-capitalize" }, [
                             _vm._v(_vm._s(medicine.med_type))
                           ]),
                           _vm._v(" "),
-                          _c("td", { staticClass: "p-2" }, [
+                          _c("td", { staticClass: "p-2 text-capitalize" }, [
                             _vm._v(_vm._s(medicine.quantity))
                           ]),
                           _vm._v(" "),
-                          _c("td", { staticClass: "p-2" }, [
+                          _c("td", { staticClass: "p-2 text-capitalize" }, [
                             _vm._v(_vm._s(medicine.date_received))
                           ])
                         ])
@@ -77886,7 +77915,15 @@ var render = function() {
                       _vm._l(_vm.releasemeds, function(releasemed) {
                         return _vm._l(releasemed.profile, function(profile) {
                           return _c("tr", { key: profile.id }, [
-                            _c("td", { staticClass: "p-2" }, [
+                            _c("td", { staticClass: "p-2 text-capitalize" }, [
+                              _vm._v(_vm._s(profile.street))
+                            ]),
+                            _vm._v(" "),
+                            _c("td", { staticClass: "p-2 text-capitalize" }, [
+                              _vm._v(_vm._s(profile.barangay))
+                            ]),
+                            _vm._v(" "),
+                            _c("td", { staticClass: "p-2 text-capitalize" }, [
                               _vm._v(
                                 _vm._s(profile.lastname) +
                                   ", " +
@@ -77896,15 +77933,15 @@ var render = function() {
                               )
                             ]),
                             _vm._v(" "),
-                            _c("td", { staticClass: "p-2" }, [
+                            _c("td", { staticClass: "p-2 text-capitalize" }, [
                               _vm._v(_vm._s(releasemed.med_name))
                             ]),
                             _vm._v(" "),
-                            _c("td", { staticClass: "p-2" }, [
+                            _c("td", { staticClass: "p-2 text-capitalize" }, [
                               _vm._v(_vm._s(profile.pivot.quantity))
                             ]),
                             _vm._v(" "),
-                            _c("td", { staticClass: "p-2" }, [
+                            _c("td", { staticClass: "p-2 text-capitalize" }, [
                               _vm._v(_vm._s(releasemed.date_received))
                             ])
                           ])
@@ -77944,19 +77981,27 @@ var render = function() {
                       _vm._v(" "),
                       _vm._l(_vm.bloods, function(blood) {
                         return _c("tr", { key: blood.id }, [
-                          _c("td", { staticClass: "p-2 text-lowercase" }, [
+                          _c("td", { staticClass: "p-2 text-capitalize" }, [
+                            _vm._v(_vm._s(blood.profile.street))
+                          ]),
+                          _vm._v(" "),
+                          _c("td", { staticClass: "p-2 text-capitalize" }, [
+                            _vm._v(_vm._s(blood.profile.barangay))
+                          ]),
+                          _vm._v(" "),
+                          _c("td", { staticClass: "p-2 text-capitalize" }, [
                             _vm._v(_vm._s(blood.profile.lastname))
                           ]),
                           _vm._v(" "),
-                          _c("td", { staticClass: "p-2 text-lowercase" }, [
+                          _c("td", { staticClass: "p-2 text-capitalize" }, [
                             _vm._v(_vm._s(blood.profile.firstname))
                           ]),
                           _vm._v(" "),
-                          _c("td", { staticClass: "p-2 text-lowercase" }, [
+                          _c("td", { staticClass: "p-2 text-capitalize" }, [
                             _vm._v(_vm._s(blood.profile.middlename))
                           ]),
                           _vm._v(" "),
-                          _c("td", { staticClass: "p-2 text-lowercase" }, [
+                          _c("td", { staticClass: "p-2 text-capitalize" }, [
                             _vm._v(_vm._s(blood.sp) + " / " + _vm._s(blood.dp))
                           ])
                         ])
@@ -77995,6 +78040,14 @@ var render = function() {
                       _vm._v(" "),
                       _vm._l(_vm.checkups, function(checkup) {
                         return _c("tr", { key: checkup.id }, [
+                          _c("td", { staticClass: "p-2 text-lowercase" }, [
+                            _vm._v(_vm._s(checkup.profile.street))
+                          ]),
+                          _vm._v(" "),
+                          _c("td", { staticClass: "p-2 text-lowercase" }, [
+                            _vm._v(_vm._s(checkup.profile.barangay))
+                          ]),
+                          _vm._v(" "),
                           _c("td", { staticClass: "p-2 text-lowercase" }, [
                             _vm._v(_vm._s(checkup.profile.lastname))
                           ]),
@@ -78051,6 +78104,14 @@ var render = function() {
                       _vm._l(_vm.immunizations, function(immunization) {
                         return _c("tr", { key: immunization.id }, [
                           _c("td", { staticClass: "p-2 text-lowercase" }, [
+                            _vm._v(_vm._s(immunization.profile.street))
+                          ]),
+                          _vm._v(" "),
+                          _c("td", { staticClass: "p-2 text-lowercase" }, [
+                            _vm._v(_vm._s(immunization.profile.barangay))
+                          ]),
+                          _vm._v(" "),
+                          _c("td", { staticClass: "p-2 text-lowercase" }, [
                             _vm._v(_vm._s(immunization.profile.lastname))
                           ]),
                           _vm._v(" "),
@@ -78105,23 +78166,31 @@ var render = function() {
                       _vm._v(" "),
                       _vm._l(_vm.prenatals, function(prenatal) {
                         return _c("tr", { key: prenatal.id }, [
-                          _c("td", { staticClass: "p-2 text-lowercase" }, [
+                          _c("td", { staticClass: "p-2 text-capitalize" }, [
+                            _vm._v(_vm._s(prenatal.profile.street))
+                          ]),
+                          _vm._v(" "),
+                          _c("td", { staticClass: "p-2 text-capitalize" }, [
+                            _vm._v(_vm._s(prenatal.profile.barangay))
+                          ]),
+                          _vm._v(" "),
+                          _c("td", { staticClass: "p-2 text-capitalize" }, [
                             _vm._v(_vm._s(prenatal.profile.lastname))
                           ]),
                           _vm._v(" "),
-                          _c("td", { staticClass: "p-2 text-lowercase" }, [
+                          _c("td", { staticClass: "p-2 text-capitalize" }, [
                             _vm._v(_vm._s(prenatal.profile.firstname))
                           ]),
                           _vm._v(" "),
-                          _c("td", { staticClass: "p-2 text-lowercase" }, [
+                          _c("td", { staticClass: "p-2 text-capitalize" }, [
                             _vm._v(_vm._s(prenatal.profile.middlename))
                           ]),
                           _vm._v(" "),
-                          _c("td", { staticClass: "p-2 text-lowercase" }, [
+                          _c("td", { staticClass: "p-2 text-capitalize" }, [
                             _vm._v(_vm._s(prenatal.lmp))
                           ]),
                           _vm._v(" "),
-                          _c("td", { staticClass: "p-2 text-lowercase" }, [
+                          _c("td", { staticClass: "p-2 text-capitalize" }, [
                             _vm._v(_vm._s(prenatal.check_date))
                           ])
                         ])
@@ -78221,6 +78290,10 @@ var staticRenderFns = [
     var _h = _vm.$createElement
     var _c = _vm._self._c || _h
     return _c("tr", { staticClass: "bg-primadry text-lisght" }, [
+      _c("th", { staticClass: "p-2" }, [_vm._v("Street")]),
+      _vm._v(" "),
+      _c("th", { staticClass: "p-2" }, [_vm._v("Barangay")]),
+      _vm._v(" "),
       _c("th", { staticClass: "p-2" }, [_vm._v("Receiver's Name")]),
       _vm._v(" "),
       _c("th", { staticClass: "p-2" }, [_vm._v("Medicine Name")]),
@@ -78235,6 +78308,10 @@ var staticRenderFns = [
     var _h = _vm.$createElement
     var _c = _vm._self._c || _h
     return _c("tr", { staticClass: "bg-primadry text-lisght" }, [
+      _c("th", { staticClass: "p-2" }, [_vm._v("Street")]),
+      _vm._v(" "),
+      _c("th", { staticClass: "p-2" }, [_vm._v("Barangay")]),
+      _vm._v(" "),
       _c("th", { staticClass: "p-2" }, [_vm._v("Last Name")]),
       _vm._v(" "),
       _c("th", { staticClass: "p-2" }, [_vm._v("First Name")]),
@@ -78249,6 +78326,10 @@ var staticRenderFns = [
     var _h = _vm.$createElement
     var _c = _vm._self._c || _h
     return _c("tr", { staticClass: "bg-primadry text-lisght" }, [
+      _c("th", { staticClass: "p-2" }, [_vm._v("Street")]),
+      _vm._v(" "),
+      _c("th", { staticClass: "p-2" }, [_vm._v("Barangay")]),
+      _vm._v(" "),
       _c("th", { staticClass: "p-2" }, [_vm._v("Last Name")]),
       _vm._v(" "),
       _c("th", { staticClass: "p-2" }, [_vm._v("First Name")]),
@@ -78265,6 +78346,10 @@ var staticRenderFns = [
     var _h = _vm.$createElement
     var _c = _vm._self._c || _h
     return _c("tr", { staticClass: "bg-primadry text-lisght" }, [
+      _c("th", { staticClass: "p-2" }, [_vm._v("Street")]),
+      _vm._v(" "),
+      _c("th", { staticClass: "p-2" }, [_vm._v("Barangay")]),
+      _vm._v(" "),
       _c("th", { staticClass: "p-2" }, [_vm._v("Last Name")]),
       _vm._v(" "),
       _c("th", { staticClass: "p-2" }, [_vm._v("First Name")]),
@@ -78281,6 +78366,10 @@ var staticRenderFns = [
     var _h = _vm.$createElement
     var _c = _vm._self._c || _h
     return _c("tr", { staticClass: "bg-primadry text-lisght" }, [
+      _c("th", { staticClass: "p-2" }, [_vm._v("Street")]),
+      _vm._v(" "),
+      _c("th", { staticClass: "p-2" }, [_vm._v("Barangay")]),
+      _vm._v(" "),
       _c("th", { staticClass: "p-2" }, [_vm._v("Last Name")]),
       _vm._v(" "),
       _c("th", { staticClass: "p-2" }, [_vm._v("First Name")]),
