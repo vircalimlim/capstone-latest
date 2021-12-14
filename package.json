@@ -30,6 +30,7 @@
         "jw-vue-pagination": "^1.0.3",
         "sweetalert2": "^11.1.2",
         "vue-apexcharts": "^1.6.2",
-        "vue-html2pdf": "^1.8.0"
+        "vue-html2pdf": "^1.8.0",
+        "vue-moment": "^4.1.0"
     }
 }

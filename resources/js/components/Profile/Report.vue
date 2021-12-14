@@ -6,8 +6,8 @@
 
     <div class="row">
 
-      <div class="col-6 pb-2 col-sm text-secondary">
-      <label for="">Select Report:</label>
+      <div class="col pb-2 col-sm text-secondary">
+      <label for="">Report:</label>
       <select @change="report" v-model.number="reportChoice" class="" name="" id="">
         <option value="1" selected="">Added Patients</option>
         <option value="2" selected="">Added Medicines</option>
@@ -20,21 +20,18 @@
       </select>
     </div>
 
-    <div class="col-6 pb-2 col-sm text-secondary">
-      <label for="">Timeframe:</label>
-      <select @change="report" v-model.number="tfChoice" class="" name="" id="">
-        <option value="1">Today</option>
-        <option value="2">Yesterday</option>
-        <option value="3">This Week</option>
-        <option value="4">This Month</option>
-        <option value="5">This Year</option>
-        <option value="6">Last 30 days</option>
-        <option value="7">Last 365 days</option>
-        <option value="8">All Records</option>
-      </select>
+    <div class="col pb-2 col-sm text-secondary">
+      <label for="">Date from:</label>
+      <input type="date" v-model="date_from" name="date_from" @change="report">
     </div>
 
-    <div class="col-6 pb-2 col-sm text-secondary">
+    <div class="col pb-2 col-sm text-secondary">
+      <label for="">Date to:</label>
+      <input type="date" v-model="date_to" name="date_to" @change="report">
+    </div>
+
+
+    <div class="col pb-2 col-sm text-secondary">
       <label for="">Print Report:</label>
       <button :class="{'btn-outline-success': isDisabled }" class="btn-md btn-success" @click="generateReport" :disabled='isDisabled'>Print</button>
     </div>
@@ -50,6 +47,8 @@
   <table class="table text-secondary table-hover">
 
     <tr class="bg-primadry text-lisght">
+      <th class="p-2">Street</th>
+      <th class="p-2">Barangay</th>
       <th class="p-2">First Name</th>
       <th class="p-2">Middle Name</th>
       <th class="p-2">Last Name</th>
@@ -60,17 +59,21 @@
     
     <tr v-for="patients in data" :key="patients.id">
         
-        <td class="p-2">{{ patients.firstname }}</td>
+        <td class="p-2 text-capitalize">{{ patients.street }}</td>
         
-        <td class="p-2">{{ patients.middlename }}</td>
+        <td class="p-2 text-capitalize">{{ patients.barangay }}</td>
         
-        <td class="p-2">{{ patients.lastname }}</td>
+        <td class="p-2 text-capitalize">{{ patients.firstname }}</td>
+        
+        <td class="p-2 text-capitalize">{{ patients.middlename }}</td>
+        
+        <td class="p-2 text-capitalize">{{ patients.lastname }}</td>
 
-        <td class="p-2">{{ patients.birthdate }}</td>
+        <td class="p-2 text-capitalize">{{ patients.birthdate }}</td>
 
-        <td class="p-2">{{ patients.age }}</td>
+        <td class="p-2 text-capitalize">{{ patients.age }}</td>
 
-        <td class="p-2">0{{ patients.contact }}</td>
+        <td class="p-2 text-capitalize">0{{ patients.contact }}</td>
 
     </tr>
 
@@ -304,10 +307,14 @@
 </template>
 
 <script>
+import moment from 'moment';
+
+const dateObj = new Date();
+const currentDate = dateObj.getFullYear()+"-"+dateObj.getMonth()+"-"+dateObj.getDate();
 
 export default {
   mounted(){
-    axios.get('/report/patient?rc=' + this.reportChoice + '&tf=' + this.tfChoice)
+    axios.get('/report/patient?rc=' + this.reportChoice + '&date_from=' + this.date_from + '&date_to=' + this.date_to)
           .then(res => {
             this.data = res.data
           })
@@ -318,6 +325,12 @@ export default {
             this.isDisabled = !this.isDisabled
         }, 1500)
   },
+
+  computed: {
+      formattedDate() {
+        return moment(this.givenDate).format('YYYY-MM-DD');
+      }
+    },
 
   data(){
     return{
@@ -332,6 +345,8 @@ export default {
       releasemeds: [],
       printHtml: '',
       isDisabled: true,
+      date_from: moment(this.givenDate).format('YYYY-MM-DD'),
+      date_to: moment(this.givenDate).format('YYYY-MM-DD')
     }
   },
 
@@ -339,14 +354,14 @@ export default {
     report(){
       
       if(this.reportChoice == 1){
-        axios.get('/report/patient?rc=' + this.reportChoice + '&tf=' + this.tfChoice)
+        axios.get('/report/patient?rc=' + this.reportChoice + '&date_from=' + this.date_from + '&date_to=' + this.date_to)
           .then(res => {
             this.data = res.data
           })
         }
 
       else if(this.reportChoice == 2){
-        axios.get('/report/medicine?rc=' + this.reportChoice + '&tf=' + this.tfChoice)
+        axios.get('/report/medicine?rc=' + this.reportChoice + '&date_from=' + this.date_from + '&date_to=' + this.date_to)
           .then(res => {
             this.data = res.data
             //alert("2")
@@ -354,7 +369,7 @@ export default {
         }
 
       else if(this.reportChoice == 3){
-        axios.get('/report/releasemed?rc=' + this.reportChoice + '&tf=' + this.tfChoice)
+        axios.get('/report/releasemed?rc=' + this.reportChoice + '&date_from=' + this.date_from + '&date_to=' + this.date_to)
           .then(res => {
             this.releasemeds = res.data.releasemed
             //alert("2")
@@ -362,7 +377,7 @@ export default {
         }
 
       else if(this.reportChoice == 4){
-        axios.get('/report/bp?rc=' + this.reportChoice + '&tf=' + this.tfChoice)
+        axios.get('/report/bp?rc=' + this.reportChoice + '&date_from=' + this.date_from + '&date_to=' + this.date_to)
           .then(res => {
             //return two variable objects
             //this.data = res.data.profile
@@ -371,7 +386,7 @@ export default {
         }
 
       else if(this.reportChoice == 5){
-        axios.get('/report/checkup?rc=' + this.reportChoice + '&tf=' + this.tfChoice)
+        axios.get('/report/checkup?rc=' + this.reportChoice + '&date_from=' + this.date_from + '&date_to=' + this.date_to)
           .then(res => {
             //return two variable objects
             //this.data = res.data.profile
@@ -380,7 +395,7 @@ export default {
         }
 
       else if(this.reportChoice == 6){
-        axios.get('/report/immunization?rc=' + this.reportChoice + '&tf=' + this.tfChoice)
+        axios.get('/report/immunization?rc=' + this.reportChoice + '&date_from=' + this.date_from + '&date_to=' + this.date_to)
           .then(res => {
             //return two variable objects
             //this.data = res.data.profile
@@ -389,7 +404,7 @@ export default {
         }
 
       else if(this.reportChoice == 7){
-        axios.get('/report/prenatal?rc=' + this.reportChoice + '&tf=' + this.tfChoice)
+        axios.get('/report/prenatal?rc=' + this.reportChoice + '&date_from=' + this.date_from + '&date_to=' + this.date_to)
           .then(res => {
             //return two variable objects
             //this.data = res.data.profile

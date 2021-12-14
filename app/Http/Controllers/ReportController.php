@@ -32,7 +32,11 @@ class ReportController extends Controller
 
     public function patient(Request $request)
     {
-        if($request->tf == 1){
+        
+        return Profile::whereDate('created_at', '>=', $request->date_from)
+        ->whereDate('created_at', '<=', $request->date_to)->get();
+        //return Profile::whereDateBetween('created_at', ['2021-12-14 03:55:21', '2021-12-14 03:55:21'])->get();
+       /* if($request->tf == 1){
             //daily
             return Profile::whereDate('created_at', today())->get();
         }
@@ -70,12 +74,14 @@ class ReportController extends Controller
         }
         else{
             return false;
-        }
+        }*/
     }
 
     public function medicine(Request $request)
     {
-        if($request->tf == 1){
+        return Medicine::whereDate('created_at', '>=', $request->date_from)
+        ->whereDate('created_at', '<=', $request->date_to)->get();
+        /*if($request->tf == 1){
             //daily
             return Medicine::whereDate('created_at', today())->get();
         }
@@ -113,12 +119,16 @@ class ReportController extends Controller
         }
         else{
             return false;
-        }
+        }*/
     }
 
     public function releasemed(Request $request)
     {
-        if($request->tf == 1){
+        $releasemeds = Medicine::with('profile')->whereDate('created_at', '>=', $request->date_from)
+        ->whereDate('created_at', '<=', $request->date_to)->get();
+        return response()->json(['releasemed' => $releasemeds]);
+
+        /*if($request->tf == 1){
             //daily
             $releasemeds = Medicine::with('profile')->whereDate('created_at', today())->get();
             return response()->json(['releasemed' => $releasemeds]);
@@ -164,12 +174,16 @@ class ReportController extends Controller
         }
         else{
             return false;
-        }
+        }*/
     }
 
     public function bp(Request $request)
     {
-        if($request->tf == 1){
+        $bloods = Blood::with('profile')->whereDate('created_at', '>=', $request->date_from)
+        ->whereDate('created_at', '<=', $request->date_to)->get();
+        return response()->json(['blood' => $bloods]);
+
+        /*if($request->tf == 1){
             //daily
             $bloods = Blood::with('profile')->whereDate('created_at', today())->get();
             return response()->json(['blood' => $bloods]);
@@ -217,12 +231,16 @@ class ReportController extends Controller
         }
         else{
             return false;
-        }
+        }*/
     }
 
     public function checkup(Request $request){
 
-        if($request->tf == 1){
+        $checkups = Checkup::with('profile')->whereDate('created_at', '>=', $request->date_from)
+        ->whereDate('created_at', '<=', $request->date_to)->get();
+        return response()->json(['checkup' => $checkups]);
+        
+        /*if($request->tf == 1){
             //daily
             $checkups = Checkup::with('profile')->whereDate('created_at', today())->get();
             return response()->json(['checkup' => $checkups]);
@@ -270,13 +288,17 @@ class ReportController extends Controller
         }
         else{
             return false;
-        }
+        }*/
 
     }
 
     public function immunization(Request $request){
 
-        if($request->tf == 1){
+        $immunizations = Vaccine::with('profile')->whereDate('created_at', '>=', $request->date_from)
+        ->whereDate('created_at', '<=', $request->date_to)->get();
+        return response()->json(['immunization' => $immunizations]);
+        
+        /*if($request->tf == 1){
             //daily
             $immunizations = Vaccine::with('profile')->whereDate('created_at', today())->get();
             //Vaccine::with('profile')->get();
@@ -326,13 +348,17 @@ class ReportController extends Controller
         }
         else{
             return false;
-        }
+        }*/
 
     }
 
     public function prenatal(Request $request){
 
-        if($request->tf == 1){
+        $prenatals = Prenatal::with('profile')->whereDate('created_at', '>=', $request->date_from)
+        ->whereDate('created_at', '<=', $request->date_to)->get();
+        return response()->json(['prenatal' => $prenatals]);
+        
+        /*if($request->tf == 1){
             //daily
             $prenatals = Prenatal::with('profile')->whereDate('created_at', today())->get();
             //Vaccine::with('profile')->get();
@@ -382,7 +408,7 @@ class ReportController extends Controller
         }
         else{
             return false;
-        }
+        }*/
 
     }
 

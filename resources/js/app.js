@@ -8,6 +8,7 @@ require('./bootstrap');
 
 window.Vue = require('vue').default;
 
+
 //Including sweet alert
 import swal from 'sweetalert2'
 window.swal = swal;
