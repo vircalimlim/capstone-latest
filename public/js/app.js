@@ -3283,6 +3283,8 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
 
 var dateObj = new Date();
 var currentDate = dateObj.getFullYear() + "-" + dateObj.getMonth() + "-" + dateObj.getDate();
@@ -3308,7 +3310,6 @@ var currentDate = dateObj.getFullYear() + "-" + dateObj.getMonth() + "-" + dateO
   data: function data() {
     return {
       reportChoice: 1,
-      tfChoice: 1,
       data: [],
       bloods: [],
       checkups: [],
@@ -77883,44 +77884,31 @@ var render = function() {
                       _vm._m(2),
                       _vm._v(" "),
                       _vm._l(_vm.releasemeds, function(releasemed) {
-                        return _c(
-                          "tr",
-                          { key: releasemed.id },
-                          [
-                            _vm._l(releasemed.profile, function(profile) {
-                              return _c(
-                                "td",
-                                { key: profile.id, staticClass: "p-2" },
-                                [
-                                  _vm._v(
-                                    _vm._s(profile.lastname) +
-                                      ", " +
-                                      _vm._s(profile.firstname) +
-                                      " " +
-                                      _vm._s(profile.middlename)
-                                  )
-                                ]
+                        return _vm._l(releasemed.profile, function(profile) {
+                          return _c("tr", { key: profile.id }, [
+                            _c("td", { staticClass: "p-2" }, [
+                              _vm._v(
+                                _vm._s(profile.lastname) +
+                                  ", " +
+                                  _vm._s(profile.firstname) +
+                                  " " +
+                                  _vm._s(profile.middlename)
                               )
-                            }),
+                            ]),
                             _vm._v(" "),
                             _c("td", { staticClass: "p-2" }, [
                               _vm._v(_vm._s(releasemed.med_name))
                             ]),
                             _vm._v(" "),
-                            _vm._l(releasemed.profile, function(pivot) {
-                              return _c(
-                                "td",
-                                { key: pivot.pivot.id, staticClass: "p-2" },
-                                [_vm._v(_vm._s(pivot.pivot.quantity))]
-                              )
-                            }),
+                            _c("td", { staticClass: "p-2" }, [
+                              _vm._v(_vm._s(profile.pivot.quantity))
+                            ]),
                             _vm._v(" "),
                             _c("td", { staticClass: "p-2" }, [
                               _vm._v(_vm._s(releasemed.date_received))
                             ])
-                          ],
-                          2
-                        )
+                          ])
+                        })
                       }),
                       _vm._v(" "),
                       Object.keys(_vm.releasemeds).length === 0

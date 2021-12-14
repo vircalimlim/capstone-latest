@@ -127,17 +127,19 @@
       <th class="p-2">Date Received</th>
     </tr>
     
-    <tr  v-for="releasemed in releasemeds" :key="releasemed.id">
+    <template v-for="releasemed in releasemeds">
+    <tr  v-for="profile in releasemed.profile" :key="profile.id">
         
-        <td v-for="profile in releasemed.profile" :key="profile.id" class="p-2">{{ profile.lastname }}, {{ profile.firstname }} {{ profile.middlename }}</td>
+        <td class="p-2">{{ profile.lastname }}, {{ profile.firstname }} {{ profile.middlename }}</td>
 
         <td class="p-2">{{ releasemed.med_name }}</td>
 
-        <td v-for="pivot in releasemed.profile" :key="pivot.pivot.id"  class="p-2">{{ pivot.pivot.quantity }}</td>
+        <td class="p-2">{{ profile.pivot.quantity }}</td>
 
         <td class="p-2">{{ releasemed.date_received }}</td>
         
     </tr>
+    </template>
 
     <caption class="text-center" v-if="Object.keys(releasemeds).length === 0">No data</caption>
    
@@ -335,7 +337,6 @@ export default {
   data(){
     return{
       reportChoice: 1,
-      tfChoice: 1,
       data: [],
       bloods: [],
       checkups: [],
