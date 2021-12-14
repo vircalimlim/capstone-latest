@@ -63,6 +63,12 @@
   <table class="table text-secondary table-hover">
 
     <tr class="bg-primary text-light">
+      <th class="p-2">Id</th>
+
+      <th class="p-2">Street</th>
+
+      <th class="p-2">Barangay</th>
+
       <th class="p-2">Last Name</th>
 
       <th class="p-2">First Name</th>
@@ -77,6 +83,12 @@
       
 
       <tr v-for="profile in pageOfItems" :key="profile.id">
+
+        <td class="p-2 text-capitalize">{{ profile.id }}_{{ formattedDate(profile.created_at) }}</td>
+        
+        <td class="p-2 text-capitalize">{{ profile.street }}</td>
+        
+        <td class="p-2 text-capitalize">{{ profile.barangay }}</td>
         
         <td class="p-2 text-capitalize">{{ profile.lastname }}</td>
         
@@ -117,6 +129,7 @@
 </template>
 
 <script>
+import moment from 'moment';
 export default {
 
     props: ['objProfiles', 'objUser'],
@@ -142,6 +155,10 @@ export default {
 
     
     methods: {
+      formattedDate(date) {
+        return moment(date).format('YYYY_MM_DD');
+      },
+
       onChangePage(pageOfItems) {
             // update page of items
             this.pageOfItems = pageOfItems;

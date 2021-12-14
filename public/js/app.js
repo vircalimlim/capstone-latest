@@ -2759,6 +2759,8 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
 /* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
 /* harmony export */ });
+/* harmony import */ var moment__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! moment */ "./node_modules/moment/moment.js");
+/* harmony import */ var moment__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(moment__WEBPACK_IMPORTED_MODULE_0__);
 //
 //
 //
@@ -2877,6 +2879,19 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
   props: ['objProfiles', 'objUser'],
 
@@ -2898,6 +2913,9 @@ __webpack_require__.r(__webpack_exports__);
     };
   },
   methods: {
+    formattedDate: function formattedDate(date) {
+      return moment__WEBPACK_IMPORTED_MODULE_0___default()(date).format('YYYY_MM_DD');
+    },
     onChangePage: function onChangePage(pageOfItems) {
       // update page of items
       this.pageOfItems = pageOfItems;
@@ -3315,8 +3333,6 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 
-var dateObj = new Date();
-var currentDate = dateObj.getFullYear() + "-" + dateObj.getMonth() + "-" + dateObj.getDate();
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
   mounted: function mounted() {
     var _this = this;
@@ -77413,6 +77429,22 @@ var render = function() {
               _vm._l(_vm.pageOfItems, function(profile) {
                 return _c("tr", { key: profile.id }, [
                   _c("td", { staticClass: "p-2 text-capitalize" }, [
+                    _vm._v(
+                      _vm._s(profile.id) +
+                        "_" +
+                        _vm._s(_vm.formattedDate(profile.created_at))
+                    )
+                  ]),
+                  _vm._v(" "),
+                  _c("td", { staticClass: "p-2 text-capitalize" }, [
+                    _vm._v(_vm._s(profile.street))
+                  ]),
+                  _vm._v(" "),
+                  _c("td", { staticClass: "p-2 text-capitalize" }, [
+                    _vm._v(_vm._s(profile.barangay))
+                  ]),
+                  _vm._v(" "),
+                  _c("td", { staticClass: "p-2 text-capitalize" }, [
                     _vm._v(_vm._s(profile.lastname))
                   ]),
                   _vm._v(" "),
@@ -77538,6 +77570,12 @@ var staticRenderFns = [
     var _h = _vm.$createElement
     var _c = _vm._self._c || _h
     return _c("tr", { staticClass: "bg-primary text-light" }, [
+      _c("th", { staticClass: "p-2" }, [_vm._v("Id")]),
+      _vm._v(" "),
+      _c("th", { staticClass: "p-2" }, [_vm._v("Street")]),
+      _vm._v(" "),
+      _c("th", { staticClass: "p-2" }, [_vm._v("Barangay")]),
+      _vm._v(" "),
       _c("th", { staticClass: "p-2" }, [_vm._v("Last Name")]),
       _vm._v(" "),
       _c("th", { staticClass: "p-2" }, [_vm._v("First Name")]),

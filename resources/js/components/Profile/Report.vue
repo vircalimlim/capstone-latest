@@ -340,9 +340,6 @@
 <script>
 import moment from 'moment';
 
-const dateObj = new Date();
-const currentDate = dateObj.getFullYear()+"-"+dateObj.getMonth()+"-"+dateObj.getDate();
-
 export default {
   mounted(){
     axios.get('/report/patient?rc=' + this.reportChoice + '&date_from=' + this.date_from + '&date_to=' + this.date_to)
