@@ -2914,7 +2914,7 @@ __webpack_require__.r(__webpack_exports__);
   },
   methods: {
     formattedDate: function formattedDate(date) {
-      return moment__WEBPACK_IMPORTED_MODULE_0___default()(date).format('YYYY_MM_DD');
+      return moment__WEBPACK_IMPORTED_MODULE_0___default()(date).format('YYYYMMDD');
     },
     onChangePage: function onChangePage(pageOfItems) {
       // update page of items
@@ -77431,7 +77431,6 @@ var render = function() {
                   _c("td", { staticClass: "p-2 text-capitalize" }, [
                     _vm._v(
                       _vm._s(profile.id) +
-                        "_" +
                         _vm._s(_vm.formattedDate(profile.created_at))
                     )
                   ]),

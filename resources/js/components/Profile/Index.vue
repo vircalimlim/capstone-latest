@@ -84,7 +84,7 @@
 
       <tr v-for="profile in pageOfItems" :key="profile.id">
 
-        <td class="p-2 text-capitalize">{{ profile.id }}_{{ formattedDate(profile.created_at) }}</td>
+        <td class="p-2 text-capitalize">{{ profile.id }}{{ formattedDate(profile.created_at) }}</td>
         
         <td class="p-2 text-capitalize">{{ profile.street }}</td>
         
@@ -156,7 +156,7 @@ export default {
     
     methods: {
       formattedDate(date) {
-        return moment(date).format('YYYY_MM_DD');
+        return moment(date).format('YYYYMMDD');
       },
 
       onChangePage(pageOfItems) {
